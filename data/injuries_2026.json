@@ -1,0 +1,37 @@
+{
+  "_comment": "Bekannte WM-2026-Ausfaelle (Stand ~2 Tage vor Turnierstart, Quellen: ESPN-Injury-Tracker, Sky, Tagesanzeiger, Goal). value=Marktwert Mio EUR (illustrativ). status: out=raus, doubtful=fraglich. Modell zieht 'out' voll, 'doubtful' zu 50% vom Kaderwert ab. Elo bleibt unveraendert (ergebnisbasiert).",
+  "Brasilien": [
+    {"player": "Rodrygo", "value": 90, "status": "out"},
+    {"player": "Estevao", "value": 60, "status": "out"},
+    {"player": "Eder Militao", "value": 45, "status": "out"},
+    {"player": "Neymar", "value": 18, "status": "doubtful"}
+  ],
+  "Spanien": [
+    {"player": "Lamine Yamal", "value": 200, "status": "doubtful"},
+    {"player": "Samu Omorodion", "value": 40, "status": "out"}
+  ],
+  "Oesterreich": [
+    {"player": "Christoph Baumgartner", "value": 30, "status": "out"}
+  ],
+  "Niederlande": [
+    {"player": "Xavi Simons", "value": 80, "status": "out"},
+    {"player": "Jurrien Timber", "value": 45, "status": "out"}
+  ],
+  "England": [
+    {"player": "Cole Palmer", "value": 120, "status": "out"},
+    {"player": "Jack Grealish", "value": 40, "status": "out"}
+  ],
+  "Deutschland": [
+    {"player": "Serge Gnabry", "value": 40, "status": "out"},
+    {"player": "Lennart Karl", "value": 8, "status": "out"}
+  ],
+  "Japan": [
+    {"player": "Kaoru Mitoma", "value": 45, "status": "out"}
+  ],
+  "Schottland": [
+    {"player": "Billy Gilmour", "value": 30, "status": "out"}
+  ],
+  "Kanada": [
+    {"player": "Alphonso Davies", "value": 70, "status": "doubtful"}
+  ]
+}

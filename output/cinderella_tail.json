@@ -1,0 +1,32 @@
+[
+  {
+    "year": "2002",
+    "team": "Germany",
+    "reached": "Finale",
+    "p_run": 0.2767
+  },
+  {
+    "year": "2010",
+    "team": "Uruguay",
+    "reached": "Halbfinale",
+    "p_run": 0.4286
+  },
+  {
+    "year": "2014",
+    "team": "Costa Rica",
+    "reached": "Viertelfinale",
+    "p_run": 0.3245
+  },
+  {
+    "year": "2018",
+    "team": "Croatia",
+    "reached": "Finale",
+    "p_run": 0.12
+  },
+  {
+    "year": "2022",
+    "team": "Morocco",
+    "reached": "Halbfinale",
+    "p_run": 0.0418
+  }
+]

@@ -1,0 +1,10 @@
+.DS_Store
+**/__pycache__/
+*.pyc
+
+# Wird im Workflow / lokal frisch geladen
+data/raw/results.csv
+data/raw/shootouts.csv
+
+# Lokale Logs
+output/snapshots/cron.log

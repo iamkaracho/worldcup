@@ -1,0 +1,15 @@
+# Prototyp-Datensatz — ILLUSTRATIVE, grob recherchierte Werte (keine validierte Quelle!)
+# Variablen 1,2,4 + Variable-3-Proxy (Kader-Marktwert). Zufallsfaktor steckt im Modell (Temperatur).
+# bip_pc      = BIP pro Kopf, PPP, USD (ca.)            -> Wohlstand / Infrastruktur
+# bevoelkerung= Einwohner in Mio (ca.)                  -> Bevoelkerungsgroesse
+# marktwert   = Kader-Marktwert in Mio EUR (ca.)        -> Verankerung des Fussballs (Proxy)
+# fifa_punkte = FIFA-Weltranglisten-Punkte (ca.)        -> Position Weltrangliste
+team,bip_pc,bevoelkerung,marktwert,fifa_punkte
+Niederlande,73000,17.8,900,1750
+Deutschland,68000,84.0,1000,1700
+Frankreich,60000,68.0,1300,1850
+Argentinien,26000,46.0,800,1860
+Brasilien,20000,216.0,1100,1780
+Spanien,50000,48.0,1200,1820
+England,60000,67.0,1500,1800
+Portugal,45000,10.3,900,1750

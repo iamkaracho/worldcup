@@ -1,0 +1,15 @@
+{
+  "_comment": "WM 2026 Gruppen, rekonstruiert aus den echten Spielplaenen (results.csv). Gruppe F 4. Team = Schweden (UEFA-Playoff-Sieger).",
+  "A": ["Mexiko", "Suedkorea", "Suedafrika", "Tschechien"],
+  "B": ["Kanada", "Schweiz", "Katar", "Bosnien-Herzegowina"],
+  "C": ["Brasilien", "Marokko", "Schottland", "Haiti"],
+  "D": ["USA", "Paraguay", "Australien", "Tuerkei"],
+  "E": ["Deutschland", "Ecuador", "Curacao", "Elfenbeinkueste"],
+  "F": ["Niederlande", "Japan", "Tunesien", "Schweden"],
+  "G": ["Belgien", "Aegypten", "Iran", "Neuseeland"],
+  "H": ["Spanien", "Uruguay", "Saudi-Arabien", "Kap Verde"],
+  "I": ["Frankreich", "Norwegen", "Senegal", "Irak"],
+  "J": ["Argentinien", "Oesterreich", "Algerien", "Jordanien"],
+  "K": ["Portugal", "Kolumbien", "Usbekistan", "DR Kongo"],
+  "L": ["England", "Kroatien", "Ghana", "Panama"]
+}

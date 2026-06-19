@@ -1,0 +1,59 @@
+# WM-2026-Datensatz, 48 Teams.
+# marktwert: REALE Kader-Marktwerte (Transfermarkt, WM 2026, Mio EUR) - Stand laut Screenshot.
+#   Naeherung/teils verdeckt: USA, Uruguay, Kroatien.
+# fifa_punkte: REAL (FIFA-Rangliste April/Juni 2026) fuer die meisten Teams; einige
+#   tieferplatzierte sind ~Schaetzungen (Katar, Saudi-Arabien, Irak, Neuseeland, Haiti,
+#   Curacao, Ghana, Suedafrika, Jordanien, Bosnien, Kap Verde, DR Kongo, Kanada).
+# bip_pc / bevoelkerung: grob (IMF/WB PPP bzw. UN) - tragen lt. Kalibrierung ~0% bei.
+# elo: REAL berechnet (World-Football-Elo / eloratings.net-Methode) aus results.csv, Stand ~Turnierbeginn.
+# Variable 3 (Fussball-Verankerung) = Kader-Marktwert. Gruppe F: 4. Team = Schweden.
+# bip_pc=BIP/Kopf PPP USD | bevoelkerung=Mio | marktwert=Kader Mio EUR | fifa_punkte=FIFA-Punkte
+team,bip_pc,bevoelkerung,marktwert,fifa_punkte,elo
+Mexiko,24000,130.0,195,1681,1978
+Suedkorea,54000,52.0,140,1590,1875
+Suedafrika,16000,60.0,47,1445,1646
+Tschechien,50000,10.5,190,1503,1843
+Kanada,60000,40.0,106,1525,1940
+Schweiz,87000,8.8,333,1649,2005
+Katar,115000,2.7,20,1450,1539
+Bosnien-Herzegowina,20000,3.2,151,1480,1682
+Brasilien,20000,216.0,912,1761,2098
+Marokko,10000,37.0,488,1756,2023
+Schottland,58000,5.5,176,1500,1831
+Haiti,3000,11.6,56,1320,1713
+USA,80000,335.0,320,1673,1882
+Paraguay,16000,6.8,156,1504,1917
+Australien,66000,26.0,78,1579,1889
+Tuerkei,41000,85.0,473,1602,1992
+Deutschland,68000,84.0,908,1730,2052
+Ecuador,14000,18.0,376,1596,2033
+Curacao,26000,0.15,26,1370,1570
+Elfenbeinkueste,7000,28.0,530,1533,1841
+Niederlande,73000,17.8,837,1758,2058
+Japan,51000,124.0,279,1660,2038
+Tunesien,13000,12.0,71,1479,1766
+Schweden,66000,10.5,427,1510,1829
+Belgien,71000,11.7,543,1735,2014
+Aegypten,17000,112.0,135,1566,1840
+Iran,19000,89.0,33,1616,1904
+Neuseeland,52000,5.2,36,1465,1690
+Spanien,50000,48.0,1260,1876,2234
+Uruguay,30000,3.4,410,1673,1965
+Saudi-Arabien,59000,36.0,37,1420,1671
+Kap Verde,9000,0.59,56,1390,1732
+Frankreich,60000,68.0,1530,1877,2171
+Norwegen,92000,5.5,601,1556,2011
+Senegal,4500,18.0,473,1689,1929
+Irak,11000,44.0,21,1420,1737
+Argentinien,26000,46.0,818,1875,2203
+Oesterreich,73000,9.1,232,1597,1959
+Algerien,14000,45.0,257,1564,1899
+Jordanien,11000,11.3,20,1390,1771
+Portugal,45000,10.3,1020,1764,2075
+Kolumbien,20000,52.0,305,1693,2075
+Usbekistan,11000,35.0,70,1461,1830
+DR Kongo,1500,102.0,149,1465,1772
+England,60000,57.0,1310,1820,2072
+Kroatien,42000,3.9,450,1717,1984
+Ghana,7000,34.0,231,1465,1634
+Panama,40000,4.4,35,1539,1809

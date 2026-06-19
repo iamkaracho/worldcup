@@ -1,0 +1,74 @@
+{
+  "overperformers": [
+    [
+      "France",
+      112.6
+    ],
+    [
+      "Netherlands",
+      96.0
+    ],
+    [
+      "Colombia",
+      84.7
+    ],
+    [
+      "Croatia",
+      68.0
+    ],
+    [
+      "Belgium",
+      65.2
+    ],
+    [
+      "Morocco",
+      64.4
+    ]
+  ],
+  "underperformers": [
+    [
+      "Brazil",
+      -108.8
+    ],
+    [
+      "Spain",
+      -88.0
+    ],
+    [
+      "Argentina",
+      -80.3
+    ],
+    [
+      "Poland",
+      -57.9
+    ],
+    [
+      "Wales",
+      -43.6
+    ],
+    [
+      "Qatar",
+      -43.6
+    ]
+  ],
+  "loo": [
+    {
+      "year": "2014",
+      "base": 0.9314,
+      "bonus": 0.986
+    },
+    {
+      "year": "2018",
+      "base": 0.9576,
+      "bonus": 0.9677
+    },
+    {
+      "year": "2022",
+      "base": 1.0448,
+      "bonus": 1.0454
+    }
+  ],
+  "overall_base": 0.9779,
+  "overall_bonus": 0.9997,
+  "better": false
+}
