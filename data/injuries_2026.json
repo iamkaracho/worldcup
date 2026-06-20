@@ -1,13 +1,12 @@
 {
-  "_comment": "Bekannte WM-2026-Ausfaelle (Stand ~2 Tage vor Turnierstart, Quellen: ESPN-Injury-Tracker, Sky, Tagesanzeiger, Goal). value=Marktwert Mio EUR (illustrativ). status: out=raus, doubtful=fraglich. Modell zieht 'out' voll, 'doubtful' zu 50% vom Kaderwert ab. Elo bleibt unveraendert (ergebnisbasiert).",
+  "_comment": "Bekannte WM-2026-Ausfaelle. value=Marktwert Mio EUR. status: out=raus, doubtful=fraglich. Modell zieht 'out' voll, 'doubtful' zu 50% vom Kaderwert ab. Elo bleibt unveraendert. Stand: ab Spieltag 2 'doubtful' anhand der tatsaechlichen Einsaetze definitiv aufgeloest (Yamal+Davies zurueck -> entfernt; Neymar Gruppenphase raus -> out).",
   "Brasilien": [
     {"player": "Rodrygo", "value": 90, "status": "out"},
     {"player": "Estevao", "value": 60, "status": "out"},
     {"player": "Eder Militao", "value": 45, "status": "out"},
-    {"player": "Neymar", "value": 18, "status": "doubtful"}
+    {"player": "Neymar", "value": 18, "status": "out"}
   ],
   "Spanien": [
-    {"player": "Lamine Yamal", "value": 200, "status": "doubtful"},
     {"player": "Samu Omorodion", "value": 40, "status": "out"}
   ],
   "Oesterreich": [
@@ -30,8 +29,5 @@
   ],
   "Schottland": [
     {"player": "Billy Gilmour", "value": 30, "status": "out"}
-  ],
-  "Kanada": [
-    {"player": "Alphonso Davies", "value": 70, "status": "doubtful"}
   ]
 }

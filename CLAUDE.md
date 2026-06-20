@@ -24,7 +24,8 @@ das ist gewollt und dokumentiert (Klements These: Disziplin gegen Overfitting).
 → kalibrierte ANGRIFF/ABWEHR-Gewichte (Poisson-Regression, att/def+decay)
 → Tormodell: lambda_i = MU_EFF * exp(att_i − def_j [+ Heimvorteil USA/MEX/CAN])
 → Dixon-Coles-Korrektur (rho≈−0.055) für knappe Remis
-→ Gruppenphase 12×4 (FIFA-Tiebreaker inkl. Direktvergleich) + beste 8 Dritte
+→ Gruppenphase 12×4 (NEUE FIFA-2026-Tiebreaker: Punkte → DIREKTVERGLEICH →
+  Gesamt-Tordiff → Gesamttore → Fair-Play → FIFA-Ranking) + beste 8 Dritte
 → offizieller FIFA-K.-o.-Baum (Spiele 73–104, Annex-C-Drittenzuordnung per Matching)
 → Monte-Carlo (20k Standard)
 ```
@@ -194,7 +195,13 @@ Mythos-Check (Turniermannschaft), Aschenputtel-Sektion, Orakel-Button, Gruppen.
 - Teamnamen: DE-ASCII-Keys (`Suedkorea`, `Tuerkei`...) in Daten; `NICE`-Dicts für
   Anzeige; `calibrate.ALIASES`/`EN2DE` mappt results.csv-Namen (EN) → DE-Keys.
   1990 heißt Westdeutschland im Datensatz „Germany".
-- `play_group()` gibt **3-Tupel** zurück (ranked, stats, res).
+- `play_group()` gibt **3-Tupel** zurück (ranked, stats, res). **FIFA-2026-Tiebreaker
+  (GEÄNDERT ggü. früheren WMs!): Direktvergleich kommt VOR der Gesamt-Tordifferenz.**
+  Reihenfolge: Punkte → h2h(Pkt/Tordiff/Tore unter Punktgleichen) → Gesamt-Tordiff →
+  Gesamttore → Fair-Play → FIFA-Ranking (Los abgeschafft). Folge: Wer gegen beide
+  Rivalen verlor, ist bei Punktgleichheit chancenlos, egal wie hoch er das letzte Spiel
+  gewinnt (Türkei/Haiti 2026). Cross-Group-Drittenvergleich bleibt Punkte/Tordiff/Tore
+  (kein h2h möglich). War ein Bug bis 20.6.; vom User gefunden.
 - `build_scores(teams, use_ratings=True, apply_injuries=True)` setzt globale
   Tormodell-Parameter als Seiteneffekt — vor jedem `model.run()` aufrufen.
 - `match_goals(a, b)` ist 2-argumentig (nutzt globale _ATT/_DEF).

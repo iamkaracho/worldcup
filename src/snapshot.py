@@ -238,6 +238,14 @@ def main():
         thr = rank[rname]
         return sum(c for r, c in best[t].items() if rank[r] >= thr) / sims
 
+    def advanced_count(t):     # rohe Zahl: wie oft kam t aus der Gruppe (R32)?
+        thr = rank["Sechzehntelfinale"]
+        return sum(c for r, c in best[t].items() if rank[r] >= thr)
+
+    # offiziell ausgeschieden = in KEINEM einzigen der Sims aus der Gruppe gekommen
+    # (mathematisch chancenlos; nur sinnvoll, sobald Spiele gespielt sind)
+    eliminated = {t: (n_played > 0 and advanced_count(t) == 0) for t in teams}
+
     stamp = datetime.now().strftime("%Y-%m-%d %H:%M")
     snap = {
         "stamp": stamp, "n_played": n_played, "last_game": last_date or None,
@@ -258,11 +266,11 @@ def main():
     with open(live, "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(["team", "p_titel", "p_finale", "p_halbfinale", "p_achtelfinale",
-                    "staerke_score", "elo", "n_played", "stamp"])
+                    "staerke_score", "elo", "eliminated", "n_played", "stamp"])
         for t, d in snap["teams"].items():
             w.writerow([t, d["p_titel"], d["p_finale"], d["p_halbfinale"],
                         d["p_achtelfinale"], round(scores[t], 4),
-                        d["elo"], n_played, stamp])
+                        d["elo"], int(eliminated[t]), n_played, stamp])
 
     hist = os.path.join(SNAP_DIR, "history.csv")
     new_hist = not os.path.exists(hist)

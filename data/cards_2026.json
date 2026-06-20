@@ -15,5 +15,9 @@
   "Katar": {
     "yellow": 0, "yellow_red": 0, "red": 2,
     "bans": [{"player": "Homam Ahmed + Madibo (2x rot vs Kanada, Werte geschaetzt)", "value": 5, "after": "2026-06-18"}]
+  },
+  "Paraguay": {
+    "yellow": 0, "yellow_red": 0, "red": 1,
+    "bans": [{"player": "Miguel Almiron (rot vs Tuerkei, 45.)", "value": 25, "after": "2026-06-19"}]
   }
 }

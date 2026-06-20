@@ -432,22 +432,27 @@ def knockout_winner(a, b, scores, adj=None):
 # --- 5. Gruppenphase ---------------------------------------------------------
 
 def _h2h(t, grp, res):
-    """Direktvergleich von t gegen die anderen Teams in grp: (Punkte, Tordiff)."""
-    pts = gd = 0
+    """Direktvergleich von t gegen die anderen Teams in grp: (Punkte, Tordiff, Tore)."""
+    pts = gd = gf = 0
     for o in grp:
         if o == t:
             continue
         tg, og = res[(t, o)] if (t, o) in res else res[(o, t)][::-1]
         gd += tg - og
+        gf += tg
         pts += 3 if tg > og else 1 if tg == og else 0
-    return pts, gd
+    return pts, gd, gf
 
 
 def play_group(members, scores, fixed=None, susp_pair=None, fairplay=None):
-    """Round-Robin. Sortierung: Punkte, Tordiff, Tore, Direktvergleich, FAIR-PLAY, Zufall.
-    fixed (optional): {(a,b): (ga,gb)} bereits GESPIELTE Ergebnisse (Conditioning).
-    susp_pair: {frozenset({a,b}): {team: (d_att,d_def)}} Sperren-Malus je Spiel.
-    fairplay: {team: Fair-Play-Punkte} (vorletztes Tiebreaker-Kriterium)."""
+    """Round-Robin mit der NEUEN FIFA-2026-Tiebreaker-Reihenfolge:
+    Punkte -> DIREKTVERGLEICH (Punkte/Tordiff/Tore unter den punktgleichen Teams)
+    -> Gesamt-Tordiff -> Gesamttore -> Fair-Play -> (Rest: Zufall statt FIFA-Ranking,
+    praktisch nie erreicht). WICHTIG: Direktvergleich kommt VOR der Gesamt-Tordifferenz
+    (Umkehrung ggue. fruehern WMs; deshalb ist z.B. ein Team, das gegen beide Rivalen
+    verlor, bei Punktgleichheit chancenlos, egal wie hoch es das letzte Spiel gewinnt).
+    fixed: {(a,b): (ga,gb)} GESPIELTE Ergebnisse. susp_pair: Sperren-Malus je Spiel.
+    fairplay: {team: Fair-Play-Punkte}."""
     stats = {t: {"pts": 0, "gf": 0, "ga": 0, "tb": random.random()} for t in members}
     fp = fairplay or {}
     res = {}
@@ -471,20 +476,26 @@ def play_group(members, scores, fixed=None, susp_pair=None, fairplay=None):
             else:
                 stats[a]["pts"] += 1; stats[b]["pts"] += 1
 
-    def primary(t):
-        return (stats[t]["pts"], stats[t]["gf"] - stats[t]["ga"], stats[t]["gf"])
+    # zuerst nur nach Punkten gruppieren; INNERHALB punktgleicher Bloecke greift der
+    # Direktvergleich VOR der Gesamt-Tordifferenz (FIFA 2026).
+    def tiebreak(t, block):
+        hp, hgd, hgf = _h2h(t, block, res)        # Direktvergleich unter den Punktgleichen
+        return (hp, hgd, hgf,
+                stats[t]["gf"] - stats[t]["ga"],  # dann Gesamt-Tordifferenz
+                stats[t]["gf"],                   # dann Gesamttore
+                fp.get(t, 0),                     # dann Fair-Play
+                stats[t]["tb"])                   # Rest (FIFA-Ranking-Naeherung)
 
-    order = sorted(members, key=primary, reverse=True)
+    order = sorted(members, key=lambda t: stats[t]["pts"], reverse=True)
     ranked, i = [], 0
     while i < len(order):
         j = i
-        while j + 1 < len(order) and primary(order[j + 1]) == primary(order[i]):
+        while j + 1 < len(order) and stats[order[j + 1]]["pts"] == stats[order[i]]["pts"]:
             j += 1
-        grp = order[i:j + 1]
-        if len(grp) > 1:        # Gleichstand -> Direktvergleich, dann Fair-Play, dann Zufall
-            grp = sorted(grp, key=lambda t: (_h2h(t, grp, res), fp.get(t, 0), stats[t]["tb"]),
-                         reverse=True)
-        ranked += grp
+        block = order[i:j + 1]
+        if len(block) > 1:
+            block = sorted(block, key=lambda t: tiebreak(t, block), reverse=True)
+        ranked += block
         i = j + 1
     return ranked, stats, res
 

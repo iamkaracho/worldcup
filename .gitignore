@@ -8,3 +8,7 @@ data/raw/shootouts.csv
 
 # Lokale Logs
 output/snapshots/cron.log
+output/snapshots/launchd.err
+output/snapshots/launchd.out
+
+.claude/settings.local.json

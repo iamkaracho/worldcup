@@ -204,6 +204,8 @@ def build():
             "elo": float(p.get("elo") or tm.get("elo", 0)),   # live-Elo wenn vorhanden
             "inj": injuries.get(t, []),
             "joke": JOKE.get(t, ""),
+            # offiziell ausgeschieden: vom Snapshot bestimmt (in 0 Sims aus der Gruppe gekommen)
+            "dead": str(p.get("eliminated", "0")) == "1",
         })
     rows.sort(key=lambda r: -r["titel"])
 
@@ -372,6 +374,8 @@ TEMPLATE = r"""<!DOCTYPE html>
   @media(hover:hover) and (pointer:fine){
     tbody tr.main:hover{background:#2a2114aa}
   }
+  tbody tr.dead .name,tbody tr.dead .rank{opacity:.5}
+  .skull{margin-right:6px;font-size:14px;filter:grayscale(.2)}
   .rank{color:var(--muted);width:28px;font-weight:700}
   .top1 .rank{color:var(--gold)} .top2 .rank{color:#cdc3ac} .top3 .rank{color:#cf914f}
   .name{font-weight:700} .flag{font-size:18px;margin-right:9px}
@@ -717,9 +721,9 @@ function render(){
   rows.forEach((r,i)=>{
     const overall=D.rows.indexOf(r)+1;
     const tr=document.createElement("tr");
-    tr.className="main"+(overall<=3?" top"+overall:"");
+    tr.className="main"+(overall<=3?" top"+overall:"")+(r.dead?" dead":"");
     tr.innerHTML=`<td class="r rank">${overall}</td>
-      <td class="name"><span class="flag">${r.flag}</span>${r.team}
+      <td class="name"><span class="flag">${r.flag}</span>${r.dead?'<span class="skull" title="Offiziell ausgeschieden">💀</span>':""}${r.team}
         <span class="gbadge">${r.group}</span></td>
       <td><div class="bar"><i></i><span>${pct(r[metric])}</span></div></td>`;
     tr.onclick=()=>toggle(r.key);
