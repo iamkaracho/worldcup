@@ -19,5 +19,9 @@
   "Paraguay": {
     "yellow": 0, "yellow_red": 0, "red": 1,
     "bans": [{"player": "Miguel Almiron (rot vs Tuerkei, 45.)", "value": 25, "after": "2026-06-19"}]
+  },
+  "Belgien": {
+    "yellow": 0, "yellow_red": 0, "red": 1,
+    "bans": [{"player": "Nathan Ngoy (rot vs Iran, 66.)", "value": 15, "after": "2026-06-21"}]
   }
 }
