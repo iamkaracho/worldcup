@@ -225,14 +225,18 @@ def main():
     random.seed()                                   # bewusst NICHT reproduzierbar fixiert
     titles = Counter()
     best = defaultdict(Counter)
+    third_qual = Counter()          # wie oft qualifiziert sich t als einer der 8 besten Dritten
     rank = {r: i for i, r in enumerate(model.ROUNDS)}
     for _ in range(sims):
+        go = {}
         champ, reached = model.simulate_tournament(
-            groups, scores, fixed_group=fixed, ko_winners=ko,
+            groups, scores, group_out=go, fixed_group=fixed, ko_winners=ko,
             susp_pair=susp_pair, susp_round=susp_round, fairplay=fairplay)
         titles[champ] += 1
         for t, r in reached.items():
             best[t][r] += 1
+        for t in go.get("_q3", ()):
+            third_qual[t] += 1
 
     def p_at_least(t, rname):
         thr = rank[rname]
@@ -271,6 +275,36 @@ def main():
             w.writerow([t, d["p_titel"], d["p_finale"], d["p_halbfinale"],
                         d["p_achtelfinale"], round(scores[t], 4),
                         d["elo"], int(eliminated[t]), n_played, stamp])
+
+    # --- Tabelle der besten Dritten (provisorisch nach gespielten Spielen) ---
+    # Pro Gruppe die aktuelle Tabelle aus den gespielten Spielen (FIFA-2026-Rang),
+    # der aktuelle Dritte; dann die 12 Dritten quergruppen ranken (Punkte -> Tordiff
+    # -> Tore -> Fair-Play; KEIN h2h, da verschiedene Gruppen). Top 8 = Qualifikation.
+    thirds = []
+    for L, members in groups.items():
+        st = {t: {"pts": 0, "gf": 0, "ga": 0, "pl": 0} for t in members}
+        res = {}
+        for (a, b), (ga, gb) in fixed.items():
+            if a in st and b in st:
+                res[(a, b)] = (ga, gb)
+                st[a]["gf"] += ga; st[a]["ga"] += gb; st[a]["pl"] += 1
+                st[b]["gf"] += gb; st[b]["ga"] += ga; st[b]["pl"] += 1
+                if ga > gb:   st[a]["pts"] += 3
+                elif gb > ga: st[b]["pts"] += 3
+                else:         st[a]["pts"] += 1; st[b]["pts"] += 1
+        t3 = model.rank_group(members, st, res, fairplay)[2]    # aktueller Gruppendritter
+        s = st[t3]
+        thirds.append({"group": L, "team": t3, "pts": s["pts"], "pl": s["pl"],
+                       "gd": s["gf"] - s["ga"], "gf": s["gf"],
+                       "p_qualify": round(third_qual[t3] / sims, 4)})
+    thirds.sort(key=lambda d: (d["pts"], d["gd"], d["gf"], fairplay.get(d["team"], 0)),
+                reverse=True)
+    for idx, d in enumerate(thirds):
+        d["qualified"] = idx < 8                                 # 8 beste Dritte ziehen ein
+    with open(os.path.join(model._HERE, "..", "output", "thirds.json"), "w",
+              encoding="utf-8") as f:
+        json.dump({"stamp": stamp, "n_played": n_played, "thirds": thirds},
+                  f, ensure_ascii=False, indent=1)
 
     hist = os.path.join(SNAP_DIR, "history.csv")
     new_hist = not os.path.exists(hist)

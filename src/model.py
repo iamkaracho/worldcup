@@ -437,7 +437,12 @@ def _h2h(t, grp, res):
     for o in grp:
         if o == t:
             continue
-        tg, og = res[(t, o)] if (t, o) in res else res[(o, t)][::-1]
+        if (t, o) in res:
+            tg, og = res[(t, o)]
+        elif (o, t) in res:
+            og, tg = res[(o, t)]
+        else:
+            continue                 # noch nicht gegeneinander gespielt (Teiltabelle)
         gd += tg - og
         gf += tg
         pts += 3 if tg > og else 1 if tg == og else 0
@@ -476,15 +481,24 @@ def play_group(members, scores, fixed=None, susp_pair=None, fairplay=None):
             else:
                 stats[a]["pts"] += 1; stats[b]["pts"] += 1
 
-    # zuerst nur nach Punkten gruppieren; INNERHALB punktgleicher Bloecke greift der
-    # Direktvergleich VOR der Gesamt-Tordifferenz (FIFA 2026).
+    ranked = rank_group(members, stats, res, fp)
+    return ranked, stats, res
+
+
+def rank_group(members, stats, res, fairplay=None):
+    """FIFA-2026-Rangfolge: Punkte -> DIREKTVERGLEICH (h2h-Pkt/Tordiff/Tore unter den
+    Punktgleichen) -> Gesamt-Tordiff -> Gesamttore -> Fair-Play -> tb/FIFA-Ranking.
+    Wiederverwendet von play_group UND der Dritten-Tabelle (eine einzige Tiebreaker-Logik).
+    stats[t] braucht pts/gf/ga, optional tb; res = {(a,b):(ga,gb)} der gespielten Spiele."""
+    fp = fairplay or {}
+
     def tiebreak(t, block):
         hp, hgd, hgf = _h2h(t, block, res)        # Direktvergleich unter den Punktgleichen
         return (hp, hgd, hgf,
                 stats[t]["gf"] - stats[t]["ga"],  # dann Gesamt-Tordifferenz
                 stats[t]["gf"],                   # dann Gesamttore
                 fp.get(t, 0),                     # dann Fair-Play
-                stats[t]["tb"])                   # Rest (FIFA-Ranking-Naeherung)
+                stats[t].get("tb", 0.0))          # Rest (FIFA-Ranking-Naeherung)
 
     order = sorted(members, key=lambda t: stats[t]["pts"], reverse=True)
     ranked, i = [], 0
@@ -497,7 +511,7 @@ def play_group(members, scores, fixed=None, susp_pair=None, fairplay=None):
             block = sorted(block, key=lambda t: tiebreak(t, block), reverse=True)
         ranked += block
         i = j + 1
-    return ranked, stats, res
+    return ranked
 
 
 def third_place_key(t, stats):

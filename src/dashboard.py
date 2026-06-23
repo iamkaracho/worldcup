@@ -189,6 +189,15 @@ def build():
                           for t, b in myth[side]]
     team2group = {t: g for g, ms in groups.items() for t in ms}
 
+    # Tabelle der besten Dritten (vom Snapshot, nur live sinnvoll)
+    thirds = []
+    tpath = os.path.join(OUT, "thirds.json")
+    if live_n > 0 and os.path.exists(tpath):
+        with open(tpath, encoding="utf-8") as f:
+            for d in json.load(f)["thirds"]:
+                thirds.append({**d, "name": NICE.get(d["team"], d["team"]),
+                               "flag": FLAG.get(d["team"], "🏳️")})
+
     rows = []
     for t, p in probs.items():
         b = band.get(t, {})
@@ -245,6 +254,7 @@ def build():
         "cinderella": cinderella, "darkhorses": darkhorses,
         "exp_out_sf": round(exp_out_sf, 2),
         "fixtures": fixtures,
+        "thirds": thirds,
     }
     html = TEMPLATE.replace("/*DATA*/", json.dumps(payload, ensure_ascii=False))
     html = html.replace("/*RACE*/", _race_svg())
@@ -376,6 +386,18 @@ TEMPLATE = r"""<!DOCTYPE html>
   }
   tbody tr.dead .name,tbody tr.dead .rank{opacity:.5}
   .skull{margin-right:6px;font-size:14px;filter:grayscale(.2)}
+  #thirds table{width:100%;max-width:680px;border-collapse:collapse;font-variant-numeric:tabular-nums}
+  #thirds th{font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);
+    text-align:right;padding:6px 8px;border-bottom:1px solid var(--line)}
+  #thirds th:nth-child(2){text-align:left}
+  #thirds td{padding:7px 8px;text-align:right;border-bottom:1px solid #ffffff0d}
+  #thirds td:nth-child(2){text-align:left;font-weight:600}
+  #thirds tr.q td{background:color-mix(in oklab,var(--green) 8%,transparent)}
+  #thirds tr.cut td{border-bottom:2px solid var(--gold)}
+  #thirds .qbar{display:inline-block;width:54px;height:7px;background:var(--ink);
+    border-radius:4px;overflow:hidden;vertical-align:middle;margin-right:6px}
+  #thirds .qbar i{display:block;height:100%;background:var(--green)}
+  #thirds .gtag{color:var(--gold);font-weight:800;font-size:12px}
   .rank{color:var(--muted);width:28px;font-weight:700}
   .top1 .rank{color:var(--gold)} .top2 .rank{color:#cdc3ac} .top3 .rank{color:#cf914f}
   .name{font-weight:700} .flag{font-size:18px;margin-right:9px}
@@ -520,6 +542,14 @@ TEMPLATE = r"""<!DOCTYPE html>
   <p class="muted" style="max-width:720px" id="cind-intro"></p>
   <div class="cards" id="cinderella"></div>
 
+  <h2 class="sec" id="dritte">Tabelle der besten Dritten</h2>
+  <p class="muted" style="max-width:720px">Im 48er-Format ziehen neben den 24 Gruppen-Ersten
+    und -Zweiten die <b>8 besten Gruppendritten</b> ins Sechzehntelfinale ein. Hier der
+    Zwischenstand (provisorisch, Gruppen haben teils unterschiedlich viele Spiele): links
+    der aktuelle Dritte je Gruppe nach FIFA-2026-Kriterien, rechts die Modell-Chance, am
+    Ende tatsächlich einer der 8 zu sein.</p>
+  <div id="thirds"></div>
+
   <h2 class="sec" id="rennen">Titelrennen über die Zeit</h2>
   <p class="muted" style="max-width:720px">Titelchance je Snapshot (täglich nach den
     Spielen: frisches Elo, fixierte Ergebnisse, eingefrorene Kalibrierung). Wer bricht
@@ -635,6 +665,29 @@ document.getElementById("groups").innerHTML = Object.keys(D.groups).sort().map(g
       ${cind}
       <div class="muted" style="margin-top:10px;font-style:italic">Klein, aber nie 0. Ein „Chalk"-Modell gäbe Marokko &lt;0,5 % — überheblich.</div>
     </div>`;
+})();
+
+// Tabelle der besten Dritten
+(function(){
+  const t3=D.thirds||[]; const el=document.getElementById("thirds"); if(!el) return;
+  if(!t3.length){el.innerHTML='<p class="muted">Erscheint im Live-Betrieb (sobald Spiele gespielt sind).</p>';return;}
+  let rows="";
+  t3.forEach((d,i)=>{
+    const cls=(d.qualified?"q":"")+(i===7?" cut":"");
+    rows+=`<tr class="${cls}">
+      <td>${i+1}</td>
+      <td><span class="gtag">${d.group}</span> <span class="flag">${d.flag}</span>${d.name}</td>
+      <td>${d.pl}</td><td>${d.pts}</td>
+      <td>${d.gd>0?"+":""}${d.gd}</td>
+      <td><span class="qbar"><i style="width:${Math.round(d.p_qualify*100)}%"></i></span>${pct(d.p_qualify)}</td>
+      <td>${d.qualified?'<span style="color:var(--green)">✓ drin</span>':'<span class="muted">raus</span>'}</td>
+    </tr>`;
+  });
+  el.innerHTML=`<table><thead><tr>
+    <th>#</th><th>Gruppe · Team</th><th>Sp</th><th>Pkt</th><th>Diff</th>
+    <th>P(am Ende dabei)</th><th>Stand</th></tr></thead><tbody>${rows}</tbody></table>
+    <p class="muted" style="font-size:12px;margin-top:8px">Goldene Linie = Qualifikationsgrenze (Top 8).
+    Achtung: provisorisch, Gruppen mit weniger Spielen können noch klettern (siehe P-Spalte).</p>`;
 })();
 
 // Mythos-Check: "Turniermannschaft"

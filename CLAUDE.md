@@ -145,7 +145,7 @@ src/
   test_*.py               Feature-Experimente (Elo angenommen, Rest verworfen)
 output/
   win_probabilities_2026.csv, group_stage_2026.csv, group_fixtures.json,
-  title_uncertainty.csv, tournament_myth.json, cinderella_tail.json,
+  title_uncertainty.csv, tournament_myth.json, cinderella_tail.json, thirds.json,
   dashboard.html, snapshots/ (snapshot_*.json, history.csv, cron.log)
 ```
 
@@ -187,7 +187,11 @@ konditionierten Stand. launchd-Wrapper baut das Dashboard nach jedem Snapshot ne
 **Dashboard** (`output/dashboard.html`, offline, self-contained): Rangliste mit
 Metrik-Umschalter, Spielplan mit W/D/L-Balken + aufklappbarer Score-Verteilung,
 Team-Details (Elo, Band, 🚑 Ausfälle, Schmunzler), Modell-vs-ESPN-Experten,
-Mythos-Check (Turniermannschaft), Aschenputtel-Sektion, Orakel-Button, Gruppen.
+Mythos-Check (Turniermannschaft), Aschenputtel-Sektion, Orakel-Button, Gruppen,
+**Tabelle der besten Dritten** (provisorischer Zwischenstand je Gruppe + Modell-
+P(am Ende einer der 8) aus `thirds.json`), **Totenkopf 💀** bei ausgeschiedenen Teams
+(`eliminated`-Flag: in 0 Sims aus der Gruppe gekommen). Rangfolge-Logik zentral in
+`model.rank_group()` (von `play_group` UND Dritten-Tabelle genutzt, eine Tiebreaker-Quelle).
 
 ## Konventionen & Stolperfallen
 

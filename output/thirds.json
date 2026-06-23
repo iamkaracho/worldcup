@@ -1,0 +1,126 @@
+{
+ "stamp": "2026-06-23 11:08",
+ "n_played": 40,
+ "thirds": [
+  {
+   "group": "F",
+   "team": "Schweden",
+   "pts": 3,
+   "pl": 2,
+   "gd": 0,
+   "gf": 6,
+   "p_qualify": 0.6982,
+   "qualified": true
+  },
+  {
+   "group": "C",
+   "team": "Schottland",
+   "pts": 3,
+   "pl": 2,
+   "gd": 0,
+   "gf": 1,
+   "p_qualify": 0.7112,
+   "qualified": true
+  },
+  {
+   "group": "D",
+   "team": "Paraguay",
+   "pts": 3,
+   "pl": 2,
+   "gd": -2,
+   "gf": 2,
+   "p_qualify": 0.5238,
+   "qualified": true
+  },
+  {
+   "group": "H",
+   "team": "Kap Verde",
+   "pts": 2,
+   "pl": 2,
+   "gd": 0,
+   "gf": 2,
+   "p_qualify": 0.1221,
+   "qualified": true
+  },
+  {
+   "group": "G",
+   "team": "Belgien",
+   "pts": 2,
+   "pl": 2,
+   "gd": 0,
+   "gf": 1,
+   "p_qualify": 0.0965,
+   "qualified": true
+  },
+  {
+   "group": "K",
+   "team": "DR Kongo",
+   "pts": 1,
+   "pl": 1,
+   "gd": 0,
+   "gf": 1,
+   "p_qualify": 0.2752,
+   "qualified": true
+  },
+  {
+   "group": "A",
+   "team": "Tschechien",
+   "pts": 1,
+   "pl": 2,
+   "gd": -1,
+   "gf": 2,
+   "p_qualify": 0.2135,
+   "qualified": true
+  },
+  {
+   "group": "E",
+   "team": "Ecuador",
+   "pts": 1,
+   "pl": 2,
+   "gd": -1,
+   "gf": 0,
+   "p_qualify": 0.2225,
+   "qualified": true
+  },
+  {
+   "group": "B",
+   "team": "Bosnien-Herzegowina",
+   "pts": 1,
+   "pl": 2,
+   "gd": -3,
+   "gf": 2,
+   "p_qualify": 0.5545,
+   "qualified": false
+  },
+  {
+   "group": "L",
+   "team": "Panama",
+   "pts": 0,
+   "pl": 1,
+   "gd": -1,
+   "gf": 0,
+   "p_qualify": 0.0853,
+   "qualified": false
+  },
+  {
+   "group": "I",
+   "team": "Senegal",
+   "pts": 0,
+   "pl": 1,
+   "gd": -2,
+   "gf": 1,
+   "p_qualify": 0.4417,
+   "qualified": false
+  },
+  {
+   "group": "J",
+   "team": "Jordanien",
+   "pts": 0,
+   "pl": 1,
+   "gd": -2,
+   "gf": 1,
+   "p_qualify": 0.0888,
+   "qualified": false
+  }
+ ]
+}
