@@ -501,6 +501,7 @@ TEMPLATE = r"""<!DOCTYPE html>
 
   <h2 class="sec" id="rangliste">Rangliste aller 48 Nationen</h2>
   <p class="muted" style="margin:-2px 0 10px"><b style="color:var(--gold)">/*STAND*/</b></p>
+  <p id="eliminated" class="muted" style="margin:-4px 0 12px;font-size:13px"></p>
   <div class="controls">
     <input id="search" type="search" placeholder="Team suchen…" oninput="render()">
     <select id="grp" onchange="render()"></select>
@@ -606,8 +607,18 @@ gsel.innerHTML = '<option value="">Alle Gruppen</option>' +
 // Gruppen-Karten
 document.getElementById("groups").innerHTML = Object.keys(D.groups).sort().map(g=>
   `<div class="grp"><h4>Gruppe ${g}</h4>${D.groups[g].map(t=>{
-     const r=D.rows.find(x=>x.team===t)||{flag:"🏳️"}; return `<div>${r.flag} ${t}</div>`;
+     const r=D.rows.find(x=>x.team===t)||{flag:"🏳️"};
+     return `<div${r.dead?' style="opacity:.5"':''}>${r.flag} ${t}${r.dead?' 💀':''}</div>`;
    }).join("")}</div>`).join("");
+
+// Kompakte "Ausgeschieden"-Zeile unter der Rangliste (sofort sichtbar)
+(function(){
+  const dead=D.rows.filter(r=>r.dead);
+  const el=document.getElementById("eliminated"); if(!el) return;
+  el.innerHTML = dead.length
+    ? `💀 <b>Ausgeschieden:</b> ${dead.map(r=>r.flag+" "+r.team).join(" · ")}`
+    : "";
+})();
 
 // Spielplan & Prognosen
 (function(){
