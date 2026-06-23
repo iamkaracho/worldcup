@@ -1,5 +1,5 @@
 {
- "stamp": "2026-06-23 10:46",
+ "stamp": "2026-06-23 16:23",
  "n_played": 44,
  "thirds": [
   {
@@ -9,7 +9,7 @@
    "pl": 2,
    "gd": 0,
    "gf": 6,
-   "p_qualify": 0.691,
+   "p_qualify": 0.6974,
    "qualified": true
   },
   {
@@ -19,7 +19,7 @@
    "pl": 2,
    "gd": 0,
    "gf": 1,
-   "p_qualify": 0.7194,
+   "p_qualify": 0.7216,
    "qualified": true
   },
   {
@@ -29,7 +29,7 @@
    "pl": 2,
    "gd": -2,
    "gf": 2,
-   "p_qualify": 0.5349,
+   "p_qualify": 0.5261,
    "qualified": true
   },
   {
@@ -39,7 +39,7 @@
    "pl": 2,
    "gd": -2,
    "gf": 2,
-   "p_qualify": 0.5151,
+   "p_qualify": 0.5165,
    "qualified": true
   },
   {
@@ -59,7 +59,7 @@
    "pl": 2,
    "gd": 0,
    "gf": 1,
-   "p_qualify": 0.0994,
+   "p_qualify": 0.098,
    "qualified": true
   },
   {
@@ -69,7 +69,7 @@
    "pl": 1,
    "gd": 0,
    "gf": 1,
-   "p_qualify": 0.2712,
+   "p_qualify": 0.276,
    "qualified": true
   },
   {
@@ -79,7 +79,7 @@
    "pl": 2,
    "gd": -1,
    "gf": 2,
-   "p_qualify": 0.2088,
+   "p_qualify": 0.2078,
    "qualified": true
   },
   {
@@ -89,7 +89,7 @@
    "pl": 2,
    "gd": -1,
    "gf": 0,
-   "p_qualify": 0.2206,
+   "p_qualify": 0.2196,
    "qualified": false
   },
   {
@@ -99,7 +99,7 @@
    "pl": 2,
    "gd": -3,
    "gf": 2,
-   "p_qualify": 0.55,
+   "p_qualify": 0.5435,
    "qualified": false
   },
   {
@@ -109,7 +109,7 @@
    "pl": 1,
    "gd": -1,
    "gf": 0,
-   "p_qualify": 0.0821,
+   "p_qualify": 0.0826,
    "qualified": false
   },
   {
@@ -119,7 +119,7 @@
    "pl": 2,
    "gd": -3,
    "gf": 3,
-   "p_qualify": 0.569,
+   "p_qualify": 0.5658,
    "qualified": false
   }
  ]
