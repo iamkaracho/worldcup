@@ -1,6 +1,6 @@
 {
- "stamp": "2026-06-23 11:08",
- "n_played": 40,
+ "stamp": "2026-06-23 09:16",
+ "n_played": 44,
  "thirds": [
   {
    "group": "F",
@@ -9,7 +9,7 @@
    "pl": 2,
    "gd": 0,
    "gf": 6,
-   "p_qualify": 0.6982,
+   "p_qualify": 0.7018,
    "qualified": true
   },
   {
@@ -19,7 +19,17 @@
    "pl": 2,
    "gd": 0,
    "gf": 1,
-   "p_qualify": 0.7112,
+   "p_qualify": 0.7159,
+   "qualified": true
+  },
+  {
+   "group": "J",
+   "team": "Algerien",
+   "pts": 3,
+   "pl": 2,
+   "gd": -2,
+   "gf": 2,
+   "p_qualify": 0.5317,
    "qualified": true
   },
   {
@@ -29,7 +39,7 @@
    "pl": 2,
    "gd": -2,
    "gf": 2,
-   "p_qualify": 0.5238,
+   "p_qualify": 0.5292,
    "qualified": true
   },
   {
@@ -39,7 +49,7 @@
    "pl": 2,
    "gd": 0,
    "gf": 2,
-   "p_qualify": 0.1221,
+   "p_qualify": 0.1203,
    "qualified": true
   },
   {
@@ -49,7 +59,7 @@
    "pl": 2,
    "gd": 0,
    "gf": 1,
-   "p_qualify": 0.0965,
+   "p_qualify": 0.0958,
    "qualified": true
   },
   {
@@ -59,7 +69,7 @@
    "pl": 1,
    "gd": 0,
    "gf": 1,
-   "p_qualify": 0.2752,
+   "p_qualify": 0.279,
    "qualified": true
   },
   {
@@ -69,7 +79,7 @@
    "pl": 2,
    "gd": -1,
    "gf": 2,
-   "p_qualify": 0.2135,
+   "p_qualify": 0.2169,
    "qualified": true
   },
   {
@@ -79,8 +89,8 @@
    "pl": 2,
    "gd": -1,
    "gf": 0,
-   "p_qualify": 0.2225,
-   "qualified": true
+   "p_qualify": 0.2196,
+   "qualified": false
   },
   {
    "group": "B",
@@ -89,7 +99,7 @@
    "pl": 2,
    "gd": -3,
    "gf": 2,
-   "p_qualify": 0.5545,
+   "p_qualify": 0.5452,
    "qualified": false
   },
   {
@@ -99,27 +109,17 @@
    "pl": 1,
    "gd": -1,
    "gf": 0,
-   "p_qualify": 0.0853,
+   "p_qualify": 0.0832,
    "qualified": false
   },
   {
    "group": "I",
    "team": "Senegal",
    "pts": 0,
-   "pl": 1,
-   "gd": -2,
-   "gf": 1,
-   "p_qualify": 0.4417,
-   "qualified": false
-  },
-  {
-   "group": "J",
-   "team": "Jordanien",
-   "pts": 0,
-   "pl": 1,
-   "gd": -2,
-   "gf": 1,
-   "p_qualify": 0.0888,
+   "pl": 2,
+   "gd": -3,
+   "gf": 3,
+   "p_qualify": 0.5596,
    "qualified": false
   }
  ]
