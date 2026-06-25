@@ -1,0 +1,511 @@
+{
+  "available": true,
+  "games": [
+    {
+      "away": "Tuerkei",
+      "away_name": "Türkei",
+      "city": "Inglewood",
+      "climate": "unknown",
+      "date": "2026-06-25",
+      "group": "D",
+      "home": "USA",
+      "home_name": "USA",
+      "teams": [
+        {
+          "burden": 0,
+          "name": "USA",
+          "rest_days": 6,
+          "rest_label": "lange Pause",
+          "team": "USA",
+          "travel_km": null
+        },
+        {
+          "burden": 0,
+          "name": "Türkei",
+          "rest_days": 6,
+          "rest_label": "lange Pause",
+          "team": "Tuerkei",
+          "travel_km": null
+        }
+      ]
+    },
+    {
+      "away": "Australien",
+      "away_name": "Australien",
+      "city": "Santa Clara",
+      "climate": "unknown",
+      "date": "2026-06-25",
+      "group": "D",
+      "home": "Paraguay",
+      "home_name": "Paraguay",
+      "teams": [
+        {
+          "burden": 0,
+          "name": "Paraguay",
+          "rest_days": 6,
+          "rest_label": "lange Pause",
+          "team": "Paraguay",
+          "travel_km": null
+        },
+        {
+          "burden": 0,
+          "name": "Australien",
+          "rest_days": 6,
+          "rest_label": "lange Pause",
+          "team": "Australien",
+          "travel_km": null
+        }
+      ]
+    },
+    {
+      "away": "Elfenbeinkueste",
+      "away_name": "Elfenbeinküste",
+      "city": "Philadelphia",
+      "climate": "warm",
+      "date": "2026-06-25",
+      "group": "E",
+      "home": "Curacao",
+      "home_name": "Curaçao",
+      "teams": [
+        {
+          "burden": 1,
+          "name": "Curaçao",
+          "rest_days": 5,
+          "rest_label": "normal",
+          "team": "Curacao",
+          "travel_km": 1664
+        },
+        {
+          "burden": 0,
+          "name": "Elfenbeinküste",
+          "rest_days": 5,
+          "rest_label": "normal",
+          "team": "Elfenbeinkueste",
+          "travel_km": 539
+        }
+      ]
+    },
+    {
+      "away": "Deutschland",
+      "away_name": "Deutschland",
+      "city": "East Rutherford",
+      "climate": "unknown",
+      "date": "2026-06-25",
+      "group": "E",
+      "home": "Ecuador",
+      "home_name": "Ecuador",
+      "teams": [
+        {
+          "burden": 0,
+          "name": "Ecuador",
+          "rest_days": 5,
+          "rest_label": "normal",
+          "team": "Ecuador",
+          "travel_km": null
+        },
+        {
+          "burden": 0,
+          "name": "Deutschland",
+          "rest_days": 5,
+          "rest_label": "normal",
+          "team": "Deutschland",
+          "travel_km": null
+        }
+      ]
+    },
+    {
+      "away": "Schweden",
+      "away_name": "Schweden",
+      "city": "Arlington",
+      "climate": "unknown",
+      "date": "2026-06-25",
+      "group": "F",
+      "home": "Japan",
+      "home_name": "Japan",
+      "teams": [
+        {
+          "burden": 0,
+          "name": "Japan",
+          "rest_days": 5,
+          "rest_label": "normal",
+          "team": "Japan",
+          "travel_km": null
+        },
+        {
+          "burden": 0,
+          "name": "Schweden",
+          "rest_days": 5,
+          "rest_label": "normal",
+          "team": "Schweden",
+          "travel_km": null
+        }
+      ]
+    },
+    {
+      "away": "Niederlande",
+      "away_name": "Niederlande",
+      "city": "Kansas City",
+      "climate": "warm",
+      "date": "2026-06-25",
+      "group": "F",
+      "home": "Tunesien",
+      "home_name": "Tunesien",
+      "teams": [
+        {
+          "burden": 0,
+          "name": "Tunesien",
+          "rest_days": 5,
+          "rest_label": "normal",
+          "team": "Tunesien",
+          "travel_km": null
+        },
+        {
+          "burden": 0,
+          "name": "Niederlande",
+          "rest_days": 5,
+          "rest_label": "normal",
+          "team": "Niederlande",
+          "travel_km": 1041
+        }
+      ]
+    },
+    {
+      "away": "Iran",
+      "away_name": "Iran",
+      "city": "Seattle",
+      "climate": "mild",
+      "date": "2026-06-26",
+      "group": "G",
+      "home": "Aegypten",
+      "home_name": "Ägypten",
+      "teams": [
+        {
+          "burden": 0,
+          "name": "Ägypten",
+          "rest_days": 5,
+          "rest_label": "normal",
+          "team": "Aegypten",
+          "travel_km": 195
+        },
+        {
+          "burden": 0,
+          "name": "Iran",
+          "rest_days": 5,
+          "rest_label": "normal",
+          "team": "Iran",
+          "travel_km": null
+        }
+      ]
+    },
+    {
+      "away": "Belgien",
+      "away_name": "Belgien",
+      "city": "Vancouver",
+      "climate": "mild",
+      "date": "2026-06-26",
+      "group": "G",
+      "home": "Neuseeland",
+      "home_name": "Neuseeland",
+      "teams": [
+        {
+          "burden": 0,
+          "name": "Neuseeland",
+          "rest_days": 5,
+          "rest_label": "normal",
+          "team": "Neuseeland",
+          "travel_km": 0
+        },
+        {
+          "burden": 0,
+          "name": "Belgien",
+          "rest_days": 5,
+          "rest_label": "normal",
+          "team": "Belgien",
+          "travel_km": null
+        }
+      ]
+    },
+    {
+      "away": "Saudi-Arabien",
+      "away_name": "Saudi-Arabien",
+      "city": "Houston",
+      "climate": "hot-humid",
+      "date": "2026-06-26",
+      "group": "H",
+      "home": "Kap Verde",
+      "home_name": "Kap Verde",
+      "teams": [
+        {
+          "burden": 1,
+          "name": "Kap Verde",
+          "rest_days": 5,
+          "rest_label": "normal",
+          "team": "Kap Verde",
+          "travel_km": null
+        },
+        {
+          "burden": 1,
+          "name": "Saudi-Arabien",
+          "rest_days": 5,
+          "rest_label": "normal",
+          "team": "Saudi-Arabien",
+          "travel_km": 1128
+        }
+      ]
+    },
+    {
+      "away": "Spanien",
+      "away_name": "Spanien",
+      "city": "Zapopan",
+      "climate": "altitude",
+      "date": "2026-06-26",
+      "group": "H",
+      "home": "Uruguay",
+      "home_name": "Uruguay",
+      "teams": [
+        {
+          "burden": 1,
+          "name": "Uruguay",
+          "rest_days": 5,
+          "rest_label": "normal",
+          "team": "Uruguay",
+          "travel_km": null
+        },
+        {
+          "burden": 2,
+          "name": "Spanien",
+          "rest_days": 5,
+          "rest_label": "normal",
+          "team": "Spanien",
+          "travel_km": 2366
+        }
+      ]
+    },
+    {
+      "away": "Frankreich",
+      "away_name": "Frankreich",
+      "city": "Foxborough",
+      "climate": "unknown",
+      "date": "2026-06-26",
+      "group": "I",
+      "home": "Norwegen",
+      "home_name": "Norwegen",
+      "teams": [
+        {
+          "burden": 1,
+          "name": "Norwegen",
+          "rest_days": 4,
+          "rest_label": "normal",
+          "team": "Norwegen",
+          "travel_km": null
+        },
+        {
+          "burden": 1,
+          "name": "Frankreich",
+          "rest_days": 4,
+          "rest_label": "normal",
+          "team": "Frankreich",
+          "travel_km": null
+        }
+      ]
+    },
+    {
+      "away": "Irak",
+      "away_name": "Irak",
+      "city": "Toronto",
+      "climate": "mild",
+      "date": "2026-06-26",
+      "group": "I",
+      "home": "Senegal",
+      "home_name": "Senegal",
+      "teams": [
+        {
+          "burden": 1,
+          "name": "Senegal",
+          "rest_days": 4,
+          "rest_label": "normal",
+          "team": "Senegal",
+          "travel_km": null
+        },
+        {
+          "burden": 1,
+          "name": "Irak",
+          "rest_days": 4,
+          "rest_label": "normal",
+          "team": "Irak",
+          "travel_km": 539
+        }
+      ]
+    },
+    {
+      "away": "Oesterreich",
+      "away_name": "Österreich",
+      "city": "Kansas City",
+      "climate": "warm",
+      "date": "2026-06-27",
+      "group": "J",
+      "home": "Algerien",
+      "home_name": "Algerien",
+      "teams": [
+        {
+          "burden": 0,
+          "name": "Algerien",
+          "rest_days": 5,
+          "rest_label": "normal",
+          "team": "Algerien",
+          "travel_km": null
+        },
+        {
+          "burden": 0,
+          "name": "Österreich",
+          "rest_days": 5,
+          "rest_label": "normal",
+          "team": "Oesterreich",
+          "travel_km": null
+        }
+      ]
+    },
+    {
+      "away": "Argentinien",
+      "away_name": "Argentinien",
+      "city": "Arlington",
+      "climate": "unknown",
+      "date": "2026-06-27",
+      "group": "J",
+      "home": "Jordanien",
+      "home_name": "Jordanien",
+      "teams": [
+        {
+          "burden": 0,
+          "name": "Jordanien",
+          "rest_days": 5,
+          "rest_label": "normal",
+          "team": "Jordanien",
+          "travel_km": null
+        },
+        {
+          "burden": 0,
+          "name": "Argentinien",
+          "rest_days": 5,
+          "rest_label": "normal",
+          "team": "Argentinien",
+          "travel_km": null
+        }
+      ]
+    },
+    {
+      "away": "Portugal",
+      "away_name": "Portugal",
+      "city": "Miami Gardens",
+      "climate": "unknown",
+      "date": "2026-06-27",
+      "group": "K",
+      "home": "Kolumbien",
+      "home_name": "Kolumbien",
+      "teams": [
+        {
+          "burden": 1,
+          "name": "Kolumbien",
+          "rest_days": 4,
+          "rest_label": "normal",
+          "team": "Kolumbien",
+          "travel_km": null
+        },
+        {
+          "burden": 1,
+          "name": "Portugal",
+          "rest_days": 4,
+          "rest_label": "normal",
+          "team": "Portugal",
+          "travel_km": null
+        }
+      ]
+    },
+    {
+      "away": "Usbekistan",
+      "away_name": "Usbekistan",
+      "city": "Atlanta",
+      "climate": "warm",
+      "date": "2026-06-27",
+      "group": "K",
+      "home": "DR Kongo",
+      "home_name": "DR Kongo",
+      "teams": [
+        {
+          "burden": 2,
+          "name": "DR Kongo",
+          "rest_days": 4,
+          "rest_label": "normal",
+          "team": "DR Kongo",
+          "travel_km": 2366
+        },
+        {
+          "burden": 1,
+          "name": "Usbekistan",
+          "rest_days": 4,
+          "rest_label": "normal",
+          "team": "Usbekistan",
+          "travel_km": 1128
+        }
+      ]
+    },
+    {
+      "away": "England",
+      "away_name": "England",
+      "city": "East Rutherford",
+      "climate": "unknown",
+      "date": "2026-06-27",
+      "group": "L",
+      "home": "Panama",
+      "home_name": "Panama",
+      "teams": [
+        {
+          "burden": 1,
+          "name": "Panama",
+          "rest_days": 4,
+          "rest_label": "normal",
+          "team": "Panama",
+          "travel_km": null
+        },
+        {
+          "burden": 1,
+          "name": "England",
+          "rest_days": 4,
+          "rest_label": "normal",
+          "team": "England",
+          "travel_km": null
+        }
+      ]
+    },
+    {
+      "away": "Ghana",
+      "away_name": "Ghana",
+      "city": "Philadelphia",
+      "climate": "warm",
+      "date": "2026-06-27",
+      "group": "L",
+      "home": "Kroatien",
+      "home_name": "Kroatien",
+      "teams": [
+        {
+          "burden": 1,
+          "name": "Kroatien",
+          "rest_days": 4,
+          "rest_label": "normal",
+          "team": "Kroatien",
+          "travel_km": 539
+        },
+        {
+          "burden": 1,
+          "name": "Ghana",
+          "rest_days": 4,
+          "rest_label": "normal",
+          "team": "Ghana",
+          "travel_km": null
+        }
+      ]
+    }
+  ],
+  "n_played": 54,
+  "note": "Sensitivitaets-Kontext, nicht kalibriert."
+}

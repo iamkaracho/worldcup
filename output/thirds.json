@@ -1,7 +1,17 @@
 {
- "stamp": "2026-06-24 06:37",
- "n_played": 48,
+ "stamp": "2026-06-25 09:22",
+ "n_played": 54,
  "thirds": [
+  {
+   "group": "B",
+   "team": "Bosnien-Herzegowina",
+   "pts": 4,
+   "pl": 3,
+   "gd": -1,
+   "gf": 5,
+   "p_qualify": 1.0,
+   "qualified": true
+  },
   {
    "group": "F",
    "team": "Schweden",
@@ -9,17 +19,7 @@
    "pl": 2,
    "gd": 0,
    "gf": 6,
-   "p_qualify": 0.6969,
-   "qualified": true
-  },
-  {
-   "group": "C",
-   "team": "Schottland",
-   "pts": 3,
-   "pl": 2,
-   "gd": 0,
-   "gf": 1,
-   "p_qualify": 0.7158,
+   "p_qualify": 0.6856,
    "qualified": true
   },
   {
@@ -29,7 +29,17 @@
    "pl": 2,
    "gd": -1,
    "gf": 3,
-   "p_qualify": 0.318,
+   "p_qualify": 0.3205,
+   "qualified": true
+  },
+  {
+   "group": "A",
+   "team": "Suedkorea",
+   "pts": 3,
+   "pl": 3,
+   "gd": -1,
+   "gf": 2,
+   "p_qualify": 0.9253,
    "qualified": true
   },
   {
@@ -39,7 +49,7 @@
    "pl": 2,
    "gd": -2,
    "gf": 2,
-   "p_qualify": 0.5402,
+   "p_qualify": 0.4836,
    "qualified": true
   },
   {
@@ -49,7 +59,17 @@
    "pl": 2,
    "gd": -2,
    "gf": 2,
-   "p_qualify": 0.5245,
+   "p_qualify": 0.4789,
+   "qualified": true
+  },
+  {
+   "group": "C",
+   "team": "Schottland",
+   "pts": 3,
+   "pl": 3,
+   "gd": -3,
+   "gf": 1,
+   "p_qualify": 0.3709,
    "qualified": true
   },
   {
@@ -59,7 +79,7 @@
    "pl": 2,
    "gd": 0,
    "gf": 2,
-   "p_qualify": 0.1178,
+   "p_qualify": 0.105,
    "qualified": true
   },
   {
@@ -69,18 +89,8 @@
    "pl": 2,
    "gd": 0,
    "gf": 1,
-   "p_qualify": 0.0966,
-   "qualified": true
-  },
-  {
-   "group": "A",
-   "team": "Tschechien",
-   "pts": 1,
-   "pl": 2,
-   "gd": -1,
-   "gf": 2,
-   "p_qualify": 0.2046,
-   "qualified": true
+   "p_qualify": 0.0975,
+   "qualified": false
   },
   {
    "group": "K",
@@ -89,7 +99,7 @@
    "pl": 2,
    "gd": -1,
    "gf": 1,
-   "p_qualify": 0.3391,
+   "p_qualify": 0.3302,
    "qualified": false
   },
   {
@@ -99,17 +109,7 @@
    "pl": 2,
    "gd": -1,
    "gf": 0,
-   "p_qualify": 0.2087,
-   "qualified": false
-  },
-  {
-   "group": "B",
-   "team": "Bosnien-Herzegowina",
-   "pts": 1,
-   "pl": 2,
-   "gd": -3,
-   "gf": 2,
-   "p_qualify": 0.5458,
+   "p_qualify": 0.2035,
    "qualified": false
   },
   {
@@ -119,7 +119,7 @@
    "pl": 2,
    "gd": -3,
    "gf": 3,
-   "p_qualify": 0.5577,
+   "p_qualify": 0.5524,
    "qualified": false
   }
  ]

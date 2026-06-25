@@ -1,0 +1,97 @@
+{
+  "available": true,
+  "headline": "Spanien bewegt sich am staerksten: +0.8 Pkt. auf 15.5% Titelchance.",
+  "last_game": "2026-06-24",
+  "leader": {
+    "name": "Argentinien",
+    "p_titel": 0.1688,
+    "team": "Argentinien"
+  },
+  "live_eval": {
+    "basis": 1.0335,
+    "beats_basis": true,
+    "logloss": 0.8805,
+    "n": 54
+  },
+  "movers": [
+    {
+      "delta": 0.0079,
+      "direction": "up",
+      "name": "Spanien",
+      "p_titel": 0.155,
+      "reasons": [
+        "Gruppenweg fast offen"
+      ],
+      "team": "Spanien"
+    },
+    {
+      "delta": -0.0052,
+      "direction": "down",
+      "name": "England",
+      "p_titel": 0.0784,
+      "reasons": [
+        "Gruppenweg fast offen"
+      ],
+      "team": "England"
+    },
+    {
+      "delta": 0.0045,
+      "direction": "up",
+      "name": "Argentinien",
+      "p_titel": 0.1688,
+      "reasons": [
+        "Gruppenweg fast offen"
+      ],
+      "team": "Argentinien"
+    },
+    {
+      "delta": -0.0044,
+      "direction": "down",
+      "name": "Belgien",
+      "p_titel": 0.025,
+      "reasons": [
+        "Bracket und Restfeld"
+      ],
+      "team": "Belgien"
+    },
+    {
+      "delta": -0.0042,
+      "direction": "down",
+      "name": "Deutschland",
+      "p_titel": 0.0554,
+      "reasons": [
+        "Gruppenweg fast offen"
+      ],
+      "team": "Deutschland"
+    },
+    {
+      "delta": 0.0034,
+      "direction": "up",
+      "name": "Frankreich",
+      "p_titel": 0.1395,
+      "reasons": [
+        "Gruppenweg fast offen"
+      ],
+      "team": "Frankreich"
+    }
+  ],
+  "n_played": 54,
+  "stamp": "2026-06-25 09:22",
+  "top3": [
+    {
+      "name": "Argentinien",
+      "p_titel": 0.1688,
+      "team": "Argentinien"
+    },
+    {
+      "name": "Spanien",
+      "p_titel": 0.155,
+      "team": "Spanien"
+    },
+    {
+      "name": "Frankreich",
+      "p_titel": 0.1395,
+      "team": "Frankreich"
+    }
+  ]
+}

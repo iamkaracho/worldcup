@@ -1,0 +1,476 @@
+{
+  "games": [
+    {
+      "away": "Tuerkei",
+      "away_name": "Türkei",
+      "date": "2026-06-25",
+      "group": "D",
+      "home": "USA",
+      "home_name": "USA",
+      "teams": [
+        {
+          "label": "sicher weiter",
+          "name": "USA",
+          "p_if_draw": 1.0,
+          "p_if_loss": 1.0,
+          "p_if_win": 1.0,
+          "team": "USA"
+        },
+        {
+          "label": "sicher weiter",
+          "name": "Türkei",
+          "p_if_draw": 1.0,
+          "p_if_loss": 1.0,
+          "p_if_win": 1.0,
+          "team": "Tuerkei"
+        }
+      ]
+    },
+    {
+      "away": "Australien",
+      "away_name": "Australien",
+      "date": "2026-06-25",
+      "group": "D",
+      "home": "Paraguay",
+      "home_name": "Paraguay",
+      "teams": [
+        {
+          "label": "Niederlage vermeiden",
+          "name": "Paraguay",
+          "p_if_draw": 0.9993,
+          "p_if_loss": 0.688,
+          "p_if_win": 1.0,
+          "team": "Paraguay"
+        },
+        {
+          "label": "sicher weiter",
+          "name": "Australien",
+          "p_if_draw": 0.9993,
+          "p_if_loss": 1.0,
+          "p_if_win": 0.688,
+          "team": "Australien"
+        }
+      ]
+    },
+    {
+      "away": "Elfenbeinkueste",
+      "away_name": "Elfenbeinküste",
+      "date": "2026-06-25",
+      "group": "E",
+      "home": "Curacao",
+      "home_name": "Curaçao",
+      "teams": [
+        {
+          "label": "muss gewinnen",
+          "name": "Curaçao",
+          "p_if_draw": 0.0,
+          "p_if_loss": 0.0,
+          "p_if_win": 1.0,
+          "team": "Curacao"
+        },
+        {
+          "label": "sicher weiter",
+          "name": "Elfenbeinküste",
+          "p_if_draw": 0.0,
+          "p_if_loss": 1.0,
+          "p_if_win": 0.0,
+          "team": "Elfenbeinkueste"
+        }
+      ]
+    },
+    {
+      "away": "Deutschland",
+      "away_name": "Deutschland",
+      "date": "2026-06-25",
+      "group": "E",
+      "home": "Ecuador",
+      "home_name": "Ecuador",
+      "teams": [
+        {
+          "label": "muss gewinnen",
+          "name": "Ecuador",
+          "p_if_draw": 0.0,
+          "p_if_loss": 0.0,
+          "p_if_win": 1.0,
+          "team": "Ecuador"
+        },
+        {
+          "label": "sicher weiter",
+          "name": "Deutschland",
+          "p_if_draw": 0.0,
+          "p_if_loss": 1.0,
+          "p_if_win": 0.0,
+          "team": "Deutschland"
+        }
+      ]
+    },
+    {
+      "away": "Schweden",
+      "away_name": "Schweden",
+      "date": "2026-06-25",
+      "group": "F",
+      "home": "Japan",
+      "home_name": "Japan",
+      "teams": [
+        {
+          "label": "sicher weiter",
+          "name": "Japan",
+          "p_if_draw": 1.0,
+          "p_if_loss": 1.0,
+          "p_if_win": 1.0,
+          "team": "Japan"
+        },
+        {
+          "label": "sicher weiter",
+          "name": "Schweden",
+          "p_if_draw": 1.0,
+          "p_if_loss": 1.0,
+          "p_if_win": 1.0,
+          "team": "Schweden"
+        }
+      ]
+    },
+    {
+      "away": "Niederlande",
+      "away_name": "Niederlande",
+      "date": "2026-06-25",
+      "group": "F",
+      "home": "Tunesien",
+      "home_name": "Tunesien",
+      "teams": [
+        {
+          "label": "praktisch raus",
+          "name": "Tunesien",
+          "p_if_draw": 0.0,
+          "p_if_loss": 0.0,
+          "p_if_win": 0.0,
+          "team": "Tunesien"
+        },
+        {
+          "label": "praktisch raus",
+          "name": "Niederlande",
+          "p_if_draw": 0.0,
+          "p_if_loss": 0.0,
+          "p_if_win": 0.0,
+          "team": "Niederlande"
+        }
+      ]
+    },
+    {
+      "away": "Iran",
+      "away_name": "Iran",
+      "date": "2026-06-26",
+      "group": "G",
+      "home": "Aegypten",
+      "home_name": "Ägypten",
+      "teams": [
+        {
+          "label": "sicher weiter",
+          "name": "Ägypten",
+          "p_if_draw": 1.0,
+          "p_if_loss": 1.0,
+          "p_if_win": 1.0,
+          "team": "Aegypten"
+        },
+        {
+          "label": "sicher weiter",
+          "name": "Iran",
+          "p_if_draw": 1.0,
+          "p_if_loss": 1.0,
+          "p_if_win": 1.0,
+          "team": "Iran"
+        }
+      ]
+    },
+    {
+      "away": "Belgien",
+      "away_name": "Belgien",
+      "date": "2026-06-26",
+      "group": "G",
+      "home": "Neuseeland",
+      "home_name": "Neuseeland",
+      "teams": [
+        {
+          "label": "muss gewinnen",
+          "name": "Neuseeland",
+          "p_if_draw": 0.0,
+          "p_if_loss": 0.0,
+          "p_if_win": 1.0,
+          "team": "Neuseeland"
+        },
+        {
+          "label": "sicher weiter",
+          "name": "Belgien",
+          "p_if_draw": 0.0,
+          "p_if_loss": 1.0,
+          "p_if_win": 0.0,
+          "team": "Belgien"
+        }
+      ]
+    },
+    {
+      "away": "Saudi-Arabien",
+      "away_name": "Saudi-Arabien",
+      "date": "2026-06-26",
+      "group": "H",
+      "home": "Kap Verde",
+      "home_name": "Kap Verde",
+      "teams": [
+        {
+          "label": "Remis reicht fast sicher",
+          "name": "Kap Verde",
+          "p_if_draw": 0.9993,
+          "p_if_loss": 0.0053,
+          "p_if_win": 1.0,
+          "team": "Kap Verde"
+        },
+        {
+          "label": "sicher weiter",
+          "name": "Saudi-Arabien",
+          "p_if_draw": 0.9993,
+          "p_if_loss": 1.0,
+          "p_if_win": 0.0053,
+          "team": "Saudi-Arabien"
+        }
+      ]
+    },
+    {
+      "away": "Spanien",
+      "away_name": "Spanien",
+      "date": "2026-06-26",
+      "group": "H",
+      "home": "Uruguay",
+      "home_name": "Uruguay",
+      "teams": [
+        {
+          "label": "Remis reicht fast sicher",
+          "name": "Uruguay",
+          "p_if_draw": 0.9987,
+          "p_if_loss": 0.0207,
+          "p_if_win": 1.0,
+          "team": "Uruguay"
+        },
+        {
+          "label": "sicher weiter",
+          "name": "Spanien",
+          "p_if_draw": 0.9987,
+          "p_if_loss": 1.0,
+          "p_if_win": 0.0207,
+          "team": "Spanien"
+        }
+      ]
+    },
+    {
+      "away": "Frankreich",
+      "away_name": "Frankreich",
+      "date": "2026-06-26",
+      "group": "I",
+      "home": "Norwegen",
+      "home_name": "Norwegen",
+      "teams": [
+        {
+          "label": "sicher weiter",
+          "name": "Norwegen",
+          "p_if_draw": 1.0,
+          "p_if_loss": 1.0,
+          "p_if_win": 1.0,
+          "team": "Norwegen"
+        },
+        {
+          "label": "sicher weiter",
+          "name": "Frankreich",
+          "p_if_draw": 1.0,
+          "p_if_loss": 1.0,
+          "p_if_win": 1.0,
+          "team": "Frankreich"
+        }
+      ]
+    },
+    {
+      "away": "Irak",
+      "away_name": "Irak",
+      "date": "2026-06-26",
+      "group": "I",
+      "home": "Senegal",
+      "home_name": "Senegal",
+      "teams": [
+        {
+          "label": "muss gewinnen",
+          "name": "Senegal",
+          "p_if_draw": 0.0,
+          "p_if_loss": 0.0,
+          "p_if_win": 0.8107,
+          "team": "Senegal"
+        },
+        {
+          "label": "praktisch raus",
+          "name": "Irak",
+          "p_if_draw": 0.0,
+          "p_if_loss": 0.8107,
+          "p_if_win": 0.0,
+          "team": "Irak"
+        }
+      ]
+    },
+    {
+      "away": "Oesterreich",
+      "away_name": "Österreich",
+      "date": "2026-06-27",
+      "group": "J",
+      "home": "Algerien",
+      "home_name": "Algerien",
+      "teams": [
+        {
+          "label": "Niederlage vermeiden",
+          "name": "Algerien",
+          "p_if_draw": 0.9993,
+          "p_if_loss": 0.6553,
+          "p_if_win": 1.0,
+          "team": "Algerien"
+        },
+        {
+          "label": "sicher weiter",
+          "name": "Österreich",
+          "p_if_draw": 0.9993,
+          "p_if_loss": 1.0,
+          "p_if_win": 0.6553,
+          "team": "Oesterreich"
+        }
+      ]
+    },
+    {
+      "away": "Argentinien",
+      "away_name": "Argentinien",
+      "date": "2026-06-27",
+      "group": "J",
+      "home": "Jordanien",
+      "home_name": "Jordanien",
+      "teams": [
+        {
+          "label": "praktisch raus",
+          "name": "Jordanien",
+          "p_if_draw": 0.0,
+          "p_if_loss": 0.0,
+          "p_if_win": 0.0,
+          "team": "Jordanien"
+        },
+        {
+          "label": "praktisch raus",
+          "name": "Argentinien",
+          "p_if_draw": 0.0,
+          "p_if_loss": 0.0,
+          "p_if_win": 0.0,
+          "team": "Argentinien"
+        }
+      ]
+    },
+    {
+      "away": "Portugal",
+      "away_name": "Portugal",
+      "date": "2026-06-27",
+      "group": "K",
+      "home": "Kolumbien",
+      "home_name": "Kolumbien",
+      "teams": [
+        {
+          "label": "sicher weiter",
+          "name": "Kolumbien",
+          "p_if_draw": 1.0,
+          "p_if_loss": 1.0,
+          "p_if_win": 1.0,
+          "team": "Kolumbien"
+        },
+        {
+          "label": "sicher weiter",
+          "name": "Portugal",
+          "p_if_draw": 1.0,
+          "p_if_loss": 1.0,
+          "p_if_win": 1.0,
+          "team": "Portugal"
+        }
+      ]
+    },
+    {
+      "away": "Usbekistan",
+      "away_name": "Usbekistan",
+      "date": "2026-06-27",
+      "group": "K",
+      "home": "DR Kongo",
+      "home_name": "DR Kongo",
+      "teams": [
+        {
+          "label": "muss gewinnen",
+          "name": "DR Kongo",
+          "p_if_draw": 0.0073,
+          "p_if_loss": 0.0,
+          "p_if_win": 1.0,
+          "team": "DR Kongo"
+        },
+        {
+          "label": "sicher weiter",
+          "name": "Usbekistan",
+          "p_if_draw": 0.0073,
+          "p_if_loss": 1.0,
+          "p_if_win": 0.0,
+          "team": "Usbekistan"
+        }
+      ]
+    },
+    {
+      "away": "England",
+      "away_name": "England",
+      "date": "2026-06-27",
+      "group": "L",
+      "home": "Panama",
+      "home_name": "Panama",
+      "teams": [
+        {
+          "label": "praktisch raus",
+          "name": "Panama",
+          "p_if_draw": 0.0,
+          "p_if_loss": 0.0,
+          "p_if_win": 0.0,
+          "team": "Panama"
+        },
+        {
+          "label": "praktisch raus",
+          "name": "England",
+          "p_if_draw": 0.0,
+          "p_if_loss": 0.0,
+          "p_if_win": 0.0,
+          "team": "England"
+        }
+      ]
+    },
+    {
+      "away": "Ghana",
+      "away_name": "Ghana",
+      "date": "2026-06-27",
+      "group": "L",
+      "home": "Kroatien",
+      "home_name": "Kroatien",
+      "teams": [
+        {
+          "label": "offen",
+          "name": "Kroatien",
+          "p_if_draw": 1.0,
+          "p_if_loss": 0.828,
+          "p_if_win": 1.0,
+          "team": "Kroatien"
+        },
+        {
+          "label": "sicher weiter",
+          "name": "Ghana",
+          "p_if_draw": 1.0,
+          "p_if_loss": 1.0,
+          "p_if_win": 0.828,
+          "team": "Ghana"
+        }
+      ]
+    }
+  ],
+  "last_game": "2026-06-24",
+  "modus": "kalibriert (n=986 Spiele, att/def+decay, DC rho=-0.055), Heimvorteil=+0.16, inkl. Ausfälle (8 Teams)",
+  "n_played": 54,
+  "n_sims": 1500
+}
