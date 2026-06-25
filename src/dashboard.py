@@ -56,24 +56,6 @@ JOKE = {
     "Italien": "Nicht dabei. Schon wieder. Wir erwähnen es nur.",
 }
 
-ORACLE = [
-    "Das Orakel sagt: Setz dein Geld lieber auf ein gutes Frühstück.",
-    "Wahrscheinlichkeit ist, wenn man trotzdem mitfiebert.",
-    "Frankreich ist Favorit. Das war Brasilien auch — bei jeder WM seit 1998.",
-    "Der Erfinder dieses Modells hält es selbst für Quatsch. Und lag dreimal richtig.",
-    "Ein Tipp auf die Niederlande ist mutig. Genau wie ein Achtelfinale-Tipp auf Deutschland.",
-    "Statistik kann nicht weinen. Du beim Elfmeterschießen schon.",
-    "16 % für den Favoriten heißt: in 5 von 6 Universen gewinnt jemand anderes.",
-    "Das Modell kennt keine Wadenzerrung in der 3. Gruppenpartie. Du bald schon.",
-    "Heimvorteil eingebaut. Schiedsrichter-Verschwörungen nicht — die musst du dir selbst ausdenken.",
-    "Wer auf Basis dieses Dashboards wettet, dem ist laut Erfinder 'nicht zu helfen'. Wir zitieren nur.",
-    "Brasilien führt die Stärke an und gewinnt am Ende trotzdem nichts. Tradition ist Tradition.",
-    "Das Bauchgefühl-o-Meter zeigt heute: 'Wird schon irgendwie.'",
-    "Ein Modell ist wie ein Wetterbericht — nur dass dich keiner für den Regen verantwortlich macht.",
-    "Wenn dein Team nicht in den Top 5 ist: Es gibt auch Universen, in denen es klappt. Nur nicht in vielen.",
-]
-
-
 # ESPN-Rankings (extern, manuell): Experten-Panel (20 Reporter) & Kader-Modell (Elo+Marktwert)
 ESPN_EXPERT = {"Spanien": 1, "Frankreich": 2, "Argentinien": 3, "England": 4,
                "Brasilien": 5, "Portugal": 6, "Deutschland": 7, "Niederlande": 8,
@@ -270,7 +252,6 @@ def build():
     payload = {
         "rows": rows,
         "groups": {g: [NICE.get(t, t) for t in ms] for g, ms in groups.items()},
-        "oracle": ORACLE,
         "favorit": rows[0],
         "espn_expert": ESPN_EXPERT, "espn_squad": ESPN_SQUAD, "espn_notes": ESPN_NOTES,
         "myth": myth,
@@ -364,13 +345,6 @@ TEMPLATE = r"""<!DOCTYPE html>
     nav.pill a:hover{color:var(--text);background:#ffffff10}
   }
 
-  .ticker{margin:26px 0 2px;overflow:hidden;
-    -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
-    mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-  .ticker-track{display:inline-flex;gap:34px;white-space:nowrap;padding-right:34px;
-    animation:marquee 52s linear infinite;will-change:transform}
-  .ticker-track span{font-size:13px;color:var(--muted)}
-  .ticker-track b{color:var(--gold);font-variant-numeric:tabular-nums}
   .ops{margin:12px 0 18px;border:1px solid var(--line);background:#ffffff08;border-radius:8px}
   .ops ul{list-style:none;margin:0;padding:8px 10px;display:grid;gap:6px}
   .ops li{display:grid;grid-template-columns:90px 1fr auto;gap:10px;align-items:center;
@@ -411,23 +385,16 @@ TEMPLATE = r"""<!DOCTYPE html>
   .ctxline span{color:var(--muted);font-size:12px}
   .risk{color:var(--red);font-weight:700}.ok{color:var(--green);font-weight:700}
   @media(max-width:900px){.ctxgrid{grid-template-columns:1fr}}
-  @media(hover:hover){.ticker:hover .ticker-track{animation-play-state:paused}}
-  @keyframes marquee{to{transform:translateX(-50%)}}
-
   body::after{content:"";position:fixed;inset:0;pointer-events:none;opacity:.045;z-index:60;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 
   .io{opacity:0;transform:translateY(12px)}
   .io.in{opacity:1;transform:none;
-    transition:opacity .55s var(--ease-out),transform .55s var(--ease-out)}
+    transition:opacity .22s var(--ease-out),transform .22s var(--ease-out)}
   h1{font-size:clamp(34px,6vw,56px);margin:14px 0 8px;color:var(--text);font-weight:700;line-height:1.04}
   .sub{color:var(--muted);max-width:62ch;font-size:17px;line-height:1.55}
   .stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px;
-    animation:rise .45s var(--ease-out) backwards}
-  .stat:nth-child(2){animation-delay:45ms}.stat:nth-child(3){animation-delay:90ms}
-  .stat:nth-child(4){animation-delay:135ms}.stat:nth-child(5){animation-delay:180ms}
-  @keyframes rise{from{opacity:0;transform:translateY(6px)}}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px}
   .stat b{font-size:20px} .stat span{display:block;color:var(--muted);font-size:12px;margin-top:2px}
 
   .cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0}
@@ -440,19 +407,9 @@ TEMPLATE = r"""<!DOCTYPE html>
     background:linear-gradient(180deg,#2a2110,var(--card))}
   .card.brk{border-color:color-mix(in oklab,var(--blue) 34%,transparent)}
 
-  .oracle{margin:6px 0 26px;background:var(--card);border:1px dashed var(--line);
-    border-radius:16px;padding:18px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
-  .oracle button{cursor:pointer;border:0;border-radius:12px;padding:12px 18px;font-weight:800;
-    font-size:15px;color:var(--ink);background:var(--gold);box-shadow:0 6px 20px #00000040;
-    transition:transform .15s var(--ease-out),box-shadow .15s var(--ease-out)}
-  @media(hover:hover) and (pointer:fine){
-    .oracle button:hover{transform:translateY(-2px);box-shadow:0 12px 28px #00000059}
-  }
-  .oracle button:active{transform:scale(.97)}
-  #oracle-text{flex:1;min-width:240px;font-size:16px;font-style:italic;
-    animation:oracle-in .3s var(--ease-out)}
-  @keyframes oracle-in{from{opacity:0;filter:blur(3px)}}
-  #oracle-text b{font-style:normal}
+  .brief{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:14px;margin:22px 0 28px}
+  .brief .card{margin:0}
+  @media(max-width:780px){.brief{grid-template-columns:1fr}}
 
   .controls{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:8px 0 14px}
   .controls input,.controls select{background:var(--card);color:var(--text);border:1px solid var(--line);
@@ -463,6 +420,22 @@ TEMPLATE = r"""<!DOCTYPE html>
     transition:background .15s ease,color .15s ease,transform .12s var(--ease-out)}
   .seg button:active{transform:scale(.95)}
   .seg button.on{background:var(--gold);color:var(--ink);font-weight:800}
+
+  .analysis{margin-top:72px;border-top:1px solid #ffffff0d;padding-top:34px}
+  .analysis h2{font-size:clamp(22px,3vw,26px);scroll-margin-top:84px}
+  .panel{border:1px solid var(--line);border-radius:10px;background:#ffffff06;margin:10px 0;overflow:hidden}
+  .panel summary{cursor:pointer;list-style:none;padding:15px 18px;font-weight:800;color:var(--text);
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    transition:background .16s ease,color .16s ease,transform .12s var(--ease-out)}
+  .panel summary::-webkit-details-marker{display:none}
+  .panel summary:after{content:"+";color:var(--gold);font-size:20px;line-height:1}
+  .panel[open] summary{border-bottom:1px solid var(--line);background:#00000016}
+  .panel[open] summary:after{content:"−"}
+  .panel summary:active{transform:scale(.995)}
+  .panel-body{padding:18px}
+  .panel-body > :first-child{margin-top:0}
+  .panel-body > :last-child{margin-bottom:0}
+  .live-grid{display:grid;grid-template-columns:1fr;gap:10px}
 
   table{width:100%;border-collapse:collapse}
   th,td{padding:11px 8px;text-align:left}
@@ -539,35 +512,30 @@ TEMPLATE = r"""<!DOCTYPE html>
   @media(max-width:640px){.fx{grid-template-columns:1fr 84px 1fr}.fx .fxs{display:none}}
   @media(prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
-    .stat,.detbox,.fxdet{animation-duration:.01ms}
-    #oracle-text{animation:none}
-    .ticker-track{animation:none}
+    .detbox,.fxdet{animation-duration:.01ms}
     .io,.io.in{opacity:1;transform:none;transition:none}
-    #tbody .bar > i,.oracle button,.seg button{transition:none}
-    @media(hover:hover) and (pointer:fine){.oracle button:hover{transform:none}}
+    #tbody .bar > i,.seg button,.panel summary{transition:none}
   }
 </style>
 </head>
 <body>
 <nav class="pill" aria-label="Sektionen">
   <a href="#rangliste">Rangliste</a>
-  <a href="#rennen">Titelrennen</a>
   <a href="#spielplan">Spielplan</a>
-  <a href="#gruppen">Gruppen</a>
+  <a href="#live">Live-Lage</a>
+  <a href="#analyse">Analyse</a>
 </nav>
 <div class="wrap">
 
   <header class="hero">
     <span class="kicker">WM 2026 · USA · Mexiko · Kanada</span>
     <h1>Das Klement-Orakel</h1>
-    <p class="sub">48 Nationen, 20.000 simulierte Turniere, ein Ökonom, der schwört, dass
-      so etwas nicht funktioniert — und dreimal in Folge den Weltmeister traf. Wir glauben
-      ihm. Irgendwie.</p>
+    <p class="sub">Das tägliche WM-Modell: Favoriten, Spielplan, Live-Bewegungen und die
+      wichtigsten Modellnotizen. Morgens lesbar, abends aktualisierbar.</p>
     <div class="stats" id="stats"></div>
-    <div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
   </header>
 
-  <div class="cards">
+  <div class="brief">
     <div class="card tip">
       <div class="k">Klements Tipp</div>
       <div class="big">🇳🇱 Niederlande</div>
@@ -584,15 +552,9 @@ TEMPLATE = r"""<!DOCTYPE html>
     </div>
   </div>
 
-  <div class="oracle">
-    <button onclick="askOracle()">Frag das Orakel</button>
-    <div id="oracle-text"><b>Tipp:</b> Drück den Knopf. Das Orakel hat Meinungen.</div>
-  </div>
-
   <h2 class="sec" id="rangliste">Rangliste aller 48 Nationen</h2>
   <p class="muted" style="margin:-2px 0 10px"><b style="color:var(--gold)">/*STAND*/</b></p>
   /*AUTOMATION*/
-  <div id="explain"></div>
   <p id="eliminated" class="muted" style="margin:-4px 0 12px;font-size:13px"></p>
   <div class="controls">
     <input id="search" type="search" placeholder="Team suchen…" oninput="render()">
@@ -613,55 +575,6 @@ TEMPLATE = r"""<!DOCTYPE html>
     <tbody id="tbody"></tbody>
   </table>
 
-  <h2 class="sec">Modell vs. Mensch</h2>
-  <p class="muted" style="max-width:720px">ESPNs Experten-Panel (20 Reporter) gewichtet weiche
-    Faktoren, die unser Modell strukturell nicht kennt: Verletzungen, aktuelle Form, Trainer,
-    Momentum. Wo beide übereinstimmen, ist die Prognose robust — wo sie auseinandergehen
-    (großes Δ), sitzt der blinde Fleck. ESPNs eigenes Kader-Modell (Elo + Marktwert) ist
-    quasi unser Zwilling.</p>
-  <table>
-    <thead><tr><th>Team</th><th class="r">Modell</th><th class="r">Experten</th>
-      <th class="r">ESPN-Kader</th><th class="r">Δ</th><th>Kommentar</th></tr></thead>
-    <tbody id="espn"></tbody>
-  </table>
-
-  <h2 class="sec">Mythos-Check: die „Turniermannschaft"</h2>
-  <p class="muted" style="max-width:720px">Gibt es Teams, die bei Turnieren über sich
-    hinauswachsen? Wir haben je Team einen „Turnier-Bonus" geschätzt — und ihn dann
-    ehrlich <b>nach vorn</b> getestet (auf einer WM, die das Modell nicht kannte).</p>
-  <div class="cards" id="myth"></div>
-
-  <h2 class="sec">Aschenputtel — das Modell weiß nicht WER, aber DASS</h2>
-  <p class="muted" style="max-width:720px" id="cind-intro"></p>
-  <div class="cards" id="cinderella"></div>
-
-  <h2 class="sec" id="incentives">Spielzustand: was braucht wer?</h2>
-  <p class="muted" style="max-width:720px">Für offene Gruppenspiele simuliert das Modell:
-    Wie hoch ist die Weiterkommens-Chance, wenn ein Team gewinnt, remisiert oder verliert?
-    So wird sichtbar, ob ein Remis reicht, ein Sieg Pflicht ist oder das Team schon fast
-    durch ist.</p>
-  <div id="incentives-box"></div>
-
-  <h2 class="sec" id="context">Belastung, Reise, Klima</h2>
-  <p class="muted" style="max-width:720px">Ein Kontext-Layer ohne Kalibrierungsanspruch:
-    Resttage, erkannte Reisewege und grobe Venue-Belastung. Das greift nicht in die
-    Prognose ein, markiert aber Stellen, an denen Rotation oder Müdigkeit plausibel wird.</p>
-  <div id="context-box"></div>
-
-  <h2 class="sec" id="dritte">Tabelle der besten Dritten</h2>
-  <p class="muted" style="max-width:720px">Im 48er-Format ziehen neben den 24 Gruppen-Ersten
-    und -Zweiten die <b>8 besten Gruppendritten</b> ins Sechzehntelfinale ein. Hier der
-    Zwischenstand (provisorisch, Gruppen haben teils unterschiedlich viele Spiele): links
-    der aktuelle Dritte je Gruppe nach FIFA-2026-Kriterien, rechts die Modell-Chance, am
-    Ende tatsächlich einer der 8 zu sein.</p>
-  <div id="thirds"></div>
-
-  <h2 class="sec" id="rennen">Titelrennen über die Zeit</h2>
-  <p class="muted" style="max-width:720px">Titelchance je Snapshot (täglich nach den
-    Spielen: frisches Elo, fixierte Ergebnisse, eingefrorene Kalibrierung). Wer bricht
-    aus, wer bricht ein?</p>
-  /*RACE*/
-
   <h2 class="sec" id="spielplan">Spielplan & Prognosen</h2>
   <p class="muted" style="max-width:720px">Jedes der 72 Gruppenspiele mit der
     Outcome-Wahrscheinlichkeit <b style="color:var(--green)">Heimsieg</b> /
@@ -669,8 +582,83 @@ TEMPLATE = r"""<!DOCTYPE html>
     und dem wahrscheinlichsten Ergebnis.</p>
   <div id="fixtures"></div>
 
-  <h2 class="sec" id="gruppen">Die 12 Gruppen</h2>
-  <div class="groups" id="groups"></div>
+  <h2 class="sec" id="live">Live-Lage</h2>
+  <div id="explain"></div>
+  <div class="live-grid">
+    <details class="panel" open>
+      <summary>Spielzustand: was braucht wer?</summary>
+      <div class="panel-body">
+        <p class="muted" style="max-width:720px">Für offene Gruppenspiele simuliert das Modell:
+          Wie hoch ist die Weiterkommens-Chance, wenn ein Team gewinnt, remisiert oder verliert?</p>
+        <div id="incentives-box"></div>
+      </div>
+    </details>
+    <details class="panel">
+      <summary>Belastung, Reise, Klima</summary>
+      <div class="panel-body">
+        <p class="muted" style="max-width:720px">Kontext-Layer ohne Kalibrierungsanspruch:
+          Resttage, Reisewege und grobe Venue-Belastung.</p>
+        <div id="context-box"></div>
+      </div>
+    </details>
+    <details class="panel">
+      <summary>Tabelle der besten Dritten</summary>
+      <div class="panel-body">
+        <p class="muted" style="max-width:720px">Im 48er-Format ziehen neben den 24 Gruppen-Ersten
+          und -Zweiten die <b>8 besten Gruppendritten</b> ins Sechzehntelfinale ein.</p>
+        <div id="thirds"></div>
+      </div>
+    </details>
+  </div>
+
+  <section class="analysis" id="analyse">
+    <h2>Analyse & Modellnotizen</h2>
+    <p class="muted" style="max-width:720px">Alles, was hilft, aber nicht jeden Morgen im Weg
+      stehen muss: Expertenvergleich, Mythos-Test, Ausreißer und Verlauf.</p>
+
+    <details class="panel">
+      <summary>Modell vs. Mensch</summary>
+      <div class="panel-body">
+        <p class="muted" style="max-width:720px">ESPNs Experten-Panel gewichtet weiche Faktoren,
+          die unser Modell strukturell nicht kennt. Wo beide auseinandergehen, sitzt der blinde Fleck.</p>
+        <table>
+          <thead><tr><th>Team</th><th class="r">Modell</th><th class="r">Experten</th>
+            <th class="r">ESPN-Kader</th><th class="r">Δ</th><th>Kommentar</th></tr></thead>
+          <tbody id="espn"></tbody>
+        </table>
+      </div>
+    </details>
+
+    <details class="panel">
+      <summary>Mythos-Check: die „Turniermannschaft"</summary>
+      <div class="panel-body">
+        <p class="muted" style="max-width:720px">Der „Turnier-Bonus" wurde rückblickend geschätzt
+          und dann ehrlich nach vorn getestet.</p>
+        <div class="cards" id="myth"></div>
+      </div>
+    </details>
+
+    <details class="panel">
+      <summary>Aschenputtel & Dark Horses</summary>
+      <div class="panel-body">
+        <p class="muted" style="max-width:720px" id="cind-intro"></p>
+        <div class="cards" id="cinderella"></div>
+      </div>
+    </details>
+
+    <details class="panel">
+      <summary>Titelrennen über die Zeit</summary>
+      <div class="panel-body">
+        <p class="muted" style="max-width:720px">Titelchance je Snapshot: Wer bricht aus, wer bricht ein?</p>
+        /*RACE*/
+      </div>
+    </details>
+
+    <details class="panel">
+      <summary>Die 12 Gruppen</summary>
+      <div class="panel-body"><div class="groups" id="groups"></div></div>
+    </details>
+  </section>
 
   <footer>
     <p class="closer">„Wer aufgrund dieser Prognose Geld setzt, <i>dem ist nicht zu
@@ -696,13 +684,12 @@ const nice = x => x.toLocaleString("de-DE");
 // Stat-Kacheln
 const fav = D.favorit;
 document.getElementById("stats").innerHTML = [
-  ["🥇 Favorit", fav.flag+" "+fav.team, pct(fav.titel)+" Titelchance"],
-  ["🎲 Realismus", "5 von 6", "Turnieren gewinnt NICHT der Favorit"],
-  ["💶 Gesamtmarktwert", "17,49 Mrd. €", "aller 48 Kader (Transfermarkt)"],
-  ["🧮 Simulationen", "20.000", "Monte-Carlo-Turniere"],
+  ["Favorit", fav.flag+" "+fav.team, pct(fav.titel)+" Titelchance"],
+  ["Realismus", "5 von 6", "Turnieren gewinnt nicht der Favorit"],
+  ["Simulationen", "20.000", "Monte-Carlo-Turniere"],
 ].map(s=>`<div class="stat"><b>${s[1]}</b><span>${s[0]} — ${s[2]}</span></div>`).join("");
-document.getElementById("nl-p").textContent =
-  pct((D.rows.find(r=>r.key==="Niederlande")||{titel:0}).titel);
+const nlp=document.getElementById("nl-p");
+if(nlp) nlp.textContent = pct((D.rows.find(r=>r.key==="Niederlande")||{titel:0}).titel);
 
 // Gruppen-Filter
 const gsel = document.getElementById("grp");
@@ -985,24 +972,7 @@ function render(){
 }
 function toggle(k){openKey=openKey===k?null:k;render();}
 
-let lastOracle=-1;
-function askOracle(){
-  let i; do{i=Math.floor(Math.random()*D.oracle.length)}while(i===lastOracle&&D.oracle.length>1);
-  lastOracle=i;
-  const el=document.getElementById("oracle-text");
-  el.style.animation="none"; void el.offsetWidth;   // Animation neu triggern
-  el.style.animation="";
-  el.innerHTML="<b>Orakel:</b> "+D.oracle[i];
-}
 render();
-
-// Titelchancen-Ticker (Marquee): Inhalt doppelt fuer nahtlosen Loop
-(function(){
-  const t=document.getElementById("ticker"); if(!t) return;
-  const top=[...D.rows].sort((a,b)=>b.titel-a.titel).slice(0,16);
-  const items=top.map(r=>`<span>${r.flag} ${r.team} <b>${pct(r.titel)}</b></span>`).join("");
-  t.innerHTML=items+items;
-})();
 
 // Scroll-Reveals (nur Ueberschriften + Closer; Daten bleiben sofort sichtbar)
 (function(){
