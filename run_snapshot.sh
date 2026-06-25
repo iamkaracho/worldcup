@@ -7,5 +7,11 @@ LOG="$(dirname "$0")/output/snapshots/cron.log"
 PY="$(command -v python3)"
 cd "$DIR" || exit 1
 echo "--- $(date '+%Y-%m-%d %H:%M:%S') launchd-Lauf ---" >> "$LOG"
+"$PY" update_availability.py >> "$LOG" 2>&1
+"$PY" update_cards_public.py --apply-safe >> "$LOG" 2>&1
+"$PY" update_cards.py        >> "$LOG" 2>&1
 "$PY" snapshot.py  >> "$LOG" 2>&1
+"$PY" incentives.py >> "$LOG" 2>&1
+"$PY" context_factors.py >> "$LOG" 2>&1
+"$PY" explain_snapshot.py >> "$LOG" 2>&1
 "$PY" dashboard.py >> "$LOG" 2>&1

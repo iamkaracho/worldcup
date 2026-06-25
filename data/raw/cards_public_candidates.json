@@ -1,0 +1,67 @@
+[
+  {
+    "after": "2026-06-11",
+    "confidence": 0.92,
+    "games": 1,
+    "id": "c78df912cda9",
+    "kind": "red",
+    "opponent": "Mexiko",
+    "player": "Sphephelo Sithole",
+    "raw": "2026,Canada / Mexico / United States | 178. | 145. | Sphephelo Sithole |  | 49' | South Africa | 0–1 | 0–2 | Mexico | Wilton Sampaio (BRA) | Group stage | 11 June 2026",
+    "source": "world_cup_red_cards",
+    "source_url": "https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_red_cards",
+    "team": "Suedafrika"
+  },
+  {
+    "after": "2026-06-18",
+    "confidence": 0.92,
+    "games": 1,
+    "id": "ed569b68f953",
+    "kind": "red",
+    "opponent": "Schweiz",
+    "player": "Tarik Muharemović",
+    "raw": "181. | 146. | Tarik Muharemović |  | 80' | Bosnia and Herzegovina | 0–1 | 1–4 | Switzerland | João Pinheiro (POR) | Group stage | 18 June 2026",
+    "source": "world_cup_red_cards",
+    "source_url": "https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_red_cards",
+    "team": "Bosnien-Herzegowina"
+  },
+  {
+    "after": "2026-06-18",
+    "confidence": 0.92,
+    "games": 1,
+    "id": "d81009dd1e4e",
+    "kind": "red",
+    "opponent": "Kanada",
+    "player": "Homam Ahmed",
+    "raw": "182. | 147. | Homam Ahmed |  | 33' | Qatar | 0–2 | 0–6 | Canada | Cristián Garay (CHI) | Group stage | 18 June 2026",
+    "source": "world_cup_red_cards",
+    "source_url": "https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_red_cards",
+    "team": "Katar"
+  },
+  {
+    "after": "2026-06-19",
+    "confidence": 0.92,
+    "games": 1,
+    "id": "afc2690563b6",
+    "kind": "red",
+    "opponent": "Tuerkei",
+    "player": "Miguel Almirón",
+    "raw": "184. | 148. | Miguel Almirón |  | 45+3' | Paraguay | 1–0 | 1–0 | Turkey | Iván Barton (SLV) | Group stage | 19 June 2026",
+    "source": "world_cup_red_cards",
+    "source_url": "https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_red_cards",
+    "team": "Paraguay"
+  },
+  {
+    "after": "2026-06-21",
+    "confidence": 0.92,
+    "games": 1,
+    "id": "a6596870cd14",
+    "kind": "red",
+    "opponent": "Iran",
+    "player": "Nathan Ngoy",
+    "raw": "185. | 149. | Nathan Ngoy |  | 66' | Belgium | 0–0 | 0–0 | Iran | Darío Herrera (ARG) | Group stage | 21 June 2026",
+    "source": "world_cup_red_cards",
+    "source_url": "https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_red_cards",
+    "team": "Belgien"
+  }
+]

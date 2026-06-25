@@ -10,6 +10,7 @@ Nur Standardbibliothek. Nach jedem model.py-Lauf neu ausfuehren -> frisches Dash
 """
 
 import csv
+import html
 import json
 import os
 
@@ -198,6 +199,28 @@ def build():
                 thirds.append({**d, "name": NICE.get(d["team"], d["team"]),
                                "flag": FLAG.get(d["team"], "🏳️")})
 
+    explain = None
+    epath = os.path.join(OUT, "snapshot_explain.json")
+    if os.path.exists(epath):
+        with open(epath, encoding="utf-8") as f:
+            explain = json.load(f)
+
+    incentives = None
+    inc_path = os.path.join(OUT, "match_incentives.json")
+    if os.path.exists(inc_path):
+        with open(inc_path, encoding="utf-8") as f:
+            incentives = json.load(f)
+        if incentives and live_n > 0 and incentives.get("n_played") != live_n:
+            incentives = None
+
+    context = None
+    ctx_path = os.path.join(OUT, "context_factors.json")
+    if os.path.exists(ctx_path):
+        with open(ctx_path, encoding="utf-8") as f:
+            context = json.load(f)
+        if context and live_n > 0 and context.get("n_played") not in (0, live_n):
+            context = None
+
     rows = []
     for t, p in probs.items():
         b = band.get(t, {})
@@ -255,14 +278,41 @@ def build():
         "exp_out_sf": round(exp_out_sf, 2),
         "fixtures": fixtures,
         "thirds": thirds,
+        "explain": explain,
+        "incentives": incentives,
+        "context": context,
     }
     html = TEMPLATE.replace("/*DATA*/", json.dumps(payload, ensure_ascii=False))
     html = html.replace("/*RACE*/", _race_svg())
     html = html.replace("/*STAND*/", stand)
+    html = html.replace("/*AUTOMATION*/", _automation_html())
     out = os.path.join(OUT, "dashboard.html")
     with open(out, "w", encoding="utf-8") as f:
         f.write(html)
     print(f"Dashboard geschrieben: {os.path.relpath(out, _HERE)}  ({len(rows)} Teams)")
+
+
+def _automation_html():
+    path = os.path.join(OUT, "automation_status.json")
+    if not os.path.exists(path):
+        return ""
+    with open(path, encoding="utf-8") as f:
+        data = json.load(f)
+    steps = data.get("steps", {})
+    if not steps:
+        return ""
+    order = ["availability", "cards_public", "cards", "snapshot"]
+    known = [s for s in order if s in steps] + sorted(s for s in steps if s not in order)
+    rows = []
+    for name in known:
+        s = steps[name]
+        cls = "ok" if s.get("ok") else "bad"
+        label = {"availability": "Ausfälle", "cards_public": "Karten public",
+                 "cards": "Karten API", "snapshot": "Snapshot"}.get(name, name)
+        msg = html.escape(str(s.get("message", "")))
+        at = html.escape(str(s.get("at", ""))[0:16].replace("T", " "))
+        rows.append(f'<li class="{cls}"><b>{html.escape(label)}</b><span>{msg}</span><em>{at} UTC</em></li>')
+    return "<div class=\"ops\"><ul>" + "".join(rows) + "</ul></div>"
 
 
 def _read_teams():
@@ -321,6 +371,46 @@ TEMPLATE = r"""<!DOCTYPE html>
     animation:marquee 52s linear infinite;will-change:transform}
   .ticker-track span{font-size:13px;color:var(--muted)}
   .ticker-track b{color:var(--gold);font-variant-numeric:tabular-nums}
+  .ops{margin:12px 0 18px;border:1px solid var(--line);background:#ffffff08;border-radius:8px}
+  .ops ul{list-style:none;margin:0;padding:8px 10px;display:grid;gap:6px}
+  .ops li{display:grid;grid-template-columns:90px 1fr auto;gap:10px;align-items:center;
+    font-size:12px;color:var(--muted)}
+  .ops b{color:var(--text)}
+  .ops li.ok b:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;
+    background:var(--green);margin-right:7px}
+  .ops li.bad b:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;
+    background:var(--red);margin-right:7px}
+  .ops em{font-style:normal;color:#7d735f;font-variant-numeric:tabular-nums}
+  @media(max-width:720px){.ops li{grid-template-columns:1fr}.ops em{display:none}}
+  .explain{margin:14px 0 24px;padding:14px;border:1px solid var(--line);border-radius:8px;
+    background:linear-gradient(180deg,#ffffff0b,#ffffff05)}
+  .explain h3{font:700 13px/1.2 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:7px}
+  .explain p{margin:0;color:var(--text)}
+  .explain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+  .move{border:1px solid #ffffff12;border-radius:8px;padding:9px;background:#00000014}
+  .move b{display:block;color:var(--text)}
+  .move .up{color:var(--green)} .move .down{color:var(--red)}
+  .move small{display:block;color:var(--muted);line-height:1.35;margin-top:3px}
+  @media(max-width:820px){.explain-grid{grid-template-columns:1fr}}
+  .incgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
+  .inc{border:1px solid var(--line);border-radius:8px;background:#00000012;padding:12px}
+  .inc h4{margin:0 0 8px;font-size:13px;color:var(--gold);letter-spacing:.03em}
+  .incrow{display:grid;grid-template-columns:1fr auto;gap:10px;padding:7px 0;border-top:1px solid #ffffff0d}
+  .incrow:first-of-type{border-top:0}
+  .incrow b{display:block}
+  .incrow span{color:var(--muted);font-size:12px}
+  .incpill{font-size:12px;border:1px solid #ffffff1a;border-radius:999px;padding:3px 7px;white-space:nowrap}
+  .incnums{font-variant-numeric:tabular-nums;color:var(--muted);font-size:12px;margin-top:2px}
+  @media(max-width:820px){.incgrid{grid-template-columns:1fr}}
+  .ctxgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+  .ctx{border:1px solid var(--line);border-radius:8px;background:#00000010;padding:11px}
+  .ctx h4{margin:0 0 7px;color:var(--gold);font-size:13px}
+  .ctxline{display:flex;justify-content:space-between;gap:8px;border-top:1px solid #ffffff0d;padding:6px 0}
+  .ctxline:first-of-type{border-top:0}
+  .ctxline span{color:var(--muted);font-size:12px}
+  .risk{color:var(--red);font-weight:700}.ok{color:var(--green);font-weight:700}
+  @media(max-width:900px){.ctxgrid{grid-template-columns:1fr}}
   @media(hover:hover){.ticker:hover .ticker-track{animation-play-state:paused}}
   @keyframes marquee{to{transform:translateX(-50%)}}
 
@@ -501,6 +591,8 @@ TEMPLATE = r"""<!DOCTYPE html>
 
   <h2 class="sec" id="rangliste">Rangliste aller 48 Nationen</h2>
   <p class="muted" style="margin:-2px 0 10px"><b style="color:var(--gold)">/*STAND*/</b></p>
+  /*AUTOMATION*/
+  <div id="explain"></div>
   <p id="eliminated" class="muted" style="margin:-4px 0 12px;font-size:13px"></p>
   <div class="controls">
     <input id="search" type="search" placeholder="Team suchen…" oninput="render()">
@@ -542,6 +634,19 @@ TEMPLATE = r"""<!DOCTYPE html>
   <h2 class="sec">Aschenputtel — das Modell weiß nicht WER, aber DASS</h2>
   <p class="muted" style="max-width:720px" id="cind-intro"></p>
   <div class="cards" id="cinderella"></div>
+
+  <h2 class="sec" id="incentives">Spielzustand: was braucht wer?</h2>
+  <p class="muted" style="max-width:720px">Für offene Gruppenspiele simuliert das Modell:
+    Wie hoch ist die Weiterkommens-Chance, wenn ein Team gewinnt, remisiert oder verliert?
+    So wird sichtbar, ob ein Remis reicht, ein Sieg Pflicht ist oder das Team schon fast
+    durch ist.</p>
+  <div id="incentives-box"></div>
+
+  <h2 class="sec" id="context">Belastung, Reise, Klima</h2>
+  <p class="muted" style="max-width:720px">Ein Kontext-Layer ohne Kalibrierungsanspruch:
+    Resttage, erkannte Reisewege und grobe Venue-Belastung. Das greift nicht in die
+    Prognose ein, markiert aber Stellen, an denen Rotation oder Müdigkeit plausibel wird.</p>
+  <div id="context-box"></div>
 
   <h2 class="sec" id="dritte">Tabelle der besten Dritten</h2>
   <p class="muted" style="max-width:720px">Im 48er-Format ziehen neben den 24 Gruppen-Ersten
@@ -618,6 +723,32 @@ document.getElementById("groups").innerHTML = Object.keys(D.groups).sort().map(g
   el.innerHTML = dead.length
     ? `💀 <b>Ausgeschieden:</b> ${dead.map(r=>r.flag+" "+r.team).join(" · ")}`
     : "";
+})();
+
+// Taegliche Snapshot-Erklaerung
+(function(){
+  const x=D.explain;
+  const el=document.getElementById("explain"); if(!el||!x||!x.available) return;
+  const movers=(x.movers||[]).slice(0,3).map(m=>{
+    const cls=m.direction==="up"?"up":"down";
+    const sign=m.delta>=0?"+":"";
+    const reasons=(m.reasons||[]).join(" · ");
+    return `<div class="move"><b>${m.name}</b>
+      <span class="${cls} tnum">${sign}${(m.delta*100).toFixed(1)} Pkt. · ${pct(m.p_titel)}</span>
+      <small>${reasons}</small></div>`;
+  }).join("");
+  const ev=x.live_eval
+    ? `<p class="muted" style="margin-top:8px;font-size:13px">Live-Check nach ${x.live_eval.n} Gruppenspielen:
+        LogLoss <b>${String(x.live_eval.logloss).replace(".",",")}</b> vs. Basis
+        <b>${String(x.live_eval.basis).replace(".",",")}</b>
+        ${x.live_eval.beats_basis?"· schlägt die Basisrate":"· hinter der Basisrate"}</p>`
+    : "";
+  el.innerHTML=`<div class="explain">
+    <h3>Was hat sich bewegt?</h3>
+    <p>${x.headline}</p>
+    ${movers?`<div class="explain-grid">${movers}</div>`:""}
+    ${ev}
+  </div>`;
 })();
 
 // Spielplan & Prognosen
@@ -699,6 +830,42 @@ document.getElementById("groups").innerHTML = Object.keys(D.groups).sort().map(g
     <th>P(am Ende dabei)</th><th>Stand</th></tr></thead><tbody>${rows}</tbody></table>
     <p class="muted" style="font-size:12px;margin-top:8px">Goldene Linie = Qualifikationsgrenze (Top 8).
     Achtung: provisorisch, Gruppen mit weniger Spielen können noch klettern (siehe P-Spalte).</p>`;
+})();
+
+// Spielzustand / Incentives
+(function(){
+  const inc=D.incentives; const el=document.getElementById("incentives-box"); if(!el) return;
+  const games=(inc&&inc.games||[]).slice(0,8);
+  if(!games.length){el.innerHTML='<p class="muted">Erscheint, sobald offene Gruppenspiele im Live-Stand erkannt werden.</p>';return;}
+  const color=label=>label.includes("muss")||label.includes("raus")?"var(--red)":
+    label.includes("reicht")||label.includes("sicher")?"var(--green)":"var(--gold)";
+  el.innerHTML=`<div class="incgrid">${games.map(g=>`
+    <div class="inc">
+      <h4>Gruppe ${g.group} · ${g.date}</h4>
+      ${g.teams.map(t=>`<div class="incrow">
+        <div><b>${t.name}</b><span>${g.home===t.team?g.away_name:g.home_name} als Gegner</span>
+          <div class="incnums">Sieg ${pct(t.p_if_win)} · Remis ${pct(t.p_if_draw)} · Niederlage ${pct(t.p_if_loss)}</div></div>
+        <div class="incpill" style="color:${color(t.label)}">${t.label}</div>
+      </div>`).join("")}
+    </div>`).join("")}</div>
+    <p class="muted" style="font-size:12px;margin-top:8px">Basis: ${inc.n_sims||0} Simulationen je Szenario,
+    aktueller Live-Stand nach ${inc.n_played||0} Spielen.</p>`;
+})();
+
+// Belastung / Reise / Klima
+(function(){
+  const ctx=D.context; const el=document.getElementById("context-box"); if(!el) return;
+  const games=(ctx&&ctx.games||[]).slice(0,6);
+  if(!games.length){el.innerHTML='<p class="muted">Erscheint, sobald der Spielplan-Kontext zum Live-Stand passt.</p>';return;}
+  const burden=t=>t.burden>=3?'<span class="risk">hoch</span>':t.burden>=2?'<span style="color:var(--gold);font-weight:700">mittel</span>':'<span class="ok">normal</span>';
+  const km=x=>x==null?'–':`${Math.round(x).toLocaleString("de-DE")} km`;
+  el.innerHTML=`<div class="ctxgrid">${games.map(g=>`
+    <div class="ctx">
+      <h4>Gruppe ${g.group} · ${g.date}</h4>
+      <div class="muted" style="font-size:12px;margin-bottom:5px">${g.city||"Venue unbekannt"} · ${g.climate||"Klima unbekannt"}</div>
+      ${g.teams.map(t=>`<div class="ctxline"><div><b>${t.name}</b><br><span>${t.rest_label} · Reise ${km(t.travel_km)}</span></div><div>${burden(t)}</div></div>`).join("")}
+    </div>`).join("")}</div>
+    <p class="muted" style="font-size:12px;margin-top:8px">${ctx.note||"Kontext, nicht kalibriert."}</p>`;
 })();
 
 // Mythos-Check: "Turniermannschaft"

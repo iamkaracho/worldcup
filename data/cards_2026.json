@@ -1,27 +1,80 @@
 {
-  "_comment": "EINE Quelle fuer Karten + abgeleitete Sperren. Append-only; Claude pflegt es je Spieltag (Karten haben keinen Auto-Feed wie Ergebnisse). Pro Team: kumulierte Karten fuers FIFA-Fair-Play (yellow -1, yellow_red -3, red -4, yellow_plus_red -5; vorletztes Gruppen-Tiebreaker-Kriterium). Optional bans[] fuer konkrete Sperren: {value: Marktwert Mio des/der Spieler, after: 'YYYY-MM-DD' das verursachende Spiel} -> trifft AUTOMATISCH das naechste noch nicht gespielte Gruppenspiel danach und verfaellt von selbst. Rote Karte = automatisch 1 Spiel Sperre. Gelbe Karten werden zum Gruppenende vollstaendig nachgetragen. Stand verifiziert bis Spieltag 2 (18.06.).",
-  "Suedafrika": {
-    "yellow": 0, "yellow_red": 0, "red": 2,
-    "_note": "2 Rote vs Mexiko (11.6.), Sperre 18.6. abgesessen"
-  },
-  "Mexiko": {
-    "yellow": 0, "yellow_red": 0, "red": 1,
-    "_note": "Montes rot vs Suedafrika (11.6.), Sperre 18.6. abgesessen"
+  "Belgien": {
+    "bans": [
+      {
+        "after": "2026-06-21",
+        "player": "Nathan Ngoy (rot vs Iran, 66.)",
+        "value": 15
+      }
+    ],
+    "red": 1,
+    "yellow": 0,
+    "yellow_red": 0
   },
   "Bosnien-Herzegowina": {
-    "yellow": 0, "yellow_red": 0, "red": 1,
-    "bans": [{"player": "Muharemovic (rot vs Schweiz, 80.)", "value": 8, "after": "2026-06-18"}]
+    "bans": [
+      {
+        "after": "2026-06-18",
+        "player": "Muharemovic (rot vs Schweiz, 80.)",
+        "value": 8
+      }
+    ],
+    "red": 1,
+    "yellow": 0,
+    "yellow_plus_red": 0,
+    "yellow_red": 0
   },
   "Katar": {
-    "yellow": 0, "yellow_red": 0, "red": 2,
-    "bans": [{"player": "Homam Ahmed + Madibo (2x rot vs Kanada, Werte geschaetzt)", "value": 5, "after": "2026-06-18"}]
+    "bans": [
+      {
+        "after": "2026-06-18",
+        "player": "Homam Ahmed + Madibo (2x rot vs Kanada, Werte geschaetzt)",
+        "value": 5
+      }
+    ],
+    "red": 2,
+    "yellow": 0,
+    "yellow_red": 0
+  },
+  "Mexiko": {
+    "_note": "Montes rot vs Suedafrika (11.6.), Sperre 18.6. abgesessen",
+    "red": 1,
+    "yellow": 0,
+    "yellow_red": 0
   },
   "Paraguay": {
-    "yellow": 0, "yellow_red": 0, "red": 1,
-    "bans": [{"player": "Miguel Almiron (rot vs Tuerkei, 45.)", "value": 25, "after": "2026-06-19"}]
+    "bans": [
+      {
+        "after": "2026-06-19",
+        "player": "Miguel Almiron (rot vs Tuerkei, 45.)",
+        "value": 25
+      }
+    ],
+    "red": 1,
+    "yellow": 0,
+    "yellow_plus_red": 0,
+    "yellow_red": 0
   },
-  "Belgien": {
-    "yellow": 0, "yellow_red": 0, "red": 1,
-    "bans": [{"player": "Nathan Ngoy (rot vs Iran, 66.)", "value": 15, "after": "2026-06-21"}]
+  "Suedafrika": {
+    "_note": "2 Rote vs Mexiko (11.6.), Sperre 18.6. abgesessen",
+    "bans": [
+      {
+        "after": "2026-06-11",
+        "games": 1,
+        "player": "Sphephelo Sithole (rot vs Mexiko)",
+        "source": "https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_red_cards",
+        "source_id": "c78df912cda9",
+        "value": 0.0
+      }
+    ],
+    "red": 2,
+    "yellow": 0,
+    "yellow_plus_red": 0,
+    "yellow_red": 0
+  },
+  "_comment": "EINE Quelle fuer Karten + abgeleitete Sperren. Append-only; Claude pflegt es je Spieltag (Karten haben keinen Auto-Feed wie Ergebnisse). Pro Team: kumulierte Karten fuers FIFA-Fair-Play (yellow -1, yellow_red -3, red -4, yellow_plus_red -5; vorletztes Gruppen-Tiebreaker-Kriterium). Optional bans[] fuer konkrete Sperren: {value: Marktwert Mio des/der Spieler, after: 'YYYY-MM-DD' das verursachende Spiel} -> trifft AUTOMATISCH das naechste noch nicht gespielte Gruppenspiel danach und verfaellt von selbst. Rote Karte = automatisch 1 Spiel Sperre. Gelbe Karten werden zum Gruppenende vollstaendig nachgetragen. Stand verifiziert bis Spieltag 2 (18.06.).",
+  "_public_sources": {
+    "candidates": "data/raw/cards_public_candidates.json",
+    "note": "Sichere rote Karten werden aus oeffentlichen Quellen gemerged; Gelbe bleiben manuell/offiziell."
   }
 }

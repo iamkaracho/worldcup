@@ -29,6 +29,7 @@ from collections import Counter, defaultdict
 from datetime import datetime
 
 import calibrate
+import automation_status
 import model
 import validate as V
 
@@ -204,7 +205,12 @@ def main():
         with open(os.path.join(SNAP_DIR, prev_files[-1]), encoding="utf-8") as f:
             prev = json.load(f)
     if prev and prev["n_played"] == n_played and not force:
-        print(f"Keine neuen Spiele seit {prev['stamp']} ({n_played} gespielt) — kein neuer Snapshot.")
+        msg = f"Keine neuen Spiele seit {prev['stamp']} ({n_played} gespielt)"
+        automation_status.write_step("snapshot", True, msg, {
+            "n_played": n_played,
+            "changed": False,
+        })
+        print(f"{msg} — kein neuer Snapshot.")
         return
 
     # Live-Validierung mit dem EINGEFRORENEN Vorturnier-Modell (vor Elo-Update!)
@@ -342,6 +348,11 @@ def main():
         k = ev["ko"]
         print(f"Live-Check K.-o. (n={k['n']}): {k['logloss']:.3f} vs. Muenzwurf 0.693")
     print(f"\nGespeichert: snapshots/{fname}  (+ history.csv)")
+    automation_status.write_step("snapshot", True, f"Snapshot geschrieben: {fname}", {
+        "n_played": n_played,
+        "last_game": last_date or None,
+        "changed": True,
+    })
 
 
 if __name__ == "__main__":

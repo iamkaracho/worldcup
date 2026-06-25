@@ -34,8 +34,19 @@ jobs:
 
       - name: Snapshot + Dashboard bauen
         working-directory: src
+        env:
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+          API_FOOTBALL_LEAGUE_ID: ${{ vars.API_FOOTBALL_LEAGUE_ID || '1' }}
+          API_FOOTBALL_SEASON: ${{ vars.API_FOOTBALL_SEASON || '2026' }}
+          AVAILABILITY_JSON_URL: ${{ secrets.AVAILABILITY_JSON_URL }}
         run: |
+          python3 update_availability.py || true
+          python3 update_cards_public.py --apply-safe || true
+          python3 update_cards.py || true
           python3 snapshot.py
+          python3 incentives.py
+          python3 context_factors.py
+          python3 explain_snapshot.py
           python3 dashboard.py
 
       - name: Geänderte Snapshots zurück nach main committen

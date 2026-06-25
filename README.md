@@ -84,6 +84,58 @@ Snapshot. Cron entfernen: `crontab -e` (Zeilen mit `snapshot.py`).
 **Nach jeder Datenänderung:** `./run_all.sh` (erzwingt die Pipeline-Reihenfolge).
 Das Dashboard zeigt ab dem 2. Snapshot das **Titelrennen über die Zeit** (SVG-Chart).
 
+### Cloud-Automation
+
+`.github/workflows/snapshot.yml` baut und deployed das Dashboard per GitHub Actions
+täglich um **09:30 Europe/Berlin** (`07:30 UTC`, Juni/Juli) und zusätzlich um 16:00.
+Der Ablauf ist:
+
+```bash
+python3 src/update_availability.py  # optionaler JSON-Feed, sonst Validierung
+python3 src/update_cards_public.py --apply-safe  # rote Karten aus oeffentlichen Quellen
+python3 src/update_cards.py         # optionaler Paid/API-Fallback, sonst Validierung
+python3 src/snapshot.py             # Ergebnisse laden, Elo live, Rest simulieren
+python3 src/incentives.py           # Spielzustand: Sieg/Remis/Niederlage-Szenarien
+python3 src/context_factors.py      # Belastung/Reise/Klima-Kontext
+python3 src/explain_snapshot.py     # taegliche Delta-Erklaerung
+python3 src/dashboard.py            # output/dashboard.html
+```
+
+Die kostenlose Kartenstufe schreibt alle Funde nach `data/raw/cards_public_candidates.json`
+und merged nur sichere rote Karten/Sperren in `data/cards_2026.json`. Gelbe Karten
+werden nicht blind aus News/Wikipedia erzeugt, weil fuer den Fair-Play-Tiebreaker eine
+unvollstaendige Gelb-Liste schlechter ist als eine ehrliche manuelle/amtliche Quelle.
+
+Optionale GitHub-Einstellungen fuer Zusatzquellen:
+
+| Name | Typ | Zweck |
+|------|-----|-------|
+| `API_FOOTBALL_KEY` | Secret | optional: Karten-Events aus API-Football statt nur Public Sources |
+| `API_FOOTBALL_LEAGUE_ID` | Variable | API-Football League-ID, Default `1` |
+| `API_FOOTBALL_SEASON` | Variable | Saison, Default `2026` |
+| `AVAILABILITY_JSON_URL` | Secret | Kuratierter Ausfall-/Availability-Feed im Format von `injuries_2026.json` |
+
+Ohne diese Secrets läuft die Pipeline weiter und validiert nur die bestehenden Dateien.
+Auch Feed-Fehler blockieren den Snapshot nicht; der letzte bekannte Datenstand bleibt
+aktiv. Der Zustand der Datenstufen landet in `output/automation_status.json` und wird
+im Dashboard unter dem Live-Stand angezeigt.
+Die taegliche Kurz-Erklaerung landet in `output/snapshot_explain.json` und beantwortet
+im Dashboard automatisch, welche Teams sich im letzten Snapshot am staerksten bewegt
+haben und warum (Live-Elo, Ausscheiden, Gruppenweg, Bracket/Restfeld).
+Der Spielzustand landet in `output/match_incentives.json`: fuer offene Gruppenspiele
+simuliert er Weiterkommens-Chancen unter Sieg/Remis/Niederlage und markiert daraus
+Labels wie “muss gewinnen”, “Remis reicht fast sicher” oder “sicher weiter”.
+Belastung/Reise/Klima landen in `output/context_factors.json` als Dashboard-Kontext.
+Das ist bewusst kein kalibriertes Feature, sondern ein Hinweis-Layer fuer Resttage,
+lange Reisen, Hitze/Feuchte/Hoehe und moegliche Rotation.
+
+`data/injuries_2026.json` kann neben `out`/`doubtful` auch feinere Availability-Status
+nutzen: `limited`/`knock` (35 % Wertabzug), `rested`/`rotation`/`bench` (25 %),
+`fit`/`available` (0 %) oder explizit `factor`. Sperren in `data/cards_2026.json`
+koennen optional `role`/`position` tragen (`gk`, `def`, `dm`, `mid`, `wing`, `st` usw.);
+dann verteilt das Modell den Marktwert-Malus staerker auf Abwehr oder Angriff statt
+pauschal auf beide Seiten.
+
 **K.-o.-Detailmodell** (`src/test_ko_model.py`): Verlängerungs-Term und steilere
 Elfmeter-Logistik wurden auf 144 historischen WM-K.-o.-Spielen getestet — beide
 out-of-sample verworfen (Elfmeterschießen ist fast Münzwurf: Favorit gewann 17/31).

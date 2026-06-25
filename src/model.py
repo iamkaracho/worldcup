@@ -140,14 +140,35 @@ def load_ratings():
 
 def load_injuries():
     """{team: abzuziehender Marktwert} aus den bekannten Ausfaellen.
-    'out' voll, 'doubtful' zu 50%. Leeres dict, wenn keine Datei."""
+    'out' voll, 'doubtful' zu 50%. Zusaetzlich akzeptiert die Datei nun:
+      limited/questionable: 35 %, rested/rotation/bench: 25 %, fit/available: 0 %.
+    Optional kann direkt `factor` gesetzt werden. Leeres dict, wenn keine Datei."""
     data = _load_json(INJURIES_PATH) or {}
+    status_factor = {
+        "out": 1.0,
+        "suspended": 1.0,
+        "doubtful": 0.5,
+        "questionable": 0.5,
+        "limited": 0.35,
+        "knock": 0.35,
+        "rested": 0.25,
+        "rotation": 0.25,
+        "bench": 0.25,
+        "fit": 0.0,
+        "available": 0.0,
+    }
     out = {}
     for team, players in data.items():
         if team.startswith("_"):
             continue
-        out[team] = sum(p["value"] * (0.5 if p.get("status") == "doubtful" else 1.0)
-                        for p in players)
+        cut = 0.0
+        for p in players:
+            if "factor" in p:
+                factor = float(p["factor"])
+            else:
+                factor = status_factor.get(p.get("status", "out"), 1.0)
+            cut += p["value"] * max(0.0, min(1.0, factor))
+        out[team] = cut
     return out
 
 
@@ -168,17 +189,50 @@ def load_cards():
     return out
 
 
-def suspension_delta(team, value):
+_ROLE_SPLIT = {
+    "gk": (0.10, 1.35),
+    "keeper": (0.10, 1.35),
+    "goalkeeper": (0.10, 1.35),
+    "cb": (0.25, 1.25),
+    "def": (0.25, 1.25),
+    "defender": (0.25, 1.25),
+    "fb": (0.40, 1.00),
+    "wb": (0.50, 0.95),
+    "dm": (0.65, 1.00),
+    "mid": (0.85, 0.85),
+    "midfielder": (0.85, 0.85),
+    "am": (1.10, 0.55),
+    "wing": (1.20, 0.35),
+    "forward": (1.30, 0.20),
+    "st": (1.35, 0.15),
+    "striker": (1.35, 0.15),
+}
+
+
+def suspension_delta(team, value, role=None, att_value=None, def_value=None):
     """(d_att, d_def) <= 0: um wie viel sinken Angriff/Abwehr eines Teams, wenn ein
     gesperrter Spieler im Wert `value` (Mio) fehlt. Nutzt EXAKT die Modell-Kalibrierung
     (log-Marktwert-z * att/def-Marktwert-Gewicht), Feld-Streuung fix (Marginalnaeherung).
+    Optional: role/position verteilt den Effekt staerker auf Angriff oder Abwehr;
+    alternativ koennen att_value/def_value explizit gesetzt werden.
     build_scores() muss vorher gelaufen sein (setzt _SUSP_CTX)."""
     ctx = _SUSP_CTX
     if not ctx or team not in ctx["mw"]:
         return (0.0, 0.0)
     mw = ctx["mw"][team]
-    dz = (math.log(max(1.0, mw - value)) - math.log(max(1.0, mw))) / ctx["logsd"]
-    return (ctx["att_w"] * dz, ctx["def_w"] * dz)
+
+    def _dz(v):
+        return (math.log(max(1.0, mw - v)) - math.log(max(1.0, mw))) / ctx["logsd"]
+
+    if att_value is not None or def_value is not None:
+        av = value if att_value is None else float(att_value)
+        dv = value if def_value is None else float(def_value)
+        return (ctx["att_w"] * _dz(av), ctx["def_w"] * _dz(dv))
+
+    role_key = (role or "").lower()
+    att_scale, def_scale = _ROLE_SPLIT.get(role_key, (1.0, 1.0))
+    return (ctx["att_w"] * _dz(value * att_scale),
+            ctx["def_w"] * _dz(value * def_scale))
 
 
 def _group_schedule():
@@ -219,7 +273,8 @@ def resolve_suspensions(played=None):
         if team.startswith("_"):
             continue
         for ban in c.get("bans", []):
-            dlt = suspension_delta(team, ban["value"])
+            dlt = suspension_delta(team, ban["value"], ban.get("role") or ban.get("position"),
+                                   ban.get("att_value"), ban.get("def_value"))
             if ban.get("round"):
                 _add(susp_round, ban["round"], team, dlt)
                 continue
