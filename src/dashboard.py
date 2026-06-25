@@ -311,33 +311,40 @@ TEMPLATE = r"""<!DOCTYPE html>
 <title>WM 2026 — Das Klement-Orakel</title>
 <style>
   :root{
-    --bg:#15110a; --bg2:#1c1710; --card:#211b12; --card2:#282013;
-    --line:#392f1f; --text:#f4ecdd; --muted:#a89c84; --gold:#f3c14a;
-    --gold-deep:#d6a338; --blue:#7fa0c4; --green:#57b88a; --red:#e07f8b;
-    --ink:#1a140c;
-    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --bg:#080b12; --bg2:#0d121c; --card:#101722; --card2:#141e2c;
+    --line:#263447; --text:#f5f7fb; --muted:#8d9aab; --gold:#80d8ff;
+    --gold-deep:#49a7d4; --blue:#9d8cff; --green:#54d39b; --red:#ff6b8a;
+    --ink:#070a10; --violet:#b88cff; --amber:#ffd166;
+    --font:"Geist","Satoshi","Aptos","Segoe UI",system-ui,-apple-system,sans-serif;
     --ease-out:cubic-bezier(.23,1,.32,1);
   }
   *{box-sizing:border-box}
-  body{margin:0;background:radial-gradient(1100px 600px at 78% -12%,#3a2a0f4d,transparent),
-        radial-gradient(820px 520px at -5% 2%,#2a1c0a4d,transparent),var(--bg);
-        color:var(--text);font:15px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-        -webkit-font-smoothing:antialiased}
-  .wrap{max-width:1080px;margin:0 auto;padding:28px 20px 80px}
+  body{margin:0;background:
+        radial-gradient(900px 520px at 86% -8%,#244b754d,transparent 62%),
+        radial-gradient(820px 560px at 10% 0%,#40246d40,transparent 60%),
+        linear-gradient(180deg,#090d15 0%,#0b1019 44%,#080b12 100%);
+        color:var(--text);font:15px/1.6 var(--font);letter-spacing:0;
+        -webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:1180px;margin:0 auto;padding:28px 20px 80px}
   a{color:var(--blue)}
-  h1,h2,h3{margin:0;font-family:var(--serif);font-weight:600;letter-spacing:-.01em}
+  h1,h2,h3{margin:0;font-family:var(--font);font-weight:760;letter-spacing:0}
   .muted{color:var(--muted)}
   .tnum{font-variant-numeric:tabular-nums}
 
   html{scroll-behavior:smooth}
-  header.hero{padding:76px 0 16px}
+  header.hero{padding:88px 0 18px;position:relative}
+  header.hero:before{content:"";position:absolute;inset:30px -8vw auto auto;width:min(420px,42vw);height:220px;
+    border:1px solid #ffffff12;border-radius:24px;background:
+      linear-gradient(90deg,#ffffff0a 1px,transparent 1px),
+      linear-gradient(#ffffff0a 1px,transparent 1px);
+    background-size:28px 28px;transform:skewY(-8deg);opacity:.55;pointer-events:none}
   .kicker{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.24em;
     text-transform:uppercase;color:var(--gold)}
 
   nav.pill{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:50;
-    display:flex;gap:2px;background:#15110acc;backdrop-filter:blur(14px);
-    -webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:999px;
-    padding:5px;max-width:calc(100vw - 24px);overflow-x:auto;scrollbar-width:none}
+    display:flex;gap:2px;background:#0a0f18d9;backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);border:1px solid #ffffff1a;border-radius:999px;
+    box-shadow:0 18px 60px #0008;padding:5px;max-width:calc(100vw - 24px);overflow-x:auto;scrollbar-width:none}
   nav.pill a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:600;
     padding:7px 14px;border-radius:999px;white-space:nowrap;
     transition:color .15s ease,background .15s ease}
@@ -345,7 +352,7 @@ TEMPLATE = r"""<!DOCTYPE html>
     nav.pill a:hover{color:var(--text);background:#ffffff10}
   }
 
-  .ops{margin:12px 0 18px;border:1px solid var(--line);background:#ffffff08;border-radius:8px}
+  .ops{margin:12px 0 18px;border:1px solid var(--line);background:#0d1420cc;border-radius:8px}
   .ops ul{list-style:none;margin:0;padding:8px 10px;display:grid;gap:6px}
   .ops li{display:grid;grid-template-columns:90px 1fr auto;gap:10px;align-items:center;
     font-size:12px;color:var(--muted)}
@@ -356,19 +363,19 @@ TEMPLATE = r"""<!DOCTYPE html>
     background:var(--red);margin-right:7px}
   .ops em{font-style:normal;color:#7d735f;font-variant-numeric:tabular-nums}
   @media(max-width:720px){.ops li{grid-template-columns:1fr}.ops em{display:none}}
-  .explain{margin:14px 0 24px;padding:14px;border:1px solid var(--line);border-radius:8px;
-    background:linear-gradient(180deg,#ffffff0b,#ffffff05)}
+  .explain{margin:14px 0 24px;padding:16px;border:1px solid var(--line);border-radius:8px;
+    background:linear-gradient(145deg,#132032,#0b111b)}
   .explain h3{font:700 13px/1.2 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
     text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:7px}
   .explain p{margin:0;color:var(--text)}
   .explain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
-  .move{border:1px solid #ffffff12;border-radius:8px;padding:9px;background:#00000014}
+  .move{border:1px solid #ffffff12;border-radius:8px;padding:10px;background:#07101c}
   .move b{display:block;color:var(--text)}
   .move .up{color:var(--green)} .move .down{color:var(--red)}
   .move small{display:block;color:var(--muted);line-height:1.35;margin-top:3px}
   @media(max-width:820px){.explain-grid{grid-template-columns:1fr}}
   .incgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
-  .inc{border:1px solid var(--line);border-radius:8px;background:#00000012;padding:12px}
+  .inc{border:1px solid var(--line);border-radius:8px;background:#0b121d;padding:12px}
   .inc h4{margin:0 0 8px;font-size:13px;color:var(--gold);letter-spacing:.03em}
   .incrow{display:grid;grid-template-columns:1fr auto;gap:10px;padding:7px 0;border-top:1px solid #ffffff0d}
   .incrow:first-of-type{border-top:0}
@@ -378,38 +385,47 @@ TEMPLATE = r"""<!DOCTYPE html>
   .incnums{font-variant-numeric:tabular-nums;color:var(--muted);font-size:12px;margin-top:2px}
   @media(max-width:820px){.incgrid{grid-template-columns:1fr}}
   .ctxgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
-  .ctx{border:1px solid var(--line);border-radius:8px;background:#00000010;padding:11px}
+  .ctx{border:1px solid var(--line);border-radius:8px;background:#0b121d;padding:11px}
   .ctx h4{margin:0 0 7px;color:var(--gold);font-size:13px}
   .ctxline{display:flex;justify-content:space-between;gap:8px;border-top:1px solid #ffffff0d;padding:6px 0}
   .ctxline:first-of-type{border-top:0}
   .ctxline span{color:var(--muted);font-size:12px}
   .risk{color:var(--red);font-weight:700}.ok{color:var(--green);font-weight:700}
   @media(max-width:900px){.ctxgrid{grid-template-columns:1fr}}
-  body::after{content:"";position:fixed;inset:0;pointer-events:none;opacity:.045;z-index:60;
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;opacity:.035;z-index:60;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 
   .io{opacity:0;transform:translateY(12px)}
   .io.in{opacity:1;transform:none;
     transition:opacity .22s var(--ease-out),transform .22s var(--ease-out)}
-  h1{font-size:clamp(34px,6vw,56px);margin:14px 0 8px;color:var(--text);font-weight:700;line-height:1.04}
-  .sub{color:var(--muted);max-width:62ch;font-size:17px;line-height:1.55}
-  .stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-  .stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px}
-  .stat b{font-size:20px} .stat span{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+  h1{font-size:clamp(46px,7vw,88px);max-width:min(1120px,100%);margin:16px 0 12px;color:var(--text);
+    font-weight:820;line-height:.94;text-wrap:balance}
+  .sub{color:var(--muted);max-width:68ch;font-size:18px;line-height:1.55}
+  .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:24px;max-width:860px}
+  .stat{background:linear-gradient(180deg,#121b28,#0d141f);border:1px solid #ffffff14;border-radius:8px;
+    padding:14px 16px;box-shadow:inset 0 1px 0 #ffffff0d}
+  .stat b{font-size:22px;letter-spacing:-.01em}.stat span{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+  @media(max-width:760px){.stats{grid-template-columns:1fr}}
 
-  .cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0}
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0;grid-auto-flow:dense}
   @media(max-width:720px){.cards{grid-template-columns:1fr}}
-  .card{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);
-    border-radius:16px;padding:18px 20px}
-  .card .k{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-  .card .big{font-size:22px;font-weight:800;margin:6px 0}
-  .card.tip{border-color:color-mix(in oklab,var(--gold) 30%,transparent);
-    background:linear-gradient(180deg,#2a2110,var(--card))}
-  .card.brk{border-color:color-mix(in oklab,var(--blue) 34%,transparent)}
+  .card{background:linear-gradient(145deg,var(--card2),var(--card));border:1px solid #ffffff14;
+    border-radius:8px;padding:20px;position:relative;overflow:hidden;min-width:0}
+  .card:before{content:"";position:absolute;inset:0;background:radial-gradient(420px 160px at 88% 0%,#80d8ff1a,transparent 70%);pointer-events:none}
+  .card .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .card .big{font-size:clamp(23px,3vw,34px);font-weight:820;line-height:1;margin:9px 0 12px}
+  .card.tip{border-color:color-mix(in oklab,var(--gold) 32%,transparent);
+    background:linear-gradient(145deg,#132336,var(--card))}
+  .card.brk{border-color:color-mix(in oklab,var(--violet) 34%,transparent)}
 
-  .brief{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:14px;margin:22px 0 28px}
+  .brief{display:grid;grid-template-columns:7fr 5fr;gap:14px;margin:24px 0 34px;grid-auto-flow:dense}
   .brief .card{margin:0}
   @media(max-width:780px){.brief{grid-template-columns:1fr}}
+  .inline-map{height:8px;margin-top:16px;border-radius:999px;background:
+    linear-gradient(90deg,var(--gold) 0 42%,#ffffff22 42% 48%,var(--violet) 48% 100%)}
+  .match-strip{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;margin-top:15px}
+  .match-strip span{border:1px solid #ffffff14;border-radius:8px;padding:9px 10px;background:#07101b;font-weight:760}
+  .match-strip b{color:var(--muted);font-size:12px}
 
   .controls{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:8px 0 14px}
   .controls input,.controls select{background:var(--card);color:var(--text);border:1px solid var(--line);
@@ -421,15 +437,21 @@ TEMPLATE = r"""<!DOCTYPE html>
   .seg button:active{transform:scale(.95)}
   .seg button.on{background:var(--gold);color:var(--ink);font-weight:800}
 
-  .analysis{margin-top:72px;border-top:1px solid #ffffff0d;padding-top:34px}
+  .surface{border:1px solid #ffffff14;border-radius:8px;background:linear-gradient(180deg,#0f1724,#0a1019);
+    box-shadow:0 30px 90px #0006;overflow:hidden}
+  .surface table{margin:0}
+  .surface .controls{padding:16px 16px 0;margin:0}
+  .surface > table th:first-child,.surface > table td:first-child{padding-left:16px}
+  .surface > table th:last-child,.surface > table td:last-child{padding-right:16px}
+  .analysis{margin-top:96px;border-top:1px solid #ffffff0d;padding-top:42px}
   .analysis h2{font-size:clamp(22px,3vw,26px);scroll-margin-top:84px}
-  .panel{border:1px solid var(--line);border-radius:10px;background:#ffffff06;margin:10px 0;overflow:hidden}
+  .panel{border:1px solid var(--line);border-radius:8px;background:#0b121dcc;margin:10px 0;overflow:hidden}
   .panel summary{cursor:pointer;list-style:none;padding:15px 18px;font-weight:800;color:var(--text);
     display:flex;align-items:center;justify-content:space-between;gap:16px;
     transition:background .16s ease,color .16s ease,transform .12s var(--ease-out)}
   .panel summary::-webkit-details-marker{display:none}
   .panel summary:after{content:"+";color:var(--gold);font-size:20px;line-height:1}
-  .panel[open] summary{border-bottom:1px solid var(--line);background:#00000016}
+  .panel[open] summary{border-bottom:1px solid var(--line);background:#111b2a}
   .panel[open] summary:after{content:"−"}
   .panel summary:active{transform:scale(.995)}
   .panel-body{padding:18px}
@@ -448,7 +470,7 @@ TEMPLATE = r"""<!DOCTYPE html>
     tbody tr.main:hover{background:#2a2114aa}
   }
   tbody tr.dead .name,tbody tr.dead .rank{opacity:.5}
-  .skull{margin-right:6px;font-size:14px;filter:grayscale(.2)}
+  .deadmark{display:inline-block;margin-right:7px;color:var(--red);font-size:11px;font-weight:860;letter-spacing:.08em}
   #thirds table{width:100%;max-width:680px;border-collapse:collapse;font-variant-numeric:tabular-nums}
   #thirds th{font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);
     text-align:right;padding:6px 8px;border-bottom:1px solid var(--line)}
@@ -465,9 +487,9 @@ TEMPLATE = r"""<!DOCTYPE html>
   .top1 .rank{color:var(--gold)} .top2 .rank{color:#cdc3ac} .top3 .rank{color:#cf914f}
   .name{font-weight:700} .flag{font-size:18px;margin-right:9px}
   .gbadge{display:inline-block;font-size:11px;font-weight:800;color:var(--gold);
-    background:color-mix(in oklab,var(--gold) 13%,transparent);
+    background:color-mix(in oklab,var(--gold) 12%,transparent);
     border:1px solid color-mix(in oklab,var(--gold) 24%,transparent);
-    border-radius:6px;padding:1px 7px;margin-left:8px;vertical-align:middle}
+    border-radius:999px;padding:1px 7px;margin-left:8px;vertical-align:middle}
   .bar{position:relative;height:22px;background:var(--ink);border-radius:7px;overflow:hidden;min-width:120px}
   .bar > i{position:absolute;inset:0 auto 0 0;background:var(--gold);border-radius:7px}
   #tbody .bar > i{inset:0;clip-path:inset(0 100% 0 0 round 7px);
@@ -481,20 +503,20 @@ TEMPLATE = r"""<!DOCTYPE html>
     animation:det-in .2s var(--ease-out)}
   @keyframes det-in{from{opacity:0;transform:translateY(-4px)}}
   .detbox .kv b{display:block;font-size:16px} .detbox .kv span{color:var(--muted);font-size:12px}
-  .detbox .joke{grid-column:1/-1;font-style:italic;color:#e7dcc6;
+  .detbox .joke{grid-column:1/-1;color:#dce7f7;
     background:color-mix(in oklab,var(--gold) 8%,transparent);border-radius:8px;padding:10px 14px}
   footer{margin-top:88px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);padding-top:34px}
-  .closer{font-family:var(--serif);font-size:clamp(22px,3.4vw,34px);line-height:1.3;
+  .closer{font-family:var(--font);font-size:clamp(22px,3.4vw,34px);font-weight:780;line-height:1.2;
     color:var(--text);margin:0 0 22px;max-width:26ch}
   .closer i{color:var(--gold);font-style:normal}
   .groups{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:14px}
   .grp{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
-  .grp h4{margin:0 0 6px;font-size:13px;color:var(--gold);font-family:var(--serif)} .grp div{font-size:13px;padding:1px 0}
-  h2.sec{font-size:clamp(22px,3vw,26px);margin:76px 0 10px;padding-top:34px;
+  .grp h4{margin:0 0 6px;font-size:13px;color:var(--gold);font-family:var(--font)} .grp div{font-size:13px;padding:1px 0}
+  h2.sec{font-size:clamp(28px,4vw,48px);margin:96px 0 12px;padding-top:42px;
     border-top:1px solid #ffffff0d;scroll-margin-top:84px}
   .fxg{margin:16px 0 4px;color:var(--gold);font-weight:800;font-size:14px}
-  .fx{display:grid;grid-template-columns:1fr 168px 46px 1fr;gap:10px;align-items:center;
-    padding:7px 0;border-bottom:1px solid #1a2440;font-size:14px;cursor:pointer;
+  .fx{display:grid;grid-template-columns:1fr 180px 54px 1fr;gap:12px;align-items:center;
+    padding:10px 16px;border-bottom:1px solid #1a2440;font-size:14px;cursor:pointer;
     transition:background .15s ease}
   @media(hover:hover) and (pointer:fine){
     .fx:hover{background:#172238aa}
@@ -510,6 +532,14 @@ TEMPLATE = r"""<!DOCTYPE html>
   .fxs{text-align:center;font-weight:800;background:#172238;border:1px solid var(--line);
     border-radius:6px;padding:3px 0;font-variant-numeric:tabular-nums}
   @media(max-width:640px){.fx{grid-template-columns:1fr 84px 1fr}.fx .fxs{display:none}}
+  @media(max-width:560px){
+    header.hero{padding-top:96px}
+    h1{font-size:clamp(40px,13vw,54px);line-height:.98}
+    .sub{font-size:16px}
+    .card .muted,.sub{overflow-wrap:anywhere}
+    .match-strip{grid-template-columns:1fr;gap:8px}
+    .match-strip b{text-align:left}
+  }
   @media(prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
     .detbox,.fxdet{animation-duration:.01ms}
@@ -529,7 +559,7 @@ TEMPLATE = r"""<!DOCTYPE html>
 
   <header class="hero">
     <span class="kicker">WM 2026 · USA · Mexiko · Kanada</span>
-    <h1>Das Klement-Orakel</h1>
+    <h1>Das Klement-<wbr>Orakel</h1>
     <p class="sub">Das tägliche WM-Modell: Favoriten, Spielplan, Live-Bewegungen und die
       wichtigsten Modellnotizen. Morgens lesbar, abends aktualisierbar.</p>
     <div class="stats" id="stats"></div>
@@ -538,17 +568,19 @@ TEMPLATE = r"""<!DOCTYPE html>
   <div class="brief">
     <div class="card tip">
       <div class="k">Klements Tipp</div>
-      <div class="big">🇳🇱 Niederlande</div>
+      <div class="big">Niederlande</div>
       <div class="muted">Das Modell sagt: <b id="nl-p"></b> Titelchance. Klement sagt:
         „vertrau mir". Die stärkste Nation, die nie Weltmeister wurde — bei Holländern
         fast schon Tradition.</div>
+      <div class="inline-map" aria-hidden="true"></div>
     </div>
     <div class="card brk">
       <div class="k">Kuriosität aus dem Turnierbaum</div>
-      <div class="big">🇩🇪 Deutschland – 🇫🇷 Frankreich</div>
+      <div class="big">Früher Gigantenpfad</div>
       <div class="muted">Treffen laut offiziellem FIFA-Baum schon im <b>Achtelfinale</b>
         aufeinander (Sieger Gruppe E gegen Sieger Gruppe I) — genau wie im SPIEGEL-Interview.
         Für eines der beiden ist dann früh Badehosen-Zeit.</div>
+      <div class="match-strip" aria-hidden="true"><span>Deutschland</span><b>gegen</b><span>Frankreich</span></div>
     </div>
   </div>
 
@@ -556,31 +588,33 @@ TEMPLATE = r"""<!DOCTYPE html>
   <p class="muted" style="margin:-2px 0 10px"><b style="color:var(--gold)">/*STAND*/</b></p>
   /*AUTOMATION*/
   <p id="eliminated" class="muted" style="margin:-4px 0 12px;font-size:13px"></p>
-  <div class="controls">
-    <input id="search" type="search" placeholder="Team suchen…" oninput="render()">
-    <select id="grp" onchange="render()"></select>
-    <div class="seg" id="metric">
-      <button data-m="titel" class="on">Titel</button>
-      <button data-m="finale">Finale</button>
-      <button data-m="halb">Halbfinale</button>
-      <button data-m="achtel">Achtelfinale</button>
+  <div class="surface">
+    <div class="controls">
+      <input id="search" type="search" placeholder="Team suchen…" oninput="render()">
+      <select id="grp" onchange="render()"></select>
+      <div class="seg" id="metric">
+        <button data-m="titel" class="on">Titel</button>
+        <button data-m="finale">Finale</button>
+        <button data-m="halb">Halbfinale</button>
+        <button data-m="achtel">Achtelfinale</button>
+      </div>
     </div>
+    <table>
+      <thead><tr>
+        <th class="r" data-s="rank">#</th>
+        <th data-s="team">Nation</th>
+        <th data-s="metric">Wahrscheinlichkeit ▾</th>
+      </tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
   </div>
-  <table>
-    <thead><tr>
-      <th class="r" data-s="rank">#</th>
-      <th data-s="team">Nation</th>
-      <th data-s="metric">Wahrscheinlichkeit ▾</th>
-    </tr></thead>
-    <tbody id="tbody"></tbody>
-  </table>
 
   <h2 class="sec" id="spielplan">Spielplan & Prognosen</h2>
   <p class="muted" style="max-width:720px">Jedes der 72 Gruppenspiele mit der
     Outcome-Wahrscheinlichkeit <b style="color:var(--green)">Heimsieg</b> /
     <b style="color:#8a98bf">Remis</b> / <b style="color:var(--blue)">Auswärtssieg</b>
     und dem wahrscheinlichsten Ergebnis.</p>
-  <div id="fixtures"></div>
+  <div class="surface" id="fixtures"></div>
 
   <h2 class="sec" id="live">Live-Lage</h2>
   <div id="explain"></div>
@@ -684,7 +718,7 @@ const nice = x => x.toLocaleString("de-DE");
 // Stat-Kacheln
 const fav = D.favorit;
 document.getElementById("stats").innerHTML = [
-  ["Favorit", fav.flag+" "+fav.team, pct(fav.titel)+" Titelchance"],
+  ["Favorit", fav.team, pct(fav.titel)+" Titelchance"],
   ["Realismus", "5 von 6", "Turnieren gewinnt nicht der Favorit"],
   ["Simulationen", "20.000", "Monte-Carlo-Turniere"],
 ].map(s=>`<div class="stat"><b>${s[1]}</b><span>${s[0]} — ${s[2]}</span></div>`).join("");
@@ -700,7 +734,7 @@ gsel.innerHTML = '<option value="">Alle Gruppen</option>' +
 document.getElementById("groups").innerHTML = Object.keys(D.groups).sort().map(g=>
   `<div class="grp"><h4>Gruppe ${g}</h4>${D.groups[g].map(t=>{
      const r=D.rows.find(x=>x.team===t)||{flag:"🏳️"};
-     return `<div${r.dead?' style="opacity:.5"':''}>${r.flag} ${t}${r.dead?' 💀':''}</div>`;
+     return `<div${r.dead?' style="opacity:.5"':''}>${r.flag} ${t}${r.dead?' · ausgeschieden':''}</div>`;
    }).join("")}</div>`).join("");
 
 // Kompakte "Ausgeschieden"-Zeile unter der Rangliste (sofort sichtbar)
@@ -708,7 +742,7 @@ document.getElementById("groups").innerHTML = Object.keys(D.groups).sort().map(g
   const dead=D.rows.filter(r=>r.dead);
   const el=document.getElementById("eliminated"); if(!el) return;
   el.innerHTML = dead.length
-    ? `💀 <b>Ausgeschieden:</b> ${dead.map(r=>r.flag+" "+r.team).join(" · ")}`
+    ? `<b>Ausgeschieden:</b> ${dead.map(r=>r.flag+" "+r.team).join(" · ")}`
     : "";
 })();
 
@@ -789,7 +823,7 @@ document.getElementById("groups").innerHTML = Object.keys(D.groups).sort().map(g
       ${dh}
     </div>
     <div class="card tip">
-      <div class="k">🕰️ Hätte das Modell die echten Sensationen vorab für möglich gehalten?</div>
+      <div class="k">Historischer Sensationscheck</div>
       <div style="margin:8px 0 4px;font-size:13px;color:var(--muted)">pre-Turnier-Chance ihres tatsächlichen K.-o.-Laufs</div>
       ${cind}
       <div class="muted" style="margin-top:10px;font-style:italic">Klein, aber nie 0. Ein „Chalk"-Modell gäbe Marokko &lt;0,5 % — überheblich.</div>
@@ -809,7 +843,7 @@ document.getElementById("groups").innerHTML = Object.keys(D.groups).sort().map(g
       <td>${d.pl}</td><td>${d.pts}</td>
       <td>${d.gd>0?"+":""}${d.gd}</td>
       <td><span class="qbar"><i style="width:${Math.round(d.p_qualify*100)}%"></i></span>${pct(d.p_qualify)}</td>
-      <td>${d.qualified?'<span style="color:var(--green)">✓ drin</span>':'<span class="muted">raus</span>'}</td>
+      <td>${d.qualified?'<span style="color:var(--green)">drin</span>':'<span class="muted">raus</span>'}</td>
     </tr>`;
   });
   el.innerHTML=`<table><thead><tr>
@@ -867,7 +901,7 @@ document.getElementById("groups").innerHTML = Object.keys(D.groups).sort().map(g
      <span class="tnum">${r.base.toFixed(3)} → <b style="color:${r.bonus<r.base?'#57b88a':'#e07f8b'}">${r.bonus.toFixed(3)}</b></span></div>`).join("");
   document.getElementById("myth").innerHTML=`
     <div class="card tip">
-      <div class="k">😍 So überzeugend sieht es rückblickend aus</div>
+      <div class="k">Rückblickend überzeugend</div>
       <div style="margin:10px 0 4px;font-size:13px;color:var(--muted)">„Turnier-Bonus" (Elo-Punkte), geschätzt aus 2014/18/22</div>
       <div style="color:#bfe9d2">${m.overperformers.map(x=>row(x,"color:#57b88a")).join("")}</div>
       <div style="border-top:1px solid var(--line);margin:8px 0"></div>
@@ -875,7 +909,7 @@ document.getElementById("groups").innerHTML = Object.keys(D.groups).sort().map(g
       <div class="muted" style="margin-top:10px;font-style:italic">Frankreich liefert, Brasilien „chokt" — jeder Stammtisch nickt.</div>
     </div>
     <div class="card brk">
-      <div class="k">🧪 Und dann der Test nach vorn</div>
+      <div class="k">Test nach vorn</div>
       <div style="margin:10px 0">${loo}</div>
       <div style="border-top:1px solid var(--line);margin:8px 0"></div>
       <div style="display:flex;justify-content:space-between;font-size:17px">
@@ -941,7 +975,7 @@ function render(){
     const tr=document.createElement("tr");
     tr.className="main"+(overall<=3?" top"+overall:"")+(r.dead?" dead":"");
     tr.innerHTML=`<td class="r rank">${overall}</td>
-      <td class="name"><span class="flag">${r.flag}</span>${r.dead?'<span class="skull" title="Offiziell ausgeschieden">💀</span>':""}${r.team}
+      <td class="name"><span class="flag">${r.flag}</span>${r.dead?'<span class="deadmark" title="Offiziell ausgeschieden">OUT</span>':""}${r.team}
         <span class="gbadge">${r.group}</span></td>
       <td><div class="bar"><i></i><span>${pct(r[metric])}</span></div></td>`;
     tr.onclick=()=>toggle(r.key);
