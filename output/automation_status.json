@@ -1,20 +1,20 @@
 {
   "steps": {
     "availability": {
-      "at": "2026-06-25T09:22:24Z",
+      "at": "2026-06-25T09:47:33Z",
       "message": "keine AVAILABILITY_JSON_URL gesetzt; vorhandene Ausfall-Datei validiert",
       "mode": "validate-only",
       "ok": true
     },
     "cards": {
-      "at": "2026-06-25T09:22:25Z",
+      "at": "2026-06-25T09:47:34Z",
       "message": "kein API_FOOTBALL_KEY gesetzt; vorhandene Karten-Datei validiert",
       "mode": "validate-only",
       "ok": true
     },
     "cards_public": {
       "applied": 0,
-      "at": "2026-06-25T09:22:25Z",
+      "at": "2026-06-25T09:47:34Z",
       "candidate_file": "data/raw/cards_public_candidates.json",
       "candidates": 5,
       "message": "oeffentliche Kartenquellen: 5 Kandidaten, 0 gemerged",
@@ -22,13 +22,12 @@
       "ok": true
     },
     "snapshot": {
-      "at": "2026-06-25T09:22:29Z",
-      "changed": true,
-      "last_game": "2026-06-24",
-      "message": "Snapshot geschrieben: snapshot_20260625_0922.json",
+      "at": "2026-06-25T09:47:34Z",
+      "changed": false,
+      "message": "Keine neuen Spiele seit 2026-06-25 09:22 (54 gespielt)",
       "n_played": 54,
       "ok": true
     }
   },
-  "updated_at": "2026-06-25T09:22:29Z"
+  "updated_at": "2026-06-25T09:47:34Z"
 }
