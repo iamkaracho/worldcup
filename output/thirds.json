@@ -1,7 +1,27 @@
 {
- "stamp": "2026-06-25 09:22",
- "n_played": 54,
+ "stamp": "2026-06-26 10:33",
+ "n_played": 60,
  "thirds": [
+  {
+   "group": "F",
+   "team": "Schweden",
+   "pts": 4,
+   "pl": 3,
+   "gd": 0,
+   "gf": 7,
+   "p_qualify": 1.0,
+   "qualified": true
+  },
+  {
+   "group": "E",
+   "team": "Ecuador",
+   "pts": 4,
+   "pl": 3,
+   "gd": 0,
+   "gf": 2,
+   "p_qualify": 1.0,
+   "qualified": true
+  },
   {
    "group": "B",
    "team": "Bosnien-Herzegowina",
@@ -13,13 +33,13 @@
    "qualified": true
   },
   {
-   "group": "F",
-   "team": "Schweden",
-   "pts": 3,
-   "pl": 2,
-   "gd": 0,
-   "gf": 6,
-   "p_qualify": 0.6856,
+   "group": "D",
+   "team": "Paraguay",
+   "pts": 4,
+   "pl": 3,
+   "gd": -2,
+   "gf": 2,
+   "p_qualify": 0.9987,
    "qualified": true
   },
   {
@@ -29,7 +49,7 @@
    "pl": 2,
    "gd": -1,
    "gf": 3,
-   "p_qualify": 0.3205,
+   "p_qualify": 0.2717,
    "qualified": true
   },
   {
@@ -39,7 +59,7 @@
    "pl": 3,
    "gd": -1,
    "gf": 2,
-   "p_qualify": 0.9253,
+   "p_qualify": 0.6675,
    "qualified": true
   },
   {
@@ -49,17 +69,7 @@
    "pl": 2,
    "gd": -2,
    "gf": 2,
-   "p_qualify": 0.4836,
-   "qualified": true
-  },
-  {
-   "group": "D",
-   "team": "Paraguay",
-   "pts": 3,
-   "pl": 2,
-   "gd": -2,
-   "gf": 2,
-   "p_qualify": 0.4789,
+   "p_qualify": 0.3802,
    "qualified": true
   },
   {
@@ -69,7 +79,7 @@
    "pl": 3,
    "gd": -3,
    "gf": 1,
-   "p_qualify": 0.3709,
+   "p_qualify": 0.1101,
    "qualified": true
   },
   {
@@ -79,8 +89,8 @@
    "pl": 2,
    "gd": 0,
    "gf": 2,
-   "p_qualify": 0.105,
-   "qualified": true
+   "p_qualify": 0.0938,
+   "qualified": false
   },
   {
    "group": "G",
@@ -89,7 +99,7 @@
    "pl": 2,
    "gd": 0,
    "gf": 1,
-   "p_qualify": 0.0975,
+   "p_qualify": 0.0944,
    "qualified": false
   },
   {
@@ -99,17 +109,7 @@
    "pl": 2,
    "gd": -1,
    "gf": 1,
-   "p_qualify": 0.3302,
-   "qualified": false
-  },
-  {
-   "group": "E",
-   "team": "Ecuador",
-   "pts": 1,
-   "pl": 2,
-   "gd": -1,
-   "gf": 0,
-   "p_qualify": 0.2035,
+   "p_qualify": 0.3158,
    "qualified": false
   },
   {
@@ -119,7 +119,7 @@
    "pl": 2,
    "gd": -3,
    "gf": 3,
-   "p_qualify": 0.5524,
+   "p_qualify": 0.4233,
    "qualified": false
   }
  ]
