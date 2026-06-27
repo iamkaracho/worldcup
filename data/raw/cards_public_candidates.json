@@ -63,5 +63,31 @@
     "source": "world_cup_red_cards",
     "source_url": "https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_red_cards",
     "team": "Belgien"
+  },
+  {
+    "after": "2026-06-26",
+    "confidence": 0.92,
+    "games": 1,
+    "id": "a64ed2e526c5",
+    "kind": "red",
+    "opponent": "Senegal",
+    "player": "Rebin Sulaka",
+    "raw": "186. | 150. | Rebin Sulaka |  | 13' | Iraq | 0–1 | 0–5 | Senegal | Anthony Taylor (ENG) | Group stage | 26 June 2026",
+    "source": "world_cup_red_cards",
+    "source_url": "https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_red_cards",
+    "team": "Irak"
+  },
+  {
+    "after": "2026-06-26",
+    "confidence": 0.92,
+    "games": 1,
+    "id": "abe7a678ce51",
+    "kind": "red",
+    "opponent": "Spanien",
+    "player": "Agustín Canobbio",
+    "raw": "187. | 151. | Agustín Canobbio |  | 90+5' | Uruguay | 0–1 | 0–1 | Spain | Ismail Elfath (USA) | Group stage | 26 June 2026",
+    "source": "world_cup_red_cards",
+    "source_url": "https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_red_cards",
+    "team": "Uruguay"
   }
 ]

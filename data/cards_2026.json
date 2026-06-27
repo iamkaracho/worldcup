@@ -24,6 +24,22 @@
     "yellow_plus_red": 0,
     "yellow_red": 0
   },
+  "Irak": {
+    "bans": [
+      {
+        "after": "2026-06-26",
+        "games": 1,
+        "player": "Rebin Sulaka (rot vs Senegal)",
+        "source": "https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_red_cards",
+        "source_id": "a64ed2e526c5",
+        "value": 0.0
+      }
+    ],
+    "red": 1,
+    "yellow": 0,
+    "yellow_plus_red": 0,
+    "yellow_red": 0
+  },
   "Katar": {
     "bans": [
       {
@@ -68,6 +84,22 @@
       }
     ],
     "red": 2,
+    "yellow": 0,
+    "yellow_plus_red": 0,
+    "yellow_red": 0
+  },
+  "Uruguay": {
+    "bans": [
+      {
+        "after": "2026-06-26",
+        "games": 1,
+        "player": "Agustín Canobbio (rot vs Spanien)",
+        "source": "https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_red_cards",
+        "source_id": "abe7a678ce51",
+        "value": 0.0
+      }
+    ],
+    "red": 1,
     "yellow": 0,
     "yellow_plus_red": 0,
     "yellow_red": 0

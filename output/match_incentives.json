@@ -89,7 +89,7 @@
         {
           "label": "Remis reicht fast sicher",
           "name": "Uruguay",
-          "p_if_draw": 0.9513,
+          "p_if_draw": 0.946,
           "p_if_loss": 0.0,
           "p_if_win": 1.0,
           "team": "Uruguay"
@@ -97,7 +97,7 @@
         {
           "label": "sicher weiter",
           "name": "Spanien",
-          "p_if_draw": 0.9513,
+          "p_if_draw": 0.946,
           "p_if_loss": 1.0,
           "p_if_win": 0.0,
           "team": "Spanien"
@@ -143,14 +143,14 @@
           "name": "Senegal",
           "p_if_draw": 0.0,
           "p_if_loss": 0.0,
-          "p_if_win": 0.4307,
+          "p_if_win": 0.4293,
           "team": "Senegal"
         },
         {
           "label": "praktisch raus",
           "name": "Irak",
           "p_if_draw": 0.0,
-          "p_if_loss": 0.4307,
+          "p_if_loss": 0.4293,
           "p_if_win": 0.0,
           "team": "Irak"
         }
@@ -167,17 +167,17 @@
         {
           "label": "Remis reicht fast sicher",
           "name": "Algerien",
-          "p_if_draw": 0.998,
-          "p_if_loss": 0.3287,
+          "p_if_draw": 1.0,
+          "p_if_loss": 0.3273,
           "p_if_win": 1.0,
           "team": "Algerien"
         },
         {
           "label": "sicher weiter",
           "name": "Österreich",
-          "p_if_draw": 0.998,
+          "p_if_draw": 1.0,
           "p_if_loss": 1.0,
-          "p_if_win": 0.3287,
+          "p_if_win": 0.3273,
           "team": "Oesterreich"
         }
       ]
@@ -298,7 +298,7 @@
           "label": "Remis reicht fast sicher",
           "name": "Kroatien",
           "p_if_draw": 1.0,
-          "p_if_loss": 0.496,
+          "p_if_loss": 0.502,
           "p_if_win": 1.0,
           "team": "Kroatien"
         },
@@ -307,7 +307,7 @@
           "name": "Ghana",
           "p_if_draw": 1.0,
           "p_if_loss": 1.0,
-          "p_if_win": 0.496,
+          "p_if_win": 0.502,
           "team": "Ghana"
         }
       ]
