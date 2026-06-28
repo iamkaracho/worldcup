@@ -1,7 +1,17 @@
 {
- "stamp": "2026-06-26 10:33",
- "n_played": 60,
+ "stamp": "2026-06-28 10:10",
+ "n_played": 72,
  "thirds": [
+  {
+   "group": "K",
+   "team": "DR Kongo",
+   "pts": 4,
+   "pl": 3,
+   "gd": 1,
+   "gf": 4,
+   "p_qualify": 1.0,
+   "qualified": true
+  },
   {
    "group": "F",
    "team": "Schweden",
@@ -23,11 +33,31 @@
    "qualified": true
   },
   {
+   "group": "L",
+   "team": "Ghana",
+   "pts": 4,
+   "pl": 3,
+   "gd": 0,
+   "gf": 2,
+   "p_qualify": 1.0,
+   "qualified": true
+  },
+  {
    "group": "B",
    "team": "Bosnien-Herzegowina",
    "pts": 4,
    "pl": 3,
    "gd": -1,
+   "gf": 5,
+   "p_qualify": 1.0,
+   "qualified": true
+  },
+  {
+   "group": "J",
+   "team": "Algerien",
+   "pts": 4,
+   "pl": 3,
+   "gd": -2,
    "gf": 5,
    "p_qualify": 1.0,
    "qualified": true
@@ -39,18 +69,28 @@
    "pl": 3,
    "gd": -2,
    "gf": 2,
-   "p_qualify": 0.9987,
+   "p_qualify": 1.0,
    "qualified": true
   },
   {
-   "group": "L",
-   "team": "Kroatien",
+   "group": "I",
+   "team": "Senegal",
    "pts": 3,
-   "pl": 2,
-   "gd": -1,
-   "gf": 3,
-   "p_qualify": 0.2717,
+   "pl": 3,
+   "gd": 2,
+   "gf": 8,
+   "p_qualify": 1.0,
    "qualified": true
+  },
+  {
+   "group": "G",
+   "team": "Iran",
+   "pts": 3,
+   "pl": 3,
+   "gd": 0,
+   "gf": 3,
+   "p_qualify": 0.0,
+   "qualified": false
   },
   {
    "group": "A",
@@ -59,18 +99,8 @@
    "pl": 3,
    "gd": -1,
    "gf": 2,
-   "p_qualify": 0.6675,
-   "qualified": true
-  },
-  {
-   "group": "J",
-   "team": "Algerien",
-   "pts": 3,
-   "pl": 2,
-   "gd": -2,
-   "gf": 2,
-   "p_qualify": 0.3802,
-   "qualified": true
+   "p_qualify": 0.0,
+   "qualified": false
   },
   {
    "group": "C",
@@ -79,47 +109,17 @@
    "pl": 3,
    "gd": -3,
    "gf": 1,
-   "p_qualify": 0.1101,
-   "qualified": true
+   "p_qualify": 0.0,
+   "qualified": false
   },
   {
    "group": "H",
-   "team": "Kap Verde",
+   "team": "Uruguay",
    "pts": 2,
-   "pl": 2,
-   "gd": 0,
-   "gf": 2,
-   "p_qualify": 0.0938,
-   "qualified": false
-  },
-  {
-   "group": "G",
-   "team": "Belgien",
-   "pts": 2,
-   "pl": 2,
-   "gd": 0,
-   "gf": 1,
-   "p_qualify": 0.0944,
-   "qualified": false
-  },
-  {
-   "group": "K",
-   "team": "DR Kongo",
-   "pts": 1,
-   "pl": 2,
+   "pl": 3,
    "gd": -1,
-   "gf": 1,
-   "p_qualify": 0.3158,
-   "qualified": false
-  },
-  {
-   "group": "I",
-   "team": "Senegal",
-   "pts": 0,
-   "pl": 2,
-   "gd": -3,
    "gf": 3,
-   "p_qualify": 0.4233,
+   "p_qualify": 0.0,
    "qualified": false
   }
  ]
