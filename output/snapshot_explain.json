@@ -1,10 +1,10 @@
 {
   "available": true,
-  "headline": "Argentinien bewegt sich am staerksten: +3.0 Pkt. auf 19.1% Titelchance.",
-  "last_game": "2026-06-27",
+  "headline": "Marokko bewegt sich am staerksten: -0.5 Pkt. auf 1.8% Titelchance.",
+  "last_game": "2026-06-28",
   "leader": {
     "name": "Argentinien",
-    "p_titel": 0.191,
+    "p_titel": 0.1957,
     "team": "Argentinien"
   },
   "live_eval": {
@@ -15,82 +15,82 @@
   },
   "movers": [
     {
-      "delta": 0.0296,
+      "delta": -0.005,
+      "direction": "down",
+      "name": "Marokko",
+      "p_titel": 0.0175,
+      "reasons": [
+        "Bracket und Restfeld"
+      ],
+      "team": "Marokko"
+    },
+    {
+      "delta": 0.0047,
       "direction": "up",
       "name": "Argentinien",
-      "p_titel": 0.191,
+      "p_titel": 0.1957,
       "reasons": [
         "Gruppenweg fast offen"
       ],
       "team": "Argentinien"
     },
     {
-      "delta": 0.026,
+      "delta": 0.0045,
+      "direction": "up",
+      "name": "Deutschland",
+      "p_titel": 0.0511,
+      "reasons": [
+        "Gruppenweg fast offen"
+      ],
+      "team": "Deutschland"
+    },
+    {
+      "delta": 0.0042,
       "direction": "up",
       "name": "England",
-      "p_titel": 0.0961,
+      "p_titel": 0.1003,
       "reasons": [
         "Gruppenweg fast offen"
       ],
       "team": "England"
     },
     {
-      "delta": -0.0195,
-      "direction": "down",
-      "name": "Portugal",
-      "p_titel": 0.0494,
-      "reasons": [
-        "Bracket und Restfeld"
-      ],
-      "team": "Portugal"
-    },
-    {
-      "delta": -0.0166,
+      "delta": -0.0035,
       "direction": "down",
       "name": "Spanien",
-      "p_titel": 0.1359,
+      "p_titel": 0.1324,
       "reasons": [
         "Gruppenweg fast offen"
       ],
       "team": "Spanien"
     },
     {
-      "delta": -0.0086,
+      "delta": -0.0024,
       "direction": "down",
-      "name": "USA",
-      "p_titel": 0.0119,
+      "name": "Brasilien",
+      "p_titel": 0.0399,
       "reasons": [
         "Bracket und Restfeld"
       ],
-      "team": "USA"
-    },
-    {
-      "delta": 0.0071,
-      "direction": "up",
-      "name": "Kolumbien",
-      "p_titel": 0.0353,
-      "reasons": [
-        "Gruppenweg fast offen"
-      ],
-      "team": "Kolumbien"
+      "team": "Brasilien"
     }
   ],
-  "n_played": 72,
-  "stamp": "2026-06-28 10:10",
+  "n_played": 73,
+  "stamp": "2026-06-29 12:14",
   "top3": [
     {
       "name": "Argentinien",
-      "p_titel": 0.191,
+      "p_titel": 0.1957,
       "team": "Argentinien"
     },
     {
       "name": "Frankreich",
-      "p_titel": 0.1531,
+      "p_titel": 0.1517,
       "team": "Frankreich"
     },
     {
       "name": "Spanien",
-      "p_titel": 0.1359,
+      "p_titel": 0.1324,
       "team": "Spanien"
     }
   ]
