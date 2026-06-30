@@ -1,0 +1,357 @@
+{
+ "stamp": "2026-06-30 10:41",
+ "n_played": 76,
+ "last_game": "2026-06-29",
+ "n_sims": 10000,
+ "modus": "kalibriert (n=986 Spiele, att/def+decay, DC rho=-0.055), Heimvorteil=+0.16, inkl. Ausfälle (8 Teams)",
+ "live_eval": {
+  "gruppe": {
+   "n": 72,
+   "logloss": 0.857,
+   "basis": 1.0688
+  },
+  "ko": {
+   "n": 4,
+   "logloss": 0.7308,
+   "basis": 0.6931
+  }
+ },
+ "teams": {
+  "Mexiko": {
+   "p_titel": 0.0152,
+   "p_finale": 0.0402,
+   "p_halbfinale": 0.0962,
+   "p_achtelfinale": 0.5327,
+   "elo": 2025.6
+  },
+  "Suedkorea": {
+   "p_titel": 0.0,
+   "p_finale": 0.0,
+   "p_halbfinale": 0.0,
+   "p_achtelfinale": 0.0,
+   "elo": 1855.7
+  },
+  "Suedafrika": {
+   "p_titel": 0.0,
+   "p_finale": 0.0,
+   "p_halbfinale": 0.0,
+   "p_achtelfinale": 0.0,
+   "elo": 1692.3
+  },
+  "Tschechien": {
+   "p_titel": 0.0,
+   "p_finale": 0.0,
+   "p_halbfinale": 0.0,
+   "p_achtelfinale": 0.0,
+   "elo": 1818.9
+  },
+  "Kanada": {
+   "p_titel": 0.0104,
+   "p_finale": 0.0334,
+   "p_halbfinale": 0.1117,
+   "p_achtelfinale": 1.0,
+   "elo": 1912.3
+  },
+  "Schweiz": {
+   "p_titel": 0.0229,
+   "p_finale": 0.0583,
+   "p_halbfinale": 0.1371,
+   "p_achtelfinale": 0.6274,
+   "elo": 2012.5
+  },
+  "Katar": {
+   "p_titel": 0.0,
+   "p_finale": 0.0,
+   "p_halbfinale": 0.0,
+   "p_achtelfinale": 0.0,
+   "elo": 1528.1
+  },
+  "Bosnien-Herzegowina": {
+   "p_titel": 0.0004,
+   "p_finale": 0.0013,
+   "p_halbfinale": 0.0073,
+   "p_achtelfinale": 0.1709,
+   "elo": 1708.5
+  },
+  "Brasilien": {
+   "p_titel": 0.0838,
+   "p_finale": 0.1685,
+   "p_halbfinale": 0.3292,
+   "p_achtelfinale": 1.0,
+   "elo": 2135.4
+  },
+  "Marokko": {
+   "p_titel": 0.0515,
+   "p_finale": 0.1123,
+   "p_halbfinale": 0.2617,
+   "p_achtelfinale": 1.0,
+   "elo": 2046.1
+  },
+  "Schottland": {
+   "p_titel": 0.0,
+   "p_finale": 0.0,
+   "p_halbfinale": 0.0,
+   "p_achtelfinale": 0.0,
+   "elo": 1846.8
+  },
+  "Haiti": {
+   "p_titel": 0.0,
+   "p_finale": 0.0,
+   "p_halbfinale": 0.0,
+   "p_achtelfinale": 0.0,
+   "elo": 1672.4
+  },
+  "USA": {
+   "p_titel": 0.012,
+   "p_finale": 0.0346,
+   "p_halbfinale": 0.0853,
+   "p_achtelfinale": 0.5646,
+   "elo": 1904.0
+  },
+  "Paraguay": {
+   "p_titel": 0.0049,
+   "p_finale": 0.0178,
+   "p_halbfinale": 0.0679,
+   "p_achtelfinale": 0.1845,
+   "elo": 1919.6
+  },
+  "Australien": {
+   "p_titel": 0.0023,
+   "p_finale": 0.0134,
+   "p_halbfinale": 0.0433,
+   "p_achtelfinale": 0.5377,
+   "elo": 1907.1
+  },
+  "Tuerkei": {
+   "p_titel": 0.0,
+   "p_finale": 0.0,
+   "p_halbfinale": 0.0,
+   "p_achtelfinale": 0.0,
+   "elo": 1964.6
+  },
+  "Deutschland": {
+   "p_titel": 0.0314,
+   "p_finale": 0.0716,
+   "p_halbfinale": 0.1476,
+   "p_achtelfinale": 0.8291,
+   "elo": 2049.4
+  },
+  "Ecuador": {
+   "p_titel": 0.0102,
+   "p_finale": 0.0299,
+   "p_halbfinale": 0.0757,
+   "p_achtelfinale": 0.4673,
+   "elo": 2018.2
+  },
+  "Curacao": {
+   "p_titel": 0.0,
+   "p_finale": 0.0,
+   "p_halbfinale": 0.0,
+   "p_achtelfinale": 0.0,
+   "elo": 1579.9
+  },
+  "Elfenbeinkueste": {
+   "p_titel": 0.0035,
+   "p_finale": 0.0117,
+   "p_halbfinale": 0.0358,
+   "p_achtelfinale": 0.3661,
+   "elo": 1903.5
+  },
+  "Niederlande": {
+   "p_titel": 0.0,
+   "p_finale": 0.0,
+   "p_halbfinale": 0.0,
+   "p_achtelfinale": 0.0,
+   "elo": 2062.9
+  },
+  "Japan": {
+   "p_titel": 0.0,
+   "p_finale": 0.0,
+   "p_halbfinale": 0.0,
+   "p_achtelfinale": 0.0,
+   "elo": 2022.7
+  },
+  "Tunesien": {
+   "p_titel": 0.0,
+   "p_finale": 0.0,
+   "p_halbfinale": 0.0,
+   "p_achtelfinale": 0.0,
+   "elo": 1703.7
+  },
+  "Schweden": {
+   "p_titel": 0.0049,
+   "p_finale": 0.0156,
+   "p_halbfinale": 0.0501,
+   "p_achtelfinale": 0.3726,
+   "elo": 1847.6
+  },
+  "Belgien": {
+   "p_titel": 0.0343,
+   "p_finale": 0.0739,
+   "p_halbfinale": 0.1612,
+   "p_achtelfinale": 0.631,
+   "elo": 2021.1
+  },
+  "Aegypten": {
+   "p_titel": 0.002,
+   "p_finale": 0.009,
+   "p_halbfinale": 0.0337,
+   "p_achtelfinale": 0.4623,
+   "elo": 1863.3
+  },
+  "Iran": {
+   "p_titel": 0.0,
+   "p_finale": 0.0,
+   "p_halbfinale": 0.0,
+   "p_achtelfinale": 0.0,
+   "elo": 1911.0
+  },
+  "Neuseeland": {
+   "p_titel": 0.0,
+   "p_finale": 0.0,
+   "p_halbfinale": 0.0,
+   "p_achtelfinale": 0.0,
+   "elo": 1670.4
+  },
+  "Spanien": {
+   "p_titel": 0.1419,
+   "p_finale": 0.2297,
+   "p_halbfinale": 0.3586,
+   "p_achtelfinale": 0.7735,
+   "elo": 2212.3
+  },
+  "Uruguay": {
+   "p_titel": 0.0,
+   "p_finale": 0.0,
+   "p_halbfinale": 0.0,
+   "p_achtelfinale": 0.0,
+   "elo": 1931.4
+  },
+  "Saudi-Arabien": {
+   "p_titel": 0.0,
+   "p_finale": 0.0,
+   "p_halbfinale": 0.0,
+   "p_achtelfinale": 0.0,
+   "elo": 1700.8
+  },
+  "Kap Verde": {
+   "p_titel": 0.0002,
+   "p_finale": 0.0009,
+   "p_halbfinale": 0.0059,
+   "p_achtelfinale": 0.0896,
+   "elo": 1699.3
+  },
+  "Frankreich": {
+   "p_titel": 0.1554,
+   "p_finale": 0.2538,
+   "p_halbfinale": 0.4038,
+   "p_achtelfinale": 0.8155,
+   "elo": 2178.6
+  },
+  "Norwegen": {
+   "p_titel": 0.0213,
+   "p_finale": 0.0542,
+   "p_halbfinale": 0.1256,
+   "p_achtelfinale": 0.6339,
+   "elo": 2013.3
+  },
+  "Senegal": {
+   "p_titel": 0.0049,
+   "p_finale": 0.0171,
+   "p_halbfinale": 0.0515,
+   "p_achtelfinale": 0.369,
+   "elo": 1914.6
+  },
+  "Irak": {
+   "p_titel": 0.0,
+   "p_finale": 0.0,
+   "p_halbfinale": 0.0,
+   "p_achtelfinale": 0.0,
+   "elo": 1690.7
+  },
+  "Argentinien": {
+   "p_titel": 0.1884,
+   "p_finale": 0.3289,
+   "p_halbfinale": 0.5313,
+   "p_achtelfinale": 0.9104,
+   "elo": 2235.2
+  },
+  "Oesterreich": {
+   "p_titel": 0.0049,
+   "p_finale": 0.0137,
+   "p_halbfinale": 0.0377,
+   "p_achtelfinale": 0.2265,
+   "elo": 1961.2
+  },
+  "Algerien": {
+   "p_titel": 0.0042,
+   "p_finale": 0.015,
+   "p_halbfinale": 0.0481,
+   "p_achtelfinale": 0.4354,
+   "elo": 1946.5
+  },
+  "Jordanien": {
+   "p_titel": 0.0,
+   "p_finale": 0.0,
+   "p_halbfinale": 0.0,
+   "p_achtelfinale": 0.0,
+   "elo": 1735.5
+  },
+  "Portugal": {
+   "p_titel": 0.0486,
+   "p_finale": 0.0951,
+   "p_halbfinale": 0.1827,
+   "p_achtelfinale": 0.6113,
+   "elo": 2090.1
+  },
+  "Kolumbien": {
+   "p_titel": 0.0343,
+   "p_finale": 0.0848,
+   "p_halbfinale": 0.1884,
+   "p_achtelfinale": 0.7826,
+   "elo": 2098.7
+  },
+  "Usbekistan": {
+   "p_titel": 0.0,
+   "p_finale": 0.0,
+   "p_halbfinale": 0.0,
+   "p_achtelfinale": 0.0,
+   "elo": 1763.8
+  },
+  "DR Kongo": {
+   "p_titel": 0.0005,
+   "p_finale": 0.0023,
+   "p_halbfinale": 0.0101,
+   "p_achtelfinale": 0.1541,
+   "elo": 1804.4
+  },
+  "England": {
+   "p_titel": 0.0935,
+   "p_finale": 0.1808,
+   "p_halbfinale": 0.3274,
+   "p_achtelfinale": 0.8459,
+   "elo": 2095.1
+  },
+  "Kroatien": {
+   "p_titel": 0.0118,
+   "p_finale": 0.0307,
+   "p_halbfinale": 0.0749,
+   "p_achtelfinale": 0.3887,
+   "elo": 1986.5
+  },
+  "Ghana": {
+   "p_titel": 0.0004,
+   "p_finale": 0.0015,
+   "p_halbfinale": 0.0102,
+   "p_achtelfinale": 0.2174,
+   "elo": 1674.0
+  },
+  "Panama": {
+   "p_titel": 0.0,
+   "p_finale": 0.0,
+   "p_halbfinale": 0.0,
+   "p_achtelfinale": 0.0,
+   "elo": 1760.1
+  }
+ }
+}

@@ -1,10 +1,10 @@
 {
   "available": true,
-  "headline": "Marokko bewegt sich am staerksten: -0.5 Pkt. auf 1.8% Titelchance.",
-  "last_game": "2026-06-28",
+  "headline": "Niederlande bewegt sich am staerksten: -4.7 Pkt. auf 0.0% Titelchance.",
+  "last_game": "2026-06-29",
   "leader": {
     "name": "Argentinien",
-    "p_titel": 0.1957,
+    "p_titel": 0.1884,
     "team": "Argentinien"
   },
   "live_eval": {
@@ -15,82 +15,85 @@
   },
   "movers": [
     {
-      "delta": -0.005,
+      "delta": -0.0467,
       "direction": "down",
-      "name": "Marokko",
-      "p_titel": 0.0175,
+      "name": "Niederlande",
+      "p_titel": 0.0,
       "reasons": [
-        "Bracket und Restfeld"
+        "kein Gruppenweg mehr"
+      ],
+      "team": "Niederlande"
+    },
+    {
+      "delta": 0.0439,
+      "direction": "up",
+      "name": "Brasilien",
+      "p_titel": 0.0838,
+      "reasons": [
+        "Live-Elo +15",
+        "Gruppenweg fast offen"
+      ],
+      "team": "Brasilien"
+    },
+    {
+      "delta": 0.034,
+      "direction": "up",
+      "name": "Marokko",
+      "p_titel": 0.0515,
+      "reasons": [
+        "Gruppenweg fast offen"
       ],
       "team": "Marokko"
     },
     {
-      "delta": 0.0047,
-      "direction": "up",
-      "name": "Argentinien",
-      "p_titel": 0.1957,
-      "reasons": [
-        "Gruppenweg fast offen"
-      ],
-      "team": "Argentinien"
-    },
-    {
-      "delta": 0.0045,
-      "direction": "up",
+      "delta": -0.0197,
+      "direction": "down",
       "name": "Deutschland",
-      "p_titel": 0.0511,
+      "p_titel": 0.0314,
       "reasons": [
+        "Live-Elo -8",
         "Gruppenweg fast offen"
       ],
       "team": "Deutschland"
     },
     {
-      "delta": 0.0042,
-      "direction": "up",
-      "name": "England",
-      "p_titel": 0.1003,
+      "delta": -0.0113,
+      "direction": "down",
+      "name": "Japan",
+      "p_titel": 0.0,
       "reasons": [
-        "Gruppenweg fast offen"
+        "Live-Elo -15",
+        "kein Gruppenweg mehr"
       ],
-      "team": "England"
+      "team": "Japan"
     },
     {
-      "delta": -0.0035,
-      "direction": "down",
+      "delta": 0.0095,
+      "direction": "up",
       "name": "Spanien",
-      "p_titel": 0.1324,
+      "p_titel": 0.1419,
       "reasons": [
         "Gruppenweg fast offen"
       ],
       "team": "Spanien"
-    },
-    {
-      "delta": -0.0024,
-      "direction": "down",
-      "name": "Brasilien",
-      "p_titel": 0.0399,
-      "reasons": [
-        "Bracket und Restfeld"
-      ],
-      "team": "Brasilien"
     }
   ],
-  "n_played": 73,
-  "stamp": "2026-06-29 12:14",
+  "n_played": 76,
+  "stamp": "2026-06-30 10:41",
   "top3": [
     {
       "name": "Argentinien",
-      "p_titel": 0.1957,
+      "p_titel": 0.1884,
       "team": "Argentinien"
     },
     {
       "name": "Frankreich",
-      "p_titel": 0.1517,
+      "p_titel": 0.1554,
       "team": "Frankreich"
     },
     {
       "name": "Spanien",
-      "p_titel": 0.1324,
+      "p_titel": 0.1419,
       "team": "Spanien"
     }
   ]
