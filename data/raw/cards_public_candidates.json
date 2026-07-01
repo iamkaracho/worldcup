@@ -89,5 +89,18 @@
     "source": "world_cup_red_cards",
     "source_url": "https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_red_cards",
     "team": "Uruguay"
+  },
+  {
+    "after": "2026-06-30",
+    "confidence": 0.92,
+    "games": 1,
+    "id": "847894849893",
+    "kind": "red",
+    "opponent": "Mexiko",
+    "player": "Piero Hincapié",
+    "raw": "188. | 152. | Piero Hincapié |  | 90+5' | Ecuador | 0-2 | 0-2 | Mexico | Slavko Vincic (SVN) | Round of 32 | 30 June 2026",
+    "source": "world_cup_red_cards",
+    "source_url": "https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_red_cards",
+    "team": "Ecuador"
   }
 ]

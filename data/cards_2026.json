@@ -24,6 +24,22 @@
     "yellow_plus_red": 0,
     "yellow_red": 0
   },
+  "Ecuador": {
+    "bans": [
+      {
+        "after": "2026-06-30",
+        "games": 1,
+        "player": "Piero Hincapié (rot vs Mexiko)",
+        "source": "https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_red_cards",
+        "source_id": "847894849893",
+        "value": 0.0
+      }
+    ],
+    "red": 1,
+    "yellow": 0,
+    "yellow_plus_red": 0,
+    "yellow_red": 0
+  },
   "Irak": {
     "bans": [
       {
