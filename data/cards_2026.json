@@ -104,6 +104,22 @@
     "yellow_plus_red": 0,
     "yellow_red": 0
   },
+  "USA": {
+    "bans": [
+      {
+        "after": "2026-07-01",
+        "games": 1,
+        "player": "Folarin Balogun (rot vs Bosnien-Herzegowina)",
+        "source": "https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_red_cards",
+        "source_id": "f560fa3209be",
+        "value": 0.0
+      }
+    ],
+    "red": 1,
+    "yellow": 0,
+    "yellow_plus_red": 0,
+    "yellow_red": 0
+  },
   "Uruguay": {
     "bans": [
       {
