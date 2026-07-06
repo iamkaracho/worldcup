@@ -40,6 +40,22 @@
     "yellow_plus_red": 0,
     "yellow_red": 0
   },
+  "England": {
+    "bans": [
+      {
+        "after": "2026-07-05",
+        "games": 1,
+        "player": "Jarell Quansah (rot vs Mexiko)",
+        "source": "https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_red_cards",
+        "source_id": "e3c79788e65f",
+        "value": 0.0
+      }
+    ],
+    "red": 1,
+    "yellow": 0,
+    "yellow_plus_red": 0,
+    "yellow_red": 0
+  },
   "Irak": {
     "bans": [
       {
