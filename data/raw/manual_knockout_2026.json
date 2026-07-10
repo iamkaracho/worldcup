@@ -1,0 +1,16 @@
+{
+  "third_slot_overrides": {
+    "74": "D",
+    "77": "B"
+  },
+  "matches": {
+    "74": {
+      "round": "Sechzehntelfinale",
+      "home": "Deutschland",
+      "away": "Paraguay",
+      "played": true,
+      "winner": "Paraguay",
+      "source": "manual correction"
+    }
+  }
+}

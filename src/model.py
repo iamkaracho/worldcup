@@ -634,11 +634,14 @@ def assign_thirds(qualified_letters):
 
 
 def simulate_tournament(groups, scores, group_out=None, fixed_group=None, ko_winners=None,
+                        ko_match_winners=None, third_slot_overrides=None,
                         susp_pair=None, susp_round=None, fairplay=None):
     """group_out (optional dict): wird je Gruppe mit der 4er-Rangliste befuellt,
     plus group_out['_q3'] = Menge der als Gruppendritte qualifizierten Teams.
     fixed_group: bereits gespielte Gruppenspiele {(a,b):(ga,gb)} (Conditioning).
     ko_winners: bereits entschiedene K.-o.-Spiele {frozenset({a,b}): sieger}.
+    ko_match_winners: harte K.-o.-Overrides nach FIFA-Spielnummer {74: "Paraguay"}.
+    third_slot_overrides: manuelle Drittplatzierten-Slots {74: "D"}.
     susp_pair/susp_round/fairplay: Sperren-Mali (Gruppe/K.-o.) und Fair-Play-Punkte."""
     reached = {t: "Gruppenphase" for g in groups.values() for t in g}
     W, R, third, tstats = {}, {}, {}, {}
@@ -657,6 +660,8 @@ def simulate_tournament(groups, scores, group_out=None, fixed_group=None, ko_win
     if group_out is not None:
         group_out["_q3"] = {third[L] for L in q}
     slot_letter = assign_thirds(q)
+    if third_slot_overrides:
+        slot_letter.update({int(k): v for k, v in third_slot_overrides.items()})
 
     def spec_team(spec):
         kind, val = spec
@@ -671,7 +676,9 @@ def simulate_tournament(groups, scores, group_out=None, fixed_group=None, ko_win
             else:
                 ca, cb = TREE[m]
                 a, b = resolve(ca), resolve(cb)
-            if ko_winners and frozenset((a, b)) in ko_winners:
+            if ko_match_winners and m in ko_match_winners:
+                w = ko_match_winners[m]
+            elif ko_winners and frozenset((a, b)) in ko_winners:
                 w = ko_winners[frozenset((a, b))]
             else:
                 radj = susp_round.get(ROUND_OF[m]) if susp_round else None

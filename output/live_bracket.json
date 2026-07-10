@@ -1,6 +1,6 @@
 {
  "available": true,
- "stamp": "2026-07-10 19:01",
+ "stamp": "2026-07-10 21:07",
  "n_played": 97,
  "qualified_thirds": [
   "B",
@@ -13,8 +13,8 @@
   "L"
  ],
  "third_slot_letter": {
-  "77": "D",
-  "74": "B",
+  "77": "B",
+  "74": "D",
   "79": "E",
   "82": "I",
   "80": "K",
@@ -39,13 +39,13 @@
    "match": 74,
    "round": "Sechzehntelfinale",
    "home": "Deutschland",
-   "away": "Bosnien-Herzegowina",
+   "away": "Paraguay",
    "home_label": "Sieger E",
-   "away_label": "Dritter B",
-   "played": false,
-   "winner": null,
-   "p_home": 0.822,
-   "p_away": 0.178
+   "away_label": "Dritter D",
+   "played": true,
+   "winner": "Paraguay",
+   "p_home": 0.7174,
+   "p_away": 0.2826
   },
   {
    "match": 75,
@@ -75,13 +75,13 @@
    "match": 77,
    "round": "Sechzehntelfinale",
    "home": "Frankreich",
-   "away": "Paraguay",
+   "away": "Bosnien-Herzegowina",
    "home_label": "Sieger I",
-   "away_label": "Dritter D",
-   "played": true,
-   "winner": "Frankreich",
-   "p_home": 0.8334,
-   "p_away": 0.1666
+   "away_label": "Dritter B",
+   "played": false,
+   "winner": null,
+   "p_home": 0.9095,
+   "p_away": 0.0905
   },
   {
    "match": 78,

@@ -159,6 +159,7 @@ def live_eval(fixed, ko, scores):
 
 
 MANUAL_PATH = os.path.join(model._HERE, "..", "data", "raw", "manual_results.csv")
+MANUAL_KO_PATH = os.path.join(model._HERE, "..", "data", "raw", "manual_knockout_2026.json")
 
 
 def merge_manual(rows):
@@ -184,6 +185,28 @@ def merge_manual(rows):
         rows.extend(extra)
         rows.sort(key=lambda r: r["date"])
     return rows
+
+
+def load_manual_knockout():
+    if not os.path.exists(MANUAL_KO_PATH):
+        return {"third_slot_overrides": {}, "match_winners": {}, "matches": {}}
+    with open(MANUAL_KO_PATH, encoding="utf-8") as f:
+        raw = json.load(f)
+    matches = {int(k): v for k, v in raw.get("matches", {}).items()}
+    winners = {int(k): v["winner"] for k, v in matches.items()
+               if v.get("played") and v.get("winner")}
+    return {
+        "third_slot_overrides": {int(k): v for k, v in raw.get("third_slot_overrides", {}).items()},
+        "match_winners": winners,
+        "matches": matches,
+    }
+
+
+def manual_state(manual_ko):
+    return {
+        "third_slot_overrides": {str(k): v for k, v in sorted(manual_ko["third_slot_overrides"].items())},
+        "match_winners": {str(k): v for k, v in sorted(manual_ko["match_winners"].items())},
+    }
 
 
 def fresh_elo(rows):
@@ -224,7 +247,7 @@ def _ko_probability(a, b, scores):
     return max(0.0, min(1.0, pw + pd * pen))
 
 
-def write_live_bracket(groups, fixed, ko, scores, fairplay, stamp, n_played):
+def write_live_bracket(groups, fixed, ko, scores, fairplay, stamp, n_played, manual_ko=None):
     """Schreibt die aktuell bekannte K.-o.-Lage fuer das Dashboard.
     Vor kompletter Gruppenphase bleibt die Datei bewusst leer, damit das Dashboard
     bei Gruppenspielen bleibt. Danach werden bekannte und offene K.-o.-Paarungen
@@ -232,10 +255,11 @@ def write_live_bracket(groups, fixed, ko, scores, fairplay, stamp, n_played):
     path = os.path.join(OUT_DIR, "live_bracket.json")
     tables = _group_tables(groups, fixed, fairplay)
     if not tables or not all(t["complete"] for t in tables.values()):
+        payload = {"available": False, "reason": "group_stage_open",
+                   "n_played": n_played, "stamp": stamp}
         with open(path, "w", encoding="utf-8") as f:
-            json.dump({"available": False, "reason": "group_stage_open",
-                       "n_played": n_played, "stamp": stamp}, f, ensure_ascii=False, indent=1)
-        return
+            json.dump(payload, f, ensure_ascii=False, indent=1)
+        return payload
 
     winners = {L: tables[L]["ranked"][0] for L in tables}
     runners = {L: tables[L]["ranked"][1] for L in tables}
@@ -243,6 +267,8 @@ def write_live_bracket(groups, fixed, ko, scores, fairplay, stamp, n_played):
     q_letters = set(sorted(tables, key=lambda L: model.third_place_key(thirds[L], tables[L]["stats"]),
                            reverse=True)[:8])
     slot_letter = model.assign_thirds(q_letters)
+    if manual_ko:
+        slot_letter.update(manual_ko["third_slot_overrides"])
 
     def spec_label(spec):
         kind, val = spec
@@ -266,8 +292,15 @@ def write_live_bracket(groups, fixed, ko, scores, fairplay, stamp, n_played):
             ca, cb = model.TREE[m]
             a, b = resolve(ca), resolve(cb)
             l1, l2 = f"Sieger {ca}", f"Sieger {cb}"
+        override = manual_ko["matches"].get(m) if manual_ko else None
+        if override:
+            a = override.get("home") or a
+            b = override.get("away") or b
+            l1 = override.get("home_label") or l1
+            l2 = override.get("away_label") or l2
         pair = frozenset((a, b))
-        winner = ko.get(pair)
+        winner = (override.get("winner") if override and override.get("played")
+                  else ko.get(pair))
         if winner is None and m not in model.R32 and (a is None or b is None):
             games.append({"match": m, "round": model.ROUND_OF[m], "home": None, "away": None,
                           "home_label": l1, "away_label": l2, "played": False})
@@ -290,11 +323,13 @@ def write_live_bracket(groups, fixed, ko, scores, fairplay, stamp, n_played):
                 resolve(m)
 
     games.sort(key=lambda x: x["match"])
+    payload = {"available": True, "stamp": stamp, "n_played": n_played,
+               "qualified_thirds": sorted(q_letters),
+               "third_slot_letter": {str(k): v for k, v in slot_letter.items()},
+               "games": games}
     with open(path, "w", encoding="utf-8") as f:
-        json.dump({"available": True, "stamp": stamp, "n_played": n_played,
-                   "qualified_thirds": sorted(q_letters),
-                   "third_slot_letter": {str(k): v for k, v in slot_letter.items()},
-                   "games": games}, f, ensure_ascii=False, indent=1)
+        json.dump(payload, f, ensure_ascii=False, indent=1)
+    return payload
 
 
 def main():
@@ -317,6 +352,8 @@ def main():
         rows = []
         print(f"{calibrate.RESULTS_PATH} fehlt; nutze nur manual_results.csv, falls vorhanden.")
     rows = merge_manual(rows)
+    manual_ko = load_manual_knockout()
+    mstate = manual_state(manual_ko)
 
     fixed, ko, n_played, last_date = played_wc_games(rows, team2group)
 
@@ -350,10 +387,11 @@ def main():
 
     fairplay = model.load_cards()
     stamp = datetime.now().strftime("%Y-%m-%d %H:%M")
-    write_live_bracket(groups, fixed, ko, scores, fairplay, stamp, n_played)
+    bracket_payload = write_live_bracket(groups, fixed, ko, scores, fairplay, stamp, n_played, manual_ko)
 
     # Schon ein Snapshot mit diesem Stand? -> nichts zu tun.
-    if prev and prev["n_played"] == n_played and not force:
+    same_manual_state = prev and prev.get("manual_knockout") == mstate
+    if prev and prev["n_played"] == n_played and same_manual_state and not force:
         msg = f"Keine neuen Spiele seit {prev['stamp']} ({n_played} gespielt)"
         automation_status.write_step("snapshot", True, msg, {
             "n_played": n_played,
@@ -374,6 +412,8 @@ def main():
         go = {}
         champ, reached = model.simulate_tournament(
             groups, scores, group_out=go, fixed_group=fixed, ko_winners=ko,
+            ko_match_winners=manual_ko["match_winners"],
+            third_slot_overrides=manual_ko["third_slot_overrides"],
             susp_pair=susp_pair, susp_round=susp_round, fairplay=fairplay)
         titles[champ] += 1
         for t, r in reached.items():
@@ -391,11 +431,19 @@ def main():
 
     # offiziell ausgeschieden = in KEINEM einzigen der Sims aus der Gruppe gekommen
     # (mathematisch chancenlos; nur sinnvoll, sobald Spiele gespielt sind)
-    eliminated = {t: (n_played > 0 and advanced_count(t) == 0) for t in teams}
+    ko_eliminated = set()
+    for g in bracket_payload.get("games", []):
+        if g.get("played") and g.get("winner"):
+            for side in (g.get("home"), g.get("away")):
+                if side and side != g["winner"]:
+                    ko_eliminated.add(side)
+    eliminated = {t: (n_played > 0 and (advanced_count(t) == 0 or t in ko_eliminated))
+                  for t in teams}
 
     snap = {
         "stamp": stamp, "n_played": n_played, "last_game": last_date or None,
         "n_sims": sims, "modus": modus, "live_eval": ev,
+        "manual_knockout": mstate,
         "teams": {t: {"p_titel": round(titles[t] / sims, 4),
                       "p_finale": round(p_at_least(t, "Finale"), 4),
                       "p_halbfinale": round(p_at_least(t, "Halbfinale"), 4),
@@ -410,7 +458,7 @@ def main():
     # model.py weiterhin die statische win_probabilities_2026.csv besitzt).
     live = os.path.join(model._HERE, "..", "output", "live_probabilities.csv")
     with open(live, "w", newline="", encoding="utf-8") as f:
-        w = csv.writer(f)
+        w = csv.writer(f, lineterminator="\n")
         w.writerow(["team", "p_titel", "p_finale", "p_halbfinale", "p_achtelfinale",
                     "staerke_score", "elo", "eliminated", "n_played", "stamp"])
         for t, d in snap["teams"].items():
@@ -451,7 +499,7 @@ def main():
     hist = os.path.join(SNAP_DIR, "history.csv")
     new_hist = not os.path.exists(hist)
     with open(hist, "a", newline="", encoding="utf-8") as f:
-        w = csv.writer(f)
+        w = csv.writer(f, lineterminator="\n")
         if new_hist:
             w.writerow(["stamp", "n_played", "team", "p_titel", "p_halbfinale", "elo"])
         for t, d in snap["teams"].items():
