@@ -22,13 +22,13 @@
       "ok": true
     },
     "snapshot": {
-      "at": "2026-07-10T19:09:40Z",
-      "changed": false,
-      "derived_outputs_refreshed": true,
-      "message": "Keine neuen Spiele seit 2026-07-10 21:07 (97 gespielt)",
+      "at": "2026-07-10T19:14:12Z",
+      "changed": true,
+      "last_game": "2026-07-09",
+      "message": "Snapshot geschrieben: snapshot_20260710_2114.json",
       "n_played": 97,
       "ok": true
     }
   },
-  "updated_at": "2026-07-10T19:09:40Z"
+  "updated_at": "2026-07-10T19:14:12Z"
 }

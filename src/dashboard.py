@@ -478,7 +478,8 @@ TEMPLATE = r"""<!DOCTYPE html>
   @media(hover:hover) and (pointer:fine){
     tbody tr.main:hover{background:#2a2114aa}
   }
-  tbody tr.dead .name,tbody tr.dead .rank{opacity:.5}
+  tbody tr.dead{opacity:.48}
+  tbody tr.dead .bar i{filter:saturate(.2);opacity:.6}
   .deadmark{display:inline-block;margin-right:7px;color:var(--red);font-size:11px;font-weight:860;letter-spacing:.08em}
   #thirds table{width:100%;max-width:680px;border-collapse:collapse;font-variant-numeric:tabular-nums}
   #thirds th{font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);

@@ -1,6 +1,6 @@
 {
  "available": true,
- "stamp": "2026-07-10 19:09",
+ "stamp": "2026-07-10 21:14",
  "n_played": 97,
  "qualified_thirds": [
   "B",
@@ -13,13 +13,13 @@
   "L"
  ],
  "third_slot_letter": {
-  "77": "B",
+  "77": "F",
   "74": "D",
   "79": "E",
   "82": "I",
   "80": "K",
-  "85": "F",
-  "81": "J",
+  "85": "J",
+  "81": "B",
   "87": "L"
  },
  "games": [
@@ -75,13 +75,13 @@
    "match": 77,
    "round": "Sechzehntelfinale",
    "home": "Frankreich",
-   "away": "Bosnien-Herzegowina",
+   "away": "Schweden",
    "home_label": "Sieger I",
-   "away_label": "Dritter B",
-   "played": false,
-   "winner": null,
-   "p_home": 0.9095,
-   "p_away": 0.0905
+   "away_label": "Dritter F",
+   "played": true,
+   "winner": "Frankreich",
+   "p_home": 0.8227,
+   "p_away": 0.1773
   },
   {
    "match": 78,
@@ -123,13 +123,13 @@
    "match": 81,
    "round": "Sechzehntelfinale",
    "home": "USA",
-   "away": "Algerien",
+   "away": "Bosnien-Herzegowina",
    "home_label": "Sieger D",
-   "away_label": "Dritter J",
-   "played": false,
-   "winner": null,
-   "p_home": 0.5801,
-   "p_away": 0.4199
+   "away_label": "Dritter B",
+   "played": true,
+   "winner": "USA",
+   "p_home": 0.7346,
+   "p_away": 0.2654
   },
   {
    "match": 82,
@@ -171,13 +171,13 @@
    "match": 85,
    "round": "Sechzehntelfinale",
    "home": "Schweiz",
-   "away": "Schweden",
+   "away": "Algerien",
    "home_label": "Sieger B",
-   "away_label": "Dritter F",
-   "played": false,
-   "winner": null,
-   "p_home": 0.6408,
-   "p_away": 0.3592
+   "away_label": "Dritter J",
+   "played": true,
+   "winner": "Schweiz",
+   "p_home": 0.6395,
+   "p_away": 0.3605
   },
   {
    "match": 86,
@@ -214,6 +214,18 @@
    "winner": "Aegypten",
    "p_home": 0.5311,
    "p_away": 0.4689
+  },
+  {
+   "match": 89,
+   "round": "Achtelfinale",
+   "home": "Paraguay",
+   "away": "Frankreich",
+   "home_label": "Sieger 74",
+   "away_label": "Sieger 77",
+   "played": true,
+   "winner": "Frankreich",
+   "p_home": 0.1666,
+   "p_away": 0.8334
   },
   {
    "match": 90,
@@ -264,6 +276,18 @@
    "p_away": 0.6138
   },
   {
+   "match": 94,
+   "round": "Achtelfinale",
+   "home": "USA",
+   "away": "Belgien",
+   "home_label": "Sieger 81",
+   "away_label": "Sieger 82",
+   "played": true,
+   "winner": "Belgien",
+   "p_home": 0.3763,
+   "p_away": 0.6237
+  },
+  {
    "match": 95,
    "round": "Achtelfinale",
    "home": "Argentinien",
@@ -276,6 +300,42 @@
    "p_away": 0.171
   },
   {
+   "match": 96,
+   "round": "Achtelfinale",
+   "home": "Schweiz",
+   "away": "Kolumbien",
+   "home_label": "Sieger 85",
+   "away_label": "Sieger 87",
+   "played": true,
+   "winner": "Schweiz",
+   "p_home": 0.5019,
+   "p_away": 0.4981
+  },
+  {
+   "match": 97,
+   "round": "Viertelfinale",
+   "home": "Frankreich",
+   "away": "Marokko",
+   "home_label": "Sieger 89",
+   "away_label": "Sieger 90",
+   "played": true,
+   "winner": "Frankreich",
+   "p_home": 0.7041,
+   "p_away": 0.2959
+  },
+  {
+   "match": 98,
+   "round": "Viertelfinale",
+   "home": "Spanien",
+   "away": "Belgien",
+   "home_label": "Sieger 93",
+   "away_label": "Sieger 94",
+   "played": false,
+   "winner": null,
+   "p_home": 0.6606,
+   "p_away": 0.3394
+  },
+  {
    "match": 99,
    "round": "Viertelfinale",
    "home": "Norwegen",
@@ -286,6 +346,18 @@
    "winner": null,
    "p_home": 0.3961,
    "p_away": 0.6039
+  },
+  {
+   "match": 100,
+   "round": "Viertelfinale",
+   "home": "Argentinien",
+   "away": "Schweiz",
+   "home_label": "Sieger 95",
+   "away_label": "Sieger 96",
+   "played": false,
+   "winner": null,
+   "p_home": 0.6715,
+   "p_away": 0.3285
   }
  ]
 }

@@ -1,16 +1,235 @@
 {
   "third_slot_overrides": {
     "74": "D",
-    "77": "B"
+    "77": "F",
+    "79": "E",
+    "80": "K",
+    "81": "B",
+    "82": "I",
+    "85": "J",
+    "87": "L"
   },
   "matches": {
+    "73": {
+      "round": "Sechzehntelfinale",
+      "home": "Suedafrika",
+      "away": "Kanada",
+      "played": true,
+      "winner": "Kanada",
+      "source": "results feed match-number override"
+    },
     "74": {
       "round": "Sechzehntelfinale",
       "home": "Deutschland",
       "away": "Paraguay",
       "played": true,
       "winner": "Paraguay",
-      "source": "manual correction"
+      "source": "results feed match-number override"
+    },
+    "75": {
+      "round": "Sechzehntelfinale",
+      "home": "Niederlande",
+      "away": "Marokko",
+      "played": true,
+      "winner": "Marokko",
+      "source": "results feed match-number override"
+    },
+    "76": {
+      "round": "Sechzehntelfinale",
+      "home": "Brasilien",
+      "away": "Japan",
+      "played": true,
+      "winner": "Brasilien",
+      "source": "results feed match-number override"
+    },
+    "77": {
+      "round": "Sechzehntelfinale",
+      "home": "Frankreich",
+      "away": "Schweden",
+      "played": true,
+      "winner": "Frankreich",
+      "source": "results feed match-number override"
+    },
+    "78": {
+      "round": "Sechzehntelfinale",
+      "home": "Elfenbeinkueste",
+      "away": "Norwegen",
+      "played": true,
+      "winner": "Norwegen",
+      "source": "results feed match-number override"
+    },
+    "79": {
+      "round": "Sechzehntelfinale",
+      "home": "Mexiko",
+      "away": "Ecuador",
+      "played": true,
+      "winner": "Mexiko",
+      "source": "results feed match-number override"
+    },
+    "80": {
+      "round": "Sechzehntelfinale",
+      "home": "England",
+      "away": "DR Kongo",
+      "played": true,
+      "winner": "England",
+      "source": "results feed match-number override"
+    },
+    "81": {
+      "round": "Sechzehntelfinale",
+      "home": "USA",
+      "away": "Bosnien-Herzegowina",
+      "played": true,
+      "winner": "USA",
+      "source": "results feed match-number override"
+    },
+    "82": {
+      "round": "Sechzehntelfinale",
+      "home": "Belgien",
+      "away": "Senegal",
+      "played": true,
+      "winner": "Belgien",
+      "source": "results feed match-number override"
+    },
+    "83": {
+      "round": "Sechzehntelfinale",
+      "home": "Portugal",
+      "away": "Kroatien",
+      "played": true,
+      "winner": "Portugal",
+      "source": "results feed match-number override"
+    },
+    "84": {
+      "round": "Sechzehntelfinale",
+      "home": "Spanien",
+      "away": "Oesterreich",
+      "played": true,
+      "winner": "Spanien",
+      "source": "results feed match-number override"
+    },
+    "85": {
+      "round": "Sechzehntelfinale",
+      "home": "Schweiz",
+      "away": "Algerien",
+      "played": true,
+      "winner": "Schweiz",
+      "source": "results feed match-number override"
+    },
+    "86": {
+      "round": "Sechzehntelfinale",
+      "home": "Argentinien",
+      "away": "Kap Verde",
+      "played": true,
+      "winner": "Argentinien",
+      "source": "results feed match-number override"
+    },
+    "87": {
+      "round": "Sechzehntelfinale",
+      "home": "Kolumbien",
+      "away": "Ghana",
+      "played": true,
+      "winner": "Kolumbien",
+      "source": "results feed match-number override"
+    },
+    "88": {
+      "round": "Sechzehntelfinale",
+      "home": "Australien",
+      "away": "Aegypten",
+      "played": true,
+      "winner": "Aegypten",
+      "source": "results feed match-number override"
+    },
+    "89": {
+      "round": "Achtelfinale",
+      "home": "Paraguay",
+      "away": "Frankreich",
+      "played": true,
+      "winner": "Frankreich",
+      "source": "results feed match-number override"
+    },
+    "90": {
+      "round": "Achtelfinale",
+      "home": "Kanada",
+      "away": "Marokko",
+      "played": true,
+      "winner": "Marokko",
+      "source": "results feed match-number override"
+    },
+    "91": {
+      "round": "Achtelfinale",
+      "home": "Brasilien",
+      "away": "Norwegen",
+      "played": true,
+      "winner": "Norwegen",
+      "source": "results feed match-number override"
+    },
+    "92": {
+      "round": "Achtelfinale",
+      "home": "Mexiko",
+      "away": "England",
+      "played": true,
+      "winner": "England",
+      "source": "results feed match-number override"
+    },
+    "93": {
+      "round": "Achtelfinale",
+      "home": "Portugal",
+      "away": "Spanien",
+      "played": true,
+      "winner": "Spanien",
+      "source": "results feed match-number override"
+    },
+    "94": {
+      "round": "Achtelfinale",
+      "home": "USA",
+      "away": "Belgien",
+      "played": true,
+      "winner": "Belgien",
+      "source": "results feed match-number override"
+    },
+    "95": {
+      "round": "Achtelfinale",
+      "home": "Argentinien",
+      "away": "Aegypten",
+      "played": true,
+      "winner": "Argentinien",
+      "source": "results feed match-number override"
+    },
+    "96": {
+      "round": "Achtelfinale",
+      "home": "Schweiz",
+      "away": "Kolumbien",
+      "played": true,
+      "winner": "Schweiz",
+      "source": "results feed match-number override"
+    },
+    "97": {
+      "round": "Viertelfinale",
+      "home": "Frankreich",
+      "away": "Marokko",
+      "played": true,
+      "winner": "Frankreich",
+      "source": "results feed match-number override"
+    },
+    "98": {
+      "round": "Viertelfinale",
+      "home": "Spanien",
+      "away": "Belgien",
+      "played": false,
+      "source": "results feed fixture override"
+    },
+    "99": {
+      "round": "Viertelfinale",
+      "home": "Norwegen",
+      "away": "England",
+      "played": false,
+      "source": "results feed fixture override"
+    },
+    "100": {
+      "round": "Viertelfinale",
+      "home": "Argentinien",
+      "away": "Schweiz",
+      "played": false,
+      "source": "results feed fixture override"
     }
   }
 }
