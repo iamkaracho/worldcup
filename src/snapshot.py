@@ -34,6 +34,7 @@ import model
 import validate as V
 
 SNAP_DIR = os.path.join(model._HERE, "..", "output", "snapshots")
+OUT_DIR = os.path.join(model._HERE, "..", "output")
 RESULTS_URL = "https://raw.githubusercontent.com/martj42/international_results/master/results.csv"
 SHOOTOUTS_URL = "https://raw.githubusercontent.com/martj42/international_results/master/shootouts.csv"
 SHOOTOUTS_PATH = os.path.join(model._HERE, "..", "data", "raw", "shootouts.csv")
@@ -50,6 +51,7 @@ def nice(t):
 
 
 def download(url, dest):
+    os.makedirs(os.path.dirname(dest), exist_ok=True)
     try:
         subprocess.run(["curl", "-sL", "--max-time", "60", "-o", dest + ".tmp", url],
                        check=True)
@@ -74,9 +76,23 @@ def shootout_winners():
     return out
 
 
+def group_fixture_keys():
+    path = os.path.join(model._HERE, "..", "output", "group_fixtures.json")
+    if not os.path.exists(path):
+        return None
+    with open(path, encoding="utf-8") as f:
+        fixtures = json.load(f)
+    keys = set()
+    for x in fixtures:
+        keys.add((x["date"], x["home"], x["away"]))
+        keys.add((x["date"], x["away"], x["home"]))
+    return keys
+
+
 def played_wc_games(rows, team2group):
     """(fixed_group, ko_winners, n_played, letzte_datum)"""
     pens = shootout_winners()
+    group_keys = group_fixture_keys()
     fixed, ko = {}, {}
     n, last = 0, ""
     for r in rows:
@@ -90,9 +106,11 @@ def played_wc_games(rows, team2group):
         hg, ag = int(r["home_score"]), int(r["away_score"])
         n += 1
         last = max(last, r["date"])
-        if team2group.get(h) == team2group.get(a):          # Gruppenspiel
+        is_group = ((r["date"], h, a) in group_keys if group_keys is not None
+                    else team2group.get(h) == team2group.get(a))
+        if is_group:
             fixed[(h, a)] = (hg, ag)
-        else:                                               # K.-o.
+        else:
             if hg != ag:
                 ko[frozenset((h, a))] = h if hg > ag else a
             else:
@@ -179,6 +197,106 @@ def fresh_elo(rows):
     return out
 
 
+def _group_tables(groups, fixed, fairplay):
+    out = {}
+    for letter, members in groups.items():
+        st = {t: {"pts": 0, "gf": 0, "ga": 0, "pl": 0, "tb": 0.0} for t in members}
+        res = {}
+        for (a, b), (ga, gb) in fixed.items():
+            if a in st and b in st:
+                res[(a, b)] = (ga, gb)
+                st[a]["gf"] += ga; st[a]["ga"] += gb; st[a]["pl"] += 1
+                st[b]["gf"] += gb; st[b]["ga"] += ga; st[b]["pl"] += 1
+                if ga > gb:
+                    st[a]["pts"] += 3
+                elif gb > ga:
+                    st[b]["pts"] += 3
+                else:
+                    st[a]["pts"] += 1; st[b]["pts"] += 1
+        ranked = model.rank_group(members, st, res, fairplay)
+        out[letter] = {"ranked": ranked, "stats": st, "complete": all(st[t]["pl"] >= 3 for t in members)}
+    return out
+
+
+def _ko_probability(a, b, scores):
+    pw, pd, _, _, _ = model.match_probs(a, b)
+    pen = 1.0 / (1.0 + math.exp(-(scores[a] - scores[b]) / 4))
+    return max(0.0, min(1.0, pw + pd * pen))
+
+
+def write_live_bracket(groups, fixed, ko, scores, fairplay, stamp, n_played):
+    """Schreibt die aktuell bekannte K.-o.-Lage fuer das Dashboard.
+    Vor kompletter Gruppenphase bleibt die Datei bewusst leer, damit das Dashboard
+    bei Gruppenspielen bleibt. Danach werden bekannte und offene K.-o.-Paarungen
+    als eigene Datenquelle gerendert."""
+    path = os.path.join(OUT_DIR, "live_bracket.json")
+    tables = _group_tables(groups, fixed, fairplay)
+    if not tables or not all(t["complete"] for t in tables.values()):
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump({"available": False, "reason": "group_stage_open",
+                       "n_played": n_played, "stamp": stamp}, f, ensure_ascii=False, indent=1)
+        return
+
+    winners = {L: tables[L]["ranked"][0] for L in tables}
+    runners = {L: tables[L]["ranked"][1] for L in tables}
+    thirds = {L: tables[L]["ranked"][2] for L in tables}
+    q_letters = set(sorted(tables, key=lambda L: model.third_place_key(thirds[L], tables[L]["stats"]),
+                           reverse=True)[:8])
+    slot_letter = model.assign_thirds(q_letters)
+
+    def spec_label(spec):
+        kind, val = spec
+        if kind == "W":
+            return f"Sieger {val}", winners[val]
+        if kind == "R":
+            return f"Zweiter {val}", runners[val]
+        letter = slot_letter[val]
+        return f"Dritter {letter}", thirds[letter]
+
+    cache = {}
+    games = []
+
+    def resolve(m):
+        if m in cache:
+            return cache[m]
+        if m in model.R32:
+            l1, a = spec_label(model.R32[m][0])
+            l2, b = spec_label(model.R32[m][1])
+        else:
+            ca, cb = model.TREE[m]
+            a, b = resolve(ca), resolve(cb)
+            l1, l2 = f"Sieger {ca}", f"Sieger {cb}"
+        pair = frozenset((a, b))
+        winner = ko.get(pair)
+        if winner is None and m not in model.R32 and (a is None or b is None):
+            games.append({"match": m, "round": model.ROUND_OF[m], "home": None, "away": None,
+                          "home_label": l1, "away_label": l2, "played": False})
+            cache[m] = None
+            return None
+        p_home = _ko_probability(a, b, scores) if a and b else None
+        games.append({"match": m, "round": model.ROUND_OF[m], "home": a, "away": b,
+                      "home_label": l1, "away_label": l2, "played": winner is not None,
+                      "winner": winner, "p_home": round(p_home, 4) if p_home is not None else None,
+                      "p_away": round(1 - p_home, 4) if p_home is not None else None})
+        cache[m] = winner
+        return winner
+
+    for m in range(73, 89):
+        resolve(m)
+    for m in range(89, 105):
+        if m in model.TREE:
+            ca, cb = model.TREE[m]
+            if cache.get(ca) and cache.get(cb):
+                resolve(m)
+
+    games.sort(key=lambda x: x["match"])
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump({"available": True, "stamp": stamp, "n_played": n_played,
+                   "qualified_thirds": sorted(q_letters),
+                   "third_slot_letter": {str(k): v for k, v in slot_letter.items()},
+                   "games": games}, f, ensure_ascii=False, indent=1)
+
+
 def main():
     force = "--force" in sys.argv
     no_dl = "--no-download" in sys.argv
@@ -193,24 +311,29 @@ def main():
     teams = model.load_teams(model.TEAMS_PATH)
     groups = model.load_groups(model.GROUPS_PATH)
     team2group = {t: g for g, ms in groups.items() for t in ms}
-    rows = list(csv.DictReader(open(calibrate.RESULTS_PATH, encoding="utf-8")))
+    if os.path.exists(calibrate.RESULTS_PATH):
+        rows = list(csv.DictReader(open(calibrate.RESULTS_PATH, encoding="utf-8")))
+    else:
+        rows = []
+        print(f"{calibrate.RESULTS_PATH} fehlt; nutze nur manual_results.csv, falls vorhanden.")
     rows = merge_manual(rows)
 
     fixed, ko, n_played, last_date = played_wc_games(rows, team2group)
 
-    # Schon ein Snapshot mit diesem Stand? -> nichts zu tun.
     prev_files = sorted(f for f in os.listdir(SNAP_DIR) if f.startswith("snapshot_"))
     prev = None
     if prev_files:
         with open(os.path.join(SNAP_DIR, prev_files[-1]), encoding="utf-8") as f:
             prev = json.load(f)
-    if prev and prev["n_played"] == n_played and not force:
-        msg = f"Keine neuen Spiele seit {prev['stamp']} ({n_played} gespielt)"
-        automation_status.write_step("snapshot", True, msg, {
+    if prev and n_played < prev["n_played"]:
+        msg = (f"Erkannte Spiele ({n_played}) liegen hinter letztem Snapshot "
+               f"({prev['n_played']}); breche ab, um Outputs nicht zurückzusetzen")
+        automation_status.write_step("snapshot", False, msg, {
             "n_played": n_played,
+            "previous_n_played": prev["n_played"],
             "changed": False,
         })
-        print(f"{msg} — kein neuer Snapshot.")
+        print(msg)
         return
 
     # Live-Validierung mit dem EINGEFRORENEN Vorturnier-Modell (vor Elo-Update!)
@@ -218,16 +341,30 @@ def main():
     ev = live_eval(fixed, ko, frozen_scores)
 
     # Elo frisch (Form!), Ausfaelle wie gehabt; Kalibrierung bleibt fix.
-    elo_now = fresh_elo(rows)
+    elo_now = fresh_elo(rows) if rows else {}
     teams = {t: dict(v) for t, v in teams.items()}
     for t in teams:
         if t in elo_now:
             teams[t]["elo"] = elo_now[t]
     scores, modus = model.build_scores(teams)
 
+    fairplay = model.load_cards()
+    stamp = datetime.now().strftime("%Y-%m-%d %H:%M")
+    write_live_bracket(groups, fixed, ko, scores, fairplay, stamp, n_played)
+
+    # Schon ein Snapshot mit diesem Stand? -> nichts zu tun.
+    if prev and prev["n_played"] == n_played and not force:
+        msg = f"Keine neuen Spiele seit {prev['stamp']} ({n_played} gespielt)"
+        automation_status.write_step("snapshot", True, msg, {
+            "n_played": n_played,
+            "changed": False,
+            "derived_outputs_refreshed": True,
+        })
+        print(f"{msg} — kein neuer Snapshot.")
+        return
+
     played_pairs = {frozenset(k) for k in fixed}    # gespielte Spiele -> Sperren verfallen
     susp_pair, susp_round = model.resolve_suspensions(played_pairs)
-    fairplay = model.load_cards()
     random.seed()                                   # bewusst NICHT reproduzierbar fixiert
     titles = Counter()
     best = defaultdict(Counter)
@@ -256,7 +393,6 @@ def main():
     # (mathematisch chancenlos; nur sinnvoll, sobald Spiele gespielt sind)
     eliminated = {t: (n_played > 0 and advanced_count(t) == 0) for t in teams}
 
-    stamp = datetime.now().strftime("%Y-%m-%d %H:%M")
     snap = {
         "stamp": stamp, "n_played": n_played, "last_game": last_date or None,
         "n_sims": sims, "modus": modus, "live_eval": ev,

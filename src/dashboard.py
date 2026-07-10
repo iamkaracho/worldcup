@@ -203,6 +203,14 @@ def build():
         if context and live_n > 0 and context.get("n_played") not in (0, live_n):
             context = None
 
+    bracket = None
+    br_path = os.path.join(OUT, "live_bracket.json")
+    if os.path.exists(br_path):
+        with open(br_path, encoding="utf-8") as f:
+            bracket = json.load(f)
+        if bracket and live_n > 0 and bracket.get("n_played") not in (0, live_n):
+            bracket = None
+
     rows = []
     for t, p in probs.items():
         b = band.get(t, {})
@@ -258,6 +266,7 @@ def build():
         "cinderella": cinderella, "darkhorses": darkhorses,
         "exp_out_sf": round(exp_out_sf, 2),
         "fixtures": fixtures,
+        "bracket": bracket,
         "thirds": thirds,
         "explain": explain,
         "incentives": incentives,
@@ -526,6 +535,8 @@ TEMPLATE = r"""<!DOCTYPE html>
   .fxd .bar{height:12px;background:#0c1426;border-radius:4px;overflow:hidden}
   .fxd .bar i{display:block;height:100%;background:var(--gold)}
   .fx .h{text-align:right;font-weight:600} .fx .a{text-align:left;font-weight:600}
+  .fx.ko .winner{color:var(--green);font-weight:860}
+  .fx.ko.played{background:color-mix(in oklab,var(--green) 7%,transparent)}
   .fxbar{height:16px;border-radius:5px;overflow:hidden;display:flex;background:#0c1426}
   .fxbar i{height:100%}
   .fxpct{font-size:11px;color:var(--muted);text-align:center;margin-top:2px;font-variant-numeric:tabular-nums}
@@ -610,7 +621,7 @@ TEMPLATE = r"""<!DOCTYPE html>
   </div>
 
   <h2 class="sec" id="spielplan">Spielplan & Prognosen</h2>
-  <p class="muted" style="max-width:720px">Jedes der 72 Gruppenspiele mit der
+  <p class="muted" id="spielplan-copy" style="max-width:720px">Jedes der 72 Gruppenspiele mit der
     Outcome-Wahrscheinlichkeit <b style="color:var(--green)">Heimsieg</b> /
     <b style="color:#8a98bf">Remis</b> / <b style="color:var(--blue)">Auswärtssieg</b>
     und dem wahrscheinlichsten Ergebnis.</p>
@@ -774,6 +785,36 @@ document.getElementById("groups").innerHTML = Object.keys(D.groups).sort().map(g
 
 // Spielplan & Prognosen
 (function(){
+  const br=D.bracket;
+  if(br&&br.available&&br.games&&br.games.length){
+    const copy=document.getElementById("spielplan-copy");
+    if(copy) copy.innerHTML='K.-o.-Baum aus dem aktuellen Gruppenstand. Gespielte K.-o.-Duelle werden fixiert; offene Duelle zeigen die Modellchance fürs Weiterkommen.';
+    const by={};
+    br.games.forEach(g=>(by[g.round]=by[g.round]||[]).push(g));
+    const order=["Sechzehntelfinale","Achtelfinale","Viertelfinale","Halbfinale","Finale"];
+    let html="";
+    order.forEach(round=>{
+      const games=by[round]||[];
+      if(!games.length) return;
+      html+=`<div class="fxg">${round}</div>`;
+      games.sort((a,b)=>a.match-b.match).forEach(g=>{
+        const ph=g.p_home==null?0.5:g.p_home, pa=g.p_away==null?0.5:g.p_away;
+        const h=g.home||g.home_label, a=g.away||g.away_label;
+        const hs=g.played&&g.winner===g.home?'winner':'';
+        const as=g.played&&g.winner===g.away?'winner':'';
+        html+=`<div class="fx ko ${g.played?'played':''}">
+          <span class="h ${hs}">${h}</span>
+          <div><div class="fxbar">
+            <i style="width:${ph*100}%;background:var(--gold)"></i>
+            <i style="width:${pa*100}%;background:var(--blue)"></i></div>
+            <div class="fxpct">${g.played?`Sieger: ${g.winner}`:`${pct(ph)} / ${pct(pa)}`}</div></div>
+          <span class="fxs">#${g.match}</span>
+          <span class="a ${as}">${a}</span></div>`;
+      });
+    });
+    document.getElementById("fixtures").innerHTML=html;
+    return;
+  }
   const fx=D.fixtures; if(!fx) return;
   const byg={}; fx.forEach(f=>(byg[f.group]=byg[f.group]||[]).push(f));
   let html="";
