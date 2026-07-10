@@ -1,6 +1,6 @@
 {
   "available": true,
-  "headline": "England bewegt sich am staerksten: +0.6 Pkt. auf 15.2% Titelchance.",
+  "headline": "Frankreich bewegt sich am staerksten: +8.6 Pkt. auf 30.9% Titelchance.",
   "last_game": "2026-07-09",
   "leader": {
     "name": "Frankreich",
@@ -15,17 +15,38 @@
   },
   "movers": [
     {
-      "delta": 0.006,
+      "delta": 0.0857,
       "direction": "up",
-      "name": "England",
-      "p_titel": 0.152,
+      "name": "Frankreich",
+      "p_titel": 0.3093,
       "reasons": [
         "Gruppenweg fast offen"
       ],
-      "team": "England"
+      "team": "Frankreich"
     },
     {
-      "delta": -0.006,
+      "delta": -0.027,
+      "direction": "down",
+      "name": "Deutschland",
+      "p_titel": 0.0,
+      "reasons": [
+        "ausgeschieden",
+        "kein Gruppenweg mehr"
+      ],
+      "team": "Deutschland"
+    },
+    {
+      "delta": -0.0233,
+      "direction": "down",
+      "name": "Spanien",
+      "p_titel": 0.208,
+      "reasons": [
+        "Gruppenweg fast offen"
+      ],
+      "team": "Spanien"
+    },
+    {
+      "delta": -0.0151,
       "direction": "down",
       "name": "Marokko",
       "p_titel": 0.0033,
@@ -35,44 +56,24 @@
       "team": "Marokko"
     },
     {
-      "delta": -0.0053,
+      "delta": -0.0131,
       "direction": "down",
-      "name": "Belgien",
-      "p_titel": 0.046,
-      "reasons": [
-        "Gruppenweg fast offen"
-      ],
-      "team": "Belgien"
-    },
-    {
-      "delta": 0.0033,
-      "direction": "up",
-      "name": "Schweiz",
-      "p_titel": 0.024,
-      "reasons": [
-        "Bracket und Restfeld"
-      ],
-      "team": "Schweiz"
-    },
-    {
-      "delta": 0.0033,
-      "direction": "up",
-      "name": "Spanien",
-      "p_titel": 0.208,
-      "reasons": [
-        "Gruppenweg fast offen"
-      ],
-      "team": "Spanien"
-    },
-    {
-      "delta": 0.0033,
-      "direction": "up",
       "name": "Argentinien",
       "p_titel": 0.1933,
       "reasons": [
         "Gruppenweg fast offen"
       ],
       "team": "Argentinien"
+    },
+    {
+      "delta": 0.0095,
+      "direction": "up",
+      "name": "England",
+      "p_titel": 0.152,
+      "reasons": [
+        "Gruppenweg fast offen"
+      ],
+      "team": "England"
     }
   ],
   "n_played": 97,
