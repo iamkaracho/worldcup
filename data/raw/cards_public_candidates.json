@@ -128,5 +128,18 @@
     "source": "world_cup_red_cards",
     "source_url": "https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_red_cards",
     "team": "England"
+  },
+  {
+    "after": "2026-07-11",
+    "confidence": 0.92,
+    "games": 1,
+    "id": "91672239333d",
+    "kind": "red",
+    "opponent": "Argentinien",
+    "player": "Breel Embolo",
+    "raw": "191. | 155. | Breel Embolo |  | 72' | Switzerland | 1-1 | 3–1aet | Argentina | João Pinheiro (POR) | Quarter-finals | 11 July 2026",
+    "source": "world_cup_red_cards",
+    "source_url": "https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_red_cards",
+    "team": "Schweiz"
   }
 ]

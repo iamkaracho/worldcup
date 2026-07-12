@@ -103,6 +103,22 @@
     "yellow_plus_red": 0,
     "yellow_red": 0
   },
+  "Schweiz": {
+    "bans": [
+      {
+        "after": "2026-07-11",
+        "games": 1,
+        "player": "Breel Embolo (rot vs Argentinien)",
+        "source": "https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_red_cards",
+        "source_id": "91672239333d",
+        "value": 0.0
+      }
+    ],
+    "red": 1,
+    "yellow": 0,
+    "yellow_plus_red": 0,
+    "yellow_red": 0
+  },
   "Suedafrika": {
     "_note": "2 Rote vs Mexiko (11.6.), Sperre 18.6. abgesessen",
     "bans": [
