@@ -1,10 +1,10 @@
 {
   "available": true,
-  "headline": "Spanien bewegt sich am staerksten: +10.0 Pkt. auf 30.3% Titelchance.",
-  "last_game": "2026-07-10",
+  "headline": "Argentinien bewegt sich am staerksten: +7.2 Pkt. auf 25.3% Titelchance.",
+  "last_game": "2026-07-11",
   "leader": {
     "name": "Spanien",
-    "p_titel": 0.3028,
+    "p_titel": 0.2817,
     "team": "Spanien"
   },
   "live_eval": {
@@ -15,84 +15,86 @@
   },
   "movers": [
     {
-      "delta": 0.1004,
+      "delta": 0.0723,
       "direction": "up",
-      "name": "Spanien",
-      "p_titel": 0.3028,
-      "reasons": [
-        "Live-Elo +11",
-        "Gruppenweg fast offen"
-      ],
-      "team": "Spanien"
-    },
-    {
-      "delta": -0.0513,
-      "direction": "down",
-      "name": "Belgien",
-      "p_titel": 0.0,
-      "reasons": [
-        "Live-Elo -11",
-        "ausgeschieden"
-      ],
-      "team": "Belgien"
-    },
-    {
-      "delta": -0.0372,
-      "direction": "down",
-      "name": "Frankreich",
-      "p_titel": 0.29,
-      "reasons": [
-        "Gruppenweg fast offen"
-      ],
-      "team": "Frankreich"
-    },
-    {
-      "delta": -0.0104,
-      "direction": "down",
       "name": "Argentinien",
-      "p_titel": 0.1811,
+      "p_titel": 0.2534,
       "reasons": [
+        "Live-Elo +14",
         "Gruppenweg fast offen"
       ],
       "team": "Argentinien"
     },
     {
-      "delta": -0.0018,
+      "delta": 0.0681,
+      "direction": "up",
+      "name": "England",
+      "p_titel": 0.1989,
+      "reasons": [
+        "Live-Elo +16",
+        "Gruppenweg fast offen"
+      ],
+      "team": "England"
+    },
+    {
+      "delta": -0.0538,
       "direction": "down",
       "name": "Norwegen",
-      "p_titel": 0.0538,
+      "p_titel": 0.0,
       "reasons": [
-        "Gruppenweg fast offen"
+        "Live-Elo -16",
+        "ausgeschieden"
       ],
       "team": "Norwegen"
     },
     {
-      "delta": 0.0018,
-      "direction": "up",
-      "name": "England",
-      "p_titel": 0.1308,
+      "delta": -0.0415,
+      "direction": "down",
+      "name": "Schweiz",
+      "p_titel": 0.0,
+      "reasons": [
+        "Live-Elo -13",
+        "ausgeschieden"
+      ],
+      "team": "Schweiz"
+    },
+    {
+      "delta": -0.024,
+      "direction": "down",
+      "name": "Frankreich",
+      "p_titel": 0.266,
       "reasons": [
         "Gruppenweg fast offen"
       ],
-      "team": "England"
+      "team": "Frankreich"
+    },
+    {
+      "delta": -0.0211,
+      "direction": "down",
+      "name": "Spanien",
+      "p_titel": 0.2817,
+      "reasons": [
+        "Gruppenweg fast offen"
+      ],
+      "team": "Spanien"
     }
   ],
-  "n_played": 98,
-  "stamp": "2026-07-11 09:03",
+  "n_played": 100,
+  "stamp": "2026-07-13 16:23",
   "top3": [
     {
       "name": "Spanien",
-      "p_titel": 0.3028,
+      "p_titel": 0.2817,
       "team": "Spanien"
     },
     {
       "name": "Frankreich",
-      "p_titel": 0.29,
+      "p_titel": 0.266,
       "team": "Frankreich"
     },
     {
       "name": "Argentinien",
-      "p_titel": 0.1811,
+      "p_titel": 0.2534,
       "team": "Argentinien"
     }
   ]

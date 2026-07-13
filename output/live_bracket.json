@@ -1,7 +1,7 @@
 {
  "available": true,
- "stamp": "2026-07-13 10:38",
- "n_played": 98,
+ "stamp": "2026-07-13 16:23",
+ "n_played": 100,
  "qualified_thirds": [
   "B",
   "D",
@@ -32,8 +32,8 @@
    "away_label": "Zweiter B",
    "played": true,
    "winner": "Kanada",
-   "p_home": 0.2647,
-   "p_away": 0.7353
+   "p_home": 0.265,
+   "p_away": 0.735
   },
   {
    "match": 74,
@@ -44,8 +44,8 @@
    "away_label": "Dritter D",
    "played": true,
    "winner": "Paraguay",
-   "p_home": 0.7173,
-   "p_away": 0.2827
+   "p_home": 0.7171,
+   "p_away": 0.2829
   },
   {
    "match": 75,
@@ -68,8 +68,8 @@
    "away_label": "Zweiter F",
    "played": true,
    "winner": "Brasilien",
-   "p_home": 0.6034,
-   "p_away": 0.3966
+   "p_home": 0.6032,
+   "p_away": 0.3968
   },
   {
    "match": 77,
@@ -80,8 +80,8 @@
    "away_label": "Dritter F",
    "played": true,
    "winner": "Frankreich",
-   "p_home": 0.8225,
-   "p_away": 0.1775
+   "p_home": 0.8221,
+   "p_away": 0.1779
   },
   {
    "match": 78,
@@ -92,8 +92,8 @@
    "away_label": "Zweiter I",
    "played": true,
    "winner": "Norwegen",
-   "p_home": 0.334,
-   "p_away": 0.666
+   "p_home": 0.343,
+   "p_away": 0.657
   },
   {
    "match": 79,
@@ -104,8 +104,8 @@
    "away_label": "Dritter E",
    "played": true,
    "winner": "Mexiko",
-   "p_home": 0.5425,
-   "p_away": 0.4575
+   "p_home": 0.5424,
+   "p_away": 0.4576
   },
   {
    "match": 80,
@@ -116,8 +116,8 @@
    "away_label": "Dritter K",
    "played": true,
    "winner": "England",
-   "p_home": 0.8543,
-   "p_away": 0.1457
+   "p_home": 0.8591,
+   "p_away": 0.1409
   },
   {
    "match": 81,
@@ -128,8 +128,8 @@
    "away_label": "Dritter B",
    "played": true,
    "winner": "USA",
-   "p_home": 0.7344,
-   "p_away": 0.2656
+   "p_home": 0.7341,
+   "p_away": 0.2659
   },
   {
    "match": 82,
@@ -140,8 +140,8 @@
    "away_label": "Dritter I",
    "played": true,
    "winner": "Belgien",
-   "p_home": 0.6586,
-   "p_away": 0.3414
+   "p_home": 0.6584,
+   "p_away": 0.3416
   },
   {
    "match": 83,
@@ -152,8 +152,8 @@
    "away_label": "Zweiter L",
    "played": true,
    "winner": "Portugal",
-   "p_home": 0.6243,
-   "p_away": 0.3757
+   "p_home": 0.6241,
+   "p_away": 0.3759
   },
   {
    "match": 84,
@@ -164,8 +164,8 @@
    "away_label": "Zweiter J",
    "played": true,
    "winner": "Spanien",
-   "p_home": 0.79,
-   "p_away": 0.21
+   "p_home": 0.7896,
+   "p_away": 0.2104
   },
   {
    "match": 85,
@@ -176,8 +176,8 @@
    "away_label": "Dritter J",
    "played": true,
    "winner": "Schweiz",
-   "p_home": 0.6394,
-   "p_away": 0.3606
+   "p_home": 0.6318,
+   "p_away": 0.3682
   },
   {
    "match": 86,
@@ -188,8 +188,8 @@
    "away_label": "Zweiter H",
    "played": true,
    "winner": "Argentinien",
-   "p_home": 0.9118,
-   "p_away": 0.0882
+   "p_home": 0.9145,
+   "p_away": 0.0855
   },
   {
    "match": 87,
@@ -200,8 +200,8 @@
    "away_label": "Dritter L",
    "played": true,
    "winner": "Kolumbien",
-   "p_home": 0.7819,
-   "p_away": 0.2181
+   "p_home": 0.7813,
+   "p_away": 0.2187
   },
   {
    "match": 88,
@@ -212,8 +212,8 @@
    "away_label": "Zweiter G",
    "played": true,
    "winner": "Aegypten",
-   "p_home": 0.5311,
-   "p_away": 0.4689
+   "p_home": 0.531,
+   "p_away": 0.469
   },
   {
    "match": 89,
@@ -224,8 +224,8 @@
    "away_label": "Sieger 77",
    "played": true,
    "winner": "Frankreich",
-   "p_home": 0.1667,
-   "p_away": 0.8333
+   "p_home": 0.1671,
+   "p_away": 0.8329
   },
   {
    "match": 90,
@@ -236,8 +236,8 @@
    "away_label": "Sieger 75",
    "played": true,
    "winner": "Marokko",
-   "p_home": 0.3677,
-   "p_away": 0.6323
+   "p_home": 0.368,
+   "p_away": 0.632
   },
   {
    "match": 91,
@@ -248,8 +248,8 @@
    "away_label": "Sieger 78",
    "played": true,
    "winner": "Norwegen",
-   "p_home": 0.5244,
-   "p_away": 0.4756
+   "p_home": 0.5341,
+   "p_away": 0.4659
   },
   {
    "match": 92,
@@ -260,8 +260,8 @@
    "away_label": "Sieger 80",
    "played": true,
    "winner": "England",
-   "p_home": 0.3448,
-   "p_away": 0.6552
+   "p_home": 0.336,
+   "p_away": 0.664
   },
   {
    "match": 93,
@@ -272,8 +272,8 @@
    "away_label": "Sieger 84",
    "played": true,
    "winner": "Spanien",
-   "p_home": 0.38,
-   "p_away": 0.62
+   "p_home": 0.3803,
+   "p_away": 0.6197
   },
   {
    "match": 94,
@@ -284,8 +284,8 @@
    "away_label": "Sieger 82",
    "played": true,
    "winner": "Belgien",
-   "p_home": 0.3831,
-   "p_away": 0.6169
+   "p_home": 0.3834,
+   "p_away": 0.6166
   },
   {
    "match": 95,
@@ -296,8 +296,8 @@
    "away_label": "Sieger 88",
    "played": true,
    "winner": "Argentinien",
-   "p_home": 0.8288,
-   "p_away": 0.1712
+   "p_home": 0.8332,
+   "p_away": 0.1668
   },
   {
    "match": 96,
@@ -308,8 +308,8 @@
    "away_label": "Sieger 87",
    "played": true,
    "winner": "Schweiz",
-   "p_home": 0.5019,
-   "p_away": 0.4981
+   "p_home": 0.4941,
+   "p_away": 0.5059
   },
   {
    "match": 97,
@@ -320,8 +320,8 @@
    "away_label": "Sieger 90",
    "played": true,
    "winner": "Frankreich",
-   "p_home": 0.704,
-   "p_away": 0.296
+   "p_home": 0.7037,
+   "p_away": 0.2963
   },
   {
    "match": 98,
@@ -332,8 +332,8 @@
    "away_label": "Sieger 94",
    "played": true,
    "winner": "Spanien",
-   "p_home": 0.6727,
-   "p_away": 0.3273
+   "p_home": 0.6724,
+   "p_away": 0.3276
   },
   {
    "match": 99,
@@ -342,10 +342,10 @@
    "away": "England",
    "home_label": "Sieger 91",
    "away_label": "Sieger 92",
-   "played": false,
-   "winner": null,
-   "p_home": 0.3962,
-   "p_away": 0.6038
+   "played": true,
+   "winner": "England",
+   "p_home": 0.3765,
+   "p_away": 0.6235
   },
   {
    "match": 100,
@@ -354,10 +354,10 @@
    "away": "Schweiz",
    "home_label": "Sieger 95",
    "away_label": "Sieger 96",
-   "played": false,
-   "winner": null,
-   "p_home": 0.6713,
-   "p_away": 0.3287
+   "played": true,
+   "winner": "Argentinien",
+   "p_home": 0.6858,
+   "p_away": 0.3142
   },
   {
    "match": 101,
@@ -368,8 +368,20 @@
    "away_label": "Sieger 98",
    "played": false,
    "winner": null,
-   "p_home": 0.4923,
-   "p_away": 0.5077
+   "p_home": 0.4924,
+   "p_away": 0.5076
+  },
+  {
+   "match": 102,
+   "round": "Halbfinale",
+   "home": "England",
+   "away": "Argentinien",
+   "home_label": "Sieger 99",
+   "away_label": "Sieger 100",
+   "played": false,
+   "winner": null,
+   "p_home": 0.4555,
+   "p_away": 0.5445
   }
  ]
 }
