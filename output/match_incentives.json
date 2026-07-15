@@ -1,7 +1,7 @@
 {
   "games": [],
-  "last_game": "2026-07-11",
+  "last_game": "2026-07-14",
   "modus": "kalibriert (n=986 Spiele, att/def+decay, DC rho=-0.055), Heimvorteil=+0.16, inkl. Ausfälle (8 Teams)",
-  "n_played": 100,
+  "n_played": 101,
   "n_sims": 1500
 }
