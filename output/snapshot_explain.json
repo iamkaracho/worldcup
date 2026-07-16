@@ -1,10 +1,10 @@
 {
   "available": true,
-  "headline": "Spanien bewegt sich am staerksten: +29.0 Pkt. auf 57.1% Titelchance.",
-  "last_game": "2026-07-14",
+  "headline": "Argentinien bewegt sich am staerksten: +21.7 Pkt. auf 46.7% Titelchance.",
+  "last_game": "2026-07-15",
   "leader": {
     "name": "Spanien",
-    "p_titel": 0.5715,
+    "p_titel": 0.5331,
     "team": "Spanien"
   },
   "live_eval": {
@@ -15,65 +15,55 @@
   },
   "movers": [
     {
-      "delta": 0.2898,
+      "delta": 0.2172,
       "direction": "up",
-      "name": "Spanien",
-      "p_titel": 0.5715,
+      "name": "Argentinien",
+      "p_titel": 0.4669,
       "reasons": [
-        "Live-Elo +25",
+        "Live-Elo +14",
         "Gruppenweg fast offen"
       ],
-      "team": "Spanien"
+      "team": "Argentinien"
     },
     {
-      "delta": -0.266,
-      "direction": "down",
-      "name": "Frankreich",
-      "p_titel": 0.0,
-      "reasons": [
-        "Live-Elo -25",
-        "ausgeschieden"
-      ],
-      "team": "Frankreich"
-    },
-    {
-      "delta": -0.0201,
+      "delta": -0.1788,
       "direction": "down",
       "name": "England",
-      "p_titel": 0.1788,
+      "p_titel": 0.0,
       "reasons": [
-        "Gruppenweg fast offen"
+        "Live-Elo -13",
+        "ausgeschieden"
       ],
       "team": "England"
     },
     {
-      "delta": -0.0037,
+      "delta": -0.0384,
       "direction": "down",
-      "name": "Argentinien",
-      "p_titel": 0.2497,
+      "name": "Spanien",
+      "p_titel": 0.5331,
       "reasons": [
         "Gruppenweg fast offen"
       ],
-      "team": "Argentinien"
+      "team": "Spanien"
     }
   ],
-  "n_played": 101,
-  "stamp": "2026-07-15 09:25",
+  "n_played": 102,
+  "stamp": "2026-07-16 09:33",
   "top3": [
     {
       "name": "Spanien",
-      "p_titel": 0.5715,
+      "p_titel": 0.5331,
       "team": "Spanien"
     },
     {
       "name": "Argentinien",
-      "p_titel": 0.2497,
+      "p_titel": 0.4669,
       "team": "Argentinien"
     },
     {
-      "name": "England",
-      "p_titel": 0.1788,
-      "team": "England"
+      "name": "Mexiko",
+      "p_titel": 0.0,
+      "team": "Mexiko"
     }
   ]
 }
