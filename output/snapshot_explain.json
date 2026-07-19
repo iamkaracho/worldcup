@@ -1,10 +1,10 @@
 {
   "available": true,
-  "headline": "Argentinien bewegt sich am staerksten: +21.7 Pkt. auf 46.7% Titelchance.",
-  "last_game": "2026-07-15",
+  "headline": "Spanien bewegt sich am staerksten: +1.0 Pkt. auf 54.4% Titelchance.",
+  "last_game": "2026-07-18",
   "leader": {
     "name": "Spanien",
-    "p_titel": 0.5331,
+    "p_titel": 0.5435,
     "team": "Spanien"
   },
   "live_eval": {
@@ -15,49 +15,37 @@
   },
   "movers": [
     {
-      "delta": 0.2172,
+      "delta": 0.0104,
       "direction": "up",
-      "name": "Argentinien",
-      "p_titel": 0.4669,
+      "name": "Spanien",
+      "p_titel": 0.5435,
       "reasons": [
-        "Live-Elo +14",
+        "Gruppenweg fast offen"
+      ],
+      "team": "Spanien"
+    },
+    {
+      "delta": -0.0104,
+      "direction": "down",
+      "name": "Argentinien",
+      "p_titel": 0.4565,
+      "reasons": [
         "Gruppenweg fast offen"
       ],
       "team": "Argentinien"
-    },
-    {
-      "delta": -0.1788,
-      "direction": "down",
-      "name": "England",
-      "p_titel": 0.0,
-      "reasons": [
-        "Live-Elo -13",
-        "ausgeschieden"
-      ],
-      "team": "England"
-    },
-    {
-      "delta": -0.0384,
-      "direction": "down",
-      "name": "Spanien",
-      "p_titel": 0.5331,
-      "reasons": [
-        "Gruppenweg fast offen"
-      ],
-      "team": "Spanien"
     }
   ],
-  "n_played": 102,
-  "stamp": "2026-07-16 09:33",
+  "n_played": 103,
+  "stamp": "2026-07-19 09:24",
   "top3": [
     {
       "name": "Spanien",
-      "p_titel": 0.5331,
+      "p_titel": 0.5435,
       "team": "Spanien"
     },
     {
       "name": "Argentinien",
-      "p_titel": 0.4669,
+      "p_titel": 0.4565,
       "team": "Argentinien"
     },
     {
