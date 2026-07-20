@@ -1,4 +1,28 @@
 {
+  "Argentinien": {
+    "bans": [
+      {
+        "after": "2026-07-19",
+        "games": 1,
+        "player": "Enzo Fernández (rot vs Spanien)",
+        "source": "https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_red_cards",
+        "source_id": "f5e88b2d10c7",
+        "value": 0.0
+      },
+      {
+        "after": "2026-07-19",
+        "games": 1,
+        "player": "Leandro Paredes (rot vs Spanien)",
+        "source": "https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_red_cards",
+        "source_id": "276e7cacaab9",
+        "value": 0.0
+      }
+    ],
+    "red": 1,
+    "yellow": 0,
+    "yellow_plus_red": 0,
+    "yellow_red": 0
+  },
   "Belgien": {
     "bans": [
       {

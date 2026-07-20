@@ -1,10 +1,10 @@
 {
   "available": true,
-  "headline": "Spanien bewegt sich am staerksten: +1.0 Pkt. auf 54.4% Titelchance.",
-  "last_game": "2026-07-18",
+  "headline": "Spanien bewegt sich am staerksten: +45.6 Pkt. auf 100.0% Titelchance.",
+  "last_game": "2026-07-19",
   "leader": {
     "name": "Spanien",
-    "p_titel": 0.5435,
+    "p_titel": 1.0,
     "team": "Spanien"
   },
   "live_eval": {
@@ -15,43 +15,45 @@
   },
   "movers": [
     {
-      "delta": 0.0104,
+      "delta": 0.4565,
       "direction": "up",
       "name": "Spanien",
-      "p_titel": 0.5435,
+      "p_titel": 1.0,
       "reasons": [
+        "Live-Elo +20",
         "Gruppenweg fast offen"
       ],
       "team": "Spanien"
     },
     {
-      "delta": -0.0104,
+      "delta": -0.4565,
       "direction": "down",
       "name": "Argentinien",
-      "p_titel": 0.4565,
+      "p_titel": 0.0,
       "reasons": [
-        "Gruppenweg fast offen"
+        "Live-Elo -20",
+        "ausgeschieden"
       ],
       "team": "Argentinien"
     }
   ],
-  "n_played": 103,
-  "stamp": "2026-07-19 09:24",
+  "n_played": 104,
+  "stamp": "2026-07-20 10:23",
   "top3": [
     {
       "name": "Spanien",
-      "p_titel": 0.5435,
+      "p_titel": 1.0,
       "team": "Spanien"
-    },
-    {
-      "name": "Argentinien",
-      "p_titel": 0.4565,
-      "team": "Argentinien"
     },
     {
       "name": "Mexiko",
       "p_titel": 0.0,
       "team": "Mexiko"
+    },
+    {
+      "name": "Südkorea",
+      "p_titel": 0.0,
+      "team": "Suedkorea"
     }
   ]
 }
