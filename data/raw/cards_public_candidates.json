@@ -154,18 +154,5 @@
     "source": "world_cup_red_cards",
     "source_url": "https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_red_cards",
     "team": "Argentinien"
-  },
-  {
-    "after": "2026-07-19",
-    "confidence": 0.92,
-    "games": 1,
-    "id": "276e7cacaab9",
-    "kind": "red",
-    "opponent": "Spanien",
-    "player": "Leandro Paredes",
-    "raw": "193. | 156. | Leandro Paredes |  | after match | Argentina | 0–1 | 0–1aet | Spain | Slavko Vinčić (SVN) | Final | 19 July 2026",
-    "source": "world_cup_red_cards",
-    "source_url": "https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_red_cards",
-    "team": "Argentinien"
   }
 ]
