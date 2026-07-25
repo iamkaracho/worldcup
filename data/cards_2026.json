@@ -1,4 +1,20 @@
 {
+  "Aegypten": {
+    "bans": [
+      {
+        "after": "2026-07-07",
+        "games": 1,
+        "player": "Saafan El-Sagheer (rot vs Argentinien)",
+        "source": "https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_red_cards",
+        "source_id": "763103a87db4",
+        "value": 0.0
+      }
+    ],
+    "red": 1,
+    "yellow": 0,
+    "yellow_plus_red": 0,
+    "yellow_red": 0
+  },
   "Argentinien": {
     "bans": [
       {
