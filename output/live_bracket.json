@@ -1,6 +1,6 @@
 {
  "available": true,
- "stamp": "2026-10-30 18:56",
+ "stamp": "2026-10-31 13:45",
  "n_played": 104,
  "qualified_thirds": [
   "B",
@@ -68,8 +68,8 @@
    "away_label": "Zweiter F",
    "played": true,
    "winner": "Brasilien",
-   "p_home": 0.6073,
-   "p_away": 0.3927
+   "p_home": 0.6074,
+   "p_away": 0.3926
   },
   {
    "match": 77,
@@ -236,8 +236,8 @@
    "away_label": "Sieger 75",
    "played": true,
    "winner": "Marokko",
-   "p_home": 0.3834,
-   "p_away": 0.6166
+   "p_home": 0.3835,
+   "p_away": 0.6165
   },
   {
    "match": 91,
@@ -248,8 +248,8 @@
    "away_label": "Sieger 78",
    "played": true,
    "winner": "Norwegen",
-   "p_home": 0.5708,
-   "p_away": 0.4292
+   "p_home": 0.5709,
+   "p_away": 0.4291
   },
   {
    "match": 92,
@@ -356,8 +356,8 @@
    "away_label": "Sieger 96",
    "played": true,
    "winner": "Argentinien",
-   "p_home": 0.6626,
-   "p_away": 0.3374
+   "p_home": 0.6625,
+   "p_away": 0.3375
   },
   {
    "match": 101,
@@ -380,8 +380,8 @@
    "away_label": "Sieger 100",
    "played": true,
    "winner": "Argentinien",
-   "p_home": 0.4885,
-   "p_away": 0.5115
+   "p_home": 0.4886,
+   "p_away": 0.5114
   },
   {
    "match": 104,
