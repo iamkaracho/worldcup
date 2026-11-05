@@ -1,7 +1,6 @@
 {
   "available": false,
   "games": [],
-  "live_n_played": 104,
-  "n_played": 4,
-  "reason": "data/raw/results.csv fehlt lokal; manual_results.csv ist aelter als der vorhandene Live-Stand."
+  "n_played": 104,
+  "note": "Sensitivitaets-Kontext, nicht kalibriert."
 }
